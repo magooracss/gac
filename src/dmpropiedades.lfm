@@ -1,0 +1,1350 @@
+object DM_Propiedades: TDM_Propiedades
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 523
+  HorizontalOffset = 308
+  VerticalOffset = 103
+  Width = 620
+  object tbPropiedades: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idPropiedad'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'Calle'
+        DataType = ftString
+        Precision = 0
+        Size = 2000
+      end    
+      item
+        Name = 'altura'
+        DataType = ftString
+        Precision = 0
+        Size = 80
+      end    
+      item
+        Name = 'refLocalidad'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refTipo'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'fAlta'
+        DataType = ftDate
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'txDatosGenerales'
+        DataType = ftString
+        Precision = 0
+        Size = 3000
+      end    
+      item
+        Name = 'nAlquiler'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nExpensas'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'txNotasPropietarios'
+        DataType = ftString
+        Precision = 0
+        Size = 3500
+      end    
+      item
+        Name = 'cPisoDto'
+        DataType = ftString
+        Precision = 0
+        Size = 150
+      end    
+      item
+        Name = 'cCatastro'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end>
+    AfterInsert = tbPropiedadesAfterInsert
+    left = 45
+    top = 14
+    object tbPropiedadesidPropiedad: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idPropiedad'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbPropiedadesCalle: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'Calle'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object tbPropiedadesaltura: TStringField
+      DisplayWidth = 80
+      FieldKind = fkData
+      FieldName = 'altura'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object tbPropiedadesrefLocalidad: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refLocalidad'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbPropiedadesrefTipo: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refTipo'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbPropiedadesfAlta: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fAlta'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object tbPropiedadestxDatosGenerales: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'txDatosGenerales'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbPropiedadesnAlquiler: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nAlquiler'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbPropiedadesnExpensas: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nExpensas'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbPropiedadesbVisible: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbPropiedadestxNotasPropietarios: TStringField
+      DisplayWidth = 3500
+      FieldKind = fkData
+      FieldName = 'txNotasPropietarios'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3500
+    end
+    object tbPropiedadescPisoDto: TStringField
+      DisplayWidth = 150
+      FieldKind = fkData
+      FieldName = 'cPisoDto'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 150
+    end
+    object tbPropiedadescCatastro: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'cCatastro'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+  end
+  object tbPropiedadesSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbPropiedades'
+      'WHERE idPropiedad = :idPropiedad'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idPropiedad'
+        ParamType = ptUnknown
+      end>
+    left = 45
+    top = 78
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idPropiedad'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbPropiedadesINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO tbPropiedades'
+      '(IDPROPIEDAD'
+      ',CALLE'
+      ',ALTURA'
+      ',REFLOCALIDAD'
+      ',REFTIPO'
+      ',FALTA'
+      ',TXDATOSGENERALES'
+      ',NALQUILER'
+      ',NEXPENSAS'
+      ',BVISIBLE'
+      ',txNotasPropietarios'
+      ',cPisoDto'
+      ',cCatastro)'
+      'VALUES'
+      '(:IDPROPIEDAD'
+      ',:CALLE'
+      ',:ALTURA'
+      ',:REFLOCALIDAD'
+      ',:REFTIPO'
+      ',:FALTA'
+      ',:TXDATOSGENERALES'
+      ',:NALQUILER'
+      ',:NEXPENSAS'
+      ',:BVISIBLE'
+      ',:txNotasPropietarios'
+      ',:cPisoDto'
+      ',:cCatastro)'
+      ''
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDPROPIEDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CALLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ALTURA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFLOCALIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FALTA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXDATOSGENERALES'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NALQUILER'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NEXPENSAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'bVisible'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txNotasPropietarios'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cPisoDto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cCatastro'
+        ParamType = ptUnknown
+      end>
+    left = 45
+    top = 134
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDPROPIEDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CALLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ALTURA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFLOCALIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FALTA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXDATOSGENERALES'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NALQUILER'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NEXPENSAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'bVisible'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txNotasPropietarios'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cPisoDto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cCatastro'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbPropiedadesDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbPropiedades'
+      'SET bVisible = 0'
+      'WHERE idPropiedad = :idPropiedad'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idPropiedad'
+        ParamType = ptUnknown
+      end>
+    left = 47
+    top = 241
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idPropiedad'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbPropiedadesUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbPropiedades'
+      'SET '
+      ' CALLE = :CALLE '
+      ',ALTURA = :ALTURA'
+      ',REFLOCALIDAD = :REFLOCALIDAD'
+      ',REFTIPO = :REFTIPO'
+      ',FALTA = :FALTA'
+      ',TXDATOSGENERALES = :TXDATOSGENERALES'
+      ',NALQUILER = :NALQUILER'
+      ',NEXPENSAS = :NEXPENSAS'
+      ',BVISIBLE = :BVISIBLE'
+      ',txNotasPropietarios = :txNotasPropietarios'
+      ',cPisoDto = :cPisoDto'
+      ',cCatastro = :cCatastro'
+      'WHERE IDPROPIEDAD = :IDPROPIEDAD'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'CALLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ALTURA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFLOCALIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FALTA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXDATOSGENERALES'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NALQUILER'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NEXPENSAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'bVisible'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txNotasPropietarios'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cPisoDto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cCatastro'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDPROPIEDAD'
+        ParamType = ptUnknown
+      end>
+    left = 46
+    top = 188
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'CALLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ALTURA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFLOCALIDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTIPO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FALTA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXDATOSGENERALES'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NALQUILER'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NEXPENSAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'bVisible'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txNotasPropietarios'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cPisoDto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cCatastro'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDPROPIEDAD'
+        ParamType = ptUnknown
+      end>
+  end
+  object tugLocalidades: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugLocalidades'
+      'WHERE bVisible = 1'
+    )
+    Params = <>
+    left = 504
+    top = 19
+  end
+  object tugPropiedadesTipos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugPropiedadesTipos'
+      'WHERE bVisible = 1'
+    )
+    Params = <>
+    left = 506
+    top = 87
+  end
+  object tbPropietarios: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idPropietario'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'ApyNom'
+        DataType = ftString
+        Precision = 0
+        Size = 1500
+      end>
+    AfterScroll = tbPropietariosAfterScroll
+    left = 147
+    top = 15
+    object tbPropietariosidPropietario: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idPropietario'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbPropietariosApyNom: TStringField
+      DisplayWidth = 1500
+      FieldKind = fkData
+      FieldName = 'ApyNom'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1500
+    end
+  end
+  object qPropietariosPropiedad: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT P.idPropietario'
+      '            ,(P.cApellidos || '' '' || P.cNombres ) as ApyNom '
+      'FROM trPropietariosPropiedades PP'
+      '         LEFT JOIN tbPropietarios P ON P.idPropietario = PP.refPropietario'
+      'WHERE PP.refPropiedad = :refPropiedad'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refPropiedad'
+        ParamType = ptUnknown
+      end>
+    left = 147
+    top = 79
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refPropiedad'
+        ParamType = ptUnknown
+      end>
+  end
+  object qINSPropietario: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO trPropietariosPropiedades'
+      '('
+      '   idPropietarioPropiedad'#9
+      ' , refPropietario'
+      ' , refPropiedad'#9
+      ')'
+      'VALUES'
+      '('
+      '   :idPropietarioPropiedad'#9
+      ' , :refPropietario'
+      ', :refPropiedad'#9
+      ')'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idPropietarioPropiedad'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refPropietario'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refPropiedad'
+        ParamType = ptUnknown
+      end>
+    left = 149
+    top = 134
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idPropietarioPropiedad'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refPropietario'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refPropiedad'
+        ParamType = ptUnknown
+      end>
+  end
+  object qDELPropietario: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'DELETE FROM trPropietariosPropiedades'
+      'WHERE   (refPropietario = :refPropietario) '
+      '        and (refPropiedad = :refPropiedad)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refPropietario'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refPropiedad'
+        ParamType = ptUnknown
+      end>
+    left = 147
+    top = 204
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refPropietario'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refPropiedad'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbResultados: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idPropiedad'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'Calle'
+        DataType = ftString
+        Precision = -1
+        Size = 1000
+      end    
+      item
+        Name = 'fAlta'
+        DataType = ftDateTime
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'nAlquiler'
+        DataType = ftFloat
+        Precision = 2
+        Size = 0
+      end    
+      item
+        Name = 'nExpensas'
+        DataType = ftFloat
+        Precision = 2
+        Size = 0
+      end    
+      item
+        Name = 'propiedadTipo'
+        DataType = ftString
+        Precision = -1
+        Size = 200
+      end    
+      item
+        Name = 'Localidad'
+        DataType = ftString
+        Precision = -1
+        Size = 500
+      end>
+    AfterScroll = tbPropietariosAfterScroll
+    left = 354
+    top = 30
+    object tbResultadosidPropiedad: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idPropiedad'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbResultadosCalle: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'Calle'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object tbResultadosfAlta: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fAlta'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy'
+    end
+    object tbResultadosnAlquiler: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nAlquiler'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbResultadosnExpensas: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nExpensas'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbResultadospropiedadTipo: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'propiedadTipo'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbResultadosLocalidad: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'Localidad'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+  end
+  object qBusPorCalle: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT P.idPropiedad'
+      '            ,Calle'
+      '            ,fAlta'
+      '            ,nAlquiler'
+      '            ,nExpensas'
+      '            ,PT.propiedadTipo'
+      '            ,L.Localidad'
+      'FROM tbPropiedades P'
+      '                LEFT JOIN tugLocalidades L ON L.idLocalidad = P.refLocalidad'
+      '                LEFT JOIN tugPropiedadesTipos PT ON PT.idPropiedadTipo = P.refTipo'
+      'WHERE (P.bVisible = 1)'
+      '             and (P.Calle LIKE ''%'' || :parametro || ''%'')'
+    )
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 354
+    top = 103
+    ParamData = <    
+      item
+        DataType = ftString
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusPorFechaAlta: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT P.idPropiedad'
+      '            ,Calle'
+      '            ,fAlta'
+      '            ,nAlquiler'
+      '            ,nExpensas'
+      '            ,PT.propiedadTipo'
+      '            ,L.Localidad'
+      'FROM tbPropiedades P'
+      '                LEFT JOIN tugLocalidades L ON L.idLocalidad = P.refLocalidad'
+      '                LEFT JOIN tugPropiedadesTipos PT ON PT.idPropiedadTipo = P.refTipo'
+      'WHERE (P.bVisible = 1)'
+      '             and (P.fAlta = :parametro)'
+    )
+    Params = <    
+      item
+        DataType = ftDate
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 354
+    top = 160
+    ParamData = <    
+      item
+        DataType = ftDate
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusPorMontoAlquiler: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT P.idPropiedad'
+      '            ,Calle'
+      '            ,fAlta'
+      '            ,nAlquiler'
+      '            ,nExpensas'
+      '            ,PT.propiedadTipo'
+      '            ,L.Localidad'
+      'FROM tbPropiedades P'
+      '                LEFT JOIN tugLocalidades L ON L.idLocalidad = P.refLocalidad'
+      '                LEFT JOIN tugPropiedadesTipos PT ON PT.idPropiedadTipo = P.refTipo'
+      'WHERE (P.bVisible = 1)'
+      '             and (P.nAlquiler >= :parametro)'
+    )
+    Params = <    
+      item
+        DataType = ftFloat
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 354
+    top = 226
+    ParamData = <    
+      item
+        DataType = ftFloat
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusPorTipo: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT P.idPropiedad'
+      '            ,Calle'
+      '            ,fAlta'
+      '            ,nAlquiler'
+      '            ,nExpensas'
+      '            ,PT.propiedadTipo'
+      '            ,L.Localidad'
+      'FROM  tbPropiedades P'
+      '                INNER JOIN tugPropiedadesTipos PT ON PT.idPropiedadTipo = P.refTipo'
+      '                LEFT JOIN tugLocalidades L ON L.idLocalidad = P.refLocalidad               '
+      'WHERE (P.bVisible = 1)'
+      '             and (PT.idPropiedadTipo = :parametro)'
+    )
+    Params = <    
+      item
+        DataType = ftInteger
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 354
+    top = 295
+    ParamData = <    
+      item
+        DataType = ftInteger
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusPorLocalidad: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT P.idPropiedad'
+      '            ,Calle'
+      '            ,fAlta'
+      '            ,nAlquiler'
+      '            ,nExpensas'
+      '            ,PT.propiedadTipo'
+      '            ,L.Localidad'
+      'FROM tbPropiedades P'
+      '                LEFT JOIN tugLocalidades L ON L.idLocalidad = P.refLocalidad'
+      '                INNER JOIN tugPropiedadesTipos PT ON PT.idPropiedadTipo = P.refTipo'
+      'WHERE (P.bVisible = 1)'
+      '             and (L.idLocalidad = :parametro)'
+    )
+    Params = <    
+      item
+        DataType = ftInteger
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 354
+    top = 358
+    ParamData = <    
+      item
+        DataType = ftInteger
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbCuotas: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idPropiedadPrecio'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'CuotaInicio'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'CuotaFin'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nMonto'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refPropiedad'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end>
+    AfterInsert = tbCuotasAfterInsert
+    left = 228
+    top = 14
+    object tbCuotasidPropiedadPrecio: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idPropiedadPrecio'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbCuotasCuotaInicio: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CuotaInicio'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbCuotasCuotaFin: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CuotaFin'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbCuotasrefPropiedad: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refPropiedad'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbCuotasnMonto: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nMonto'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+  end
+  object qCuotasPropiedad: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbPropiedadesPrecios'
+      'WHERE refPropiedad = :refPropiedad'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refPropiedad'
+        ParamType = ptUnknown
+      end>
+    left = 228
+    top = 79
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refPropiedad'
+        ParamType = ptUnknown
+      end>
+  end
+  object strHCuotasBorradas: TStrHolder
+    Macros = <>
+    left = 228
+    top = 134
+  end
+  object qCuotasBorrar: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'DELETE FROM tbPropiedadesPrecios'
+      'WHERE idPropiedadPrecio = :refPropiedadPrecio'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refPropiedadPrecio'
+        ParamType = ptUnknown
+      end>
+    left = 228
+    top = 204
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refPropiedadPrecio'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbCuotasSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbPropiedadesPrecios'
+      'WHERE idPropiedadPrecio = :idPropiedadPrecio'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idPropiedadPrecio'
+        ParamType = ptUnknown
+      end>
+    left = 227
+    top = 272
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idPropiedadPrecio'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbCuotasINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO tbPropiedadesPrecios'
+      '(IDPROPIEDADPRECIO, CUOTAINICIO, CUOTAFIN, NMONTO, REFPROPIEDAD)'
+      'VALUES'
+      '(:IDPROPIEDADPRECIO, :CUOTAINICIO, :CUOTAFIN, :NMONTO, :REFPROPIEDAD)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDPROPIEDADPRECIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CUOTAINICIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CUOTAFIN'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFPROPIEDAD'
+        ParamType = ptUnknown
+      end>
+    left = 227
+    top = 328
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDPROPIEDADPRECIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CUOTAINICIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CUOTAFIN'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFPROPIEDAD'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbCuotasUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbPropiedadesPrecios'
+      'SET '
+      '  CUOTAINICIO = :CUOTAINICIO '
+      ', CUOTAFIN = :CUOTAFIN '
+      ', NMONTO = :NMONTO '
+      ', REFPROPIEDAD = :REFPROPIEDAD '
+      'WHERE IDPROPIEDADPRECIO = :IDPROPIEDADPRECIO'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'CUOTAINICIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CUOTAFIN'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFPROPIEDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDPROPIEDADPRECIO'
+        ParamType = ptUnknown
+      end>
+    left = 228
+    top = 382
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'CUOTAINICIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CUOTAFIN'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFPROPIEDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDPROPIEDADPRECIO'
+        ParamType = ptUnknown
+      end>
+  end
+end

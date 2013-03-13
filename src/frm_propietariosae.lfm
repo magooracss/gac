@@ -1,0 +1,634 @@
+object frmPropietarios: TfrmPropietarios
+  Left = 352
+  Height = 562
+  Top = 47
+  Width = 726
+  ActiveControl = DBEdit1
+  Caption = 'Propietarios'
+  ClientHeight = 562
+  ClientWidth = 726
+  Font.CharSet = ANSI_CHARSET
+  Font.Color = clBlack
+  Font.Height = -13
+  Font.Name = 'Arial'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  OnShow = FormShow
+  Position = poMainFormCenter
+  ShowHint = True
+  LCLVersion = '0.9.30'
+  object Panel1: TPanel
+    Left = 0
+    Height = 50
+    Top = 512
+    Width = 726
+    Align = alBottom
+    ClientHeight = 50
+    ClientWidth = 726
+    TabOrder = 0
+    object btnSalir: TBitBtn
+      Left = 25
+      Height = 30
+      Top = 11
+      Width = 118
+      Caption = 'Grabar y salir'
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000BA6A368FB969
+        35B5B86935EEB76835FFB56835FFB46734FFB26634FFB06533FFAE6433FFAC63
+        32FFAA6232FFA96132FFA86031FFA76031FEA66031F1A86131C4BA6A35DEEBC6
+        ADFFEAC5ADFFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFB
+        F8FFFEFBF8FFFEFBF8FFFEFBF8FFC89A7CFFC79879FFA76031EDBA6B37FEEDCA
+        B3FFE0A27AFFFEFAF7FF62C088FF62C088FF62C088FF62C088FF62C088FF62C0
+        88FF62C088FF62C088FFFDF9F6FFCA8D65FFC99B7CFFA76031FEBB6C38FFEECC
+        B6FFE1A27AFFFEFAF7FFBFDCC2FFBFDCC2FFBFDCC2FFBFDCC2FFBFDCC2FFBFDC
+        C2FFBFDCC2FFBFDCC2FFFDF9F6FFCD9068FFCC9E81FFA86132FFBB6B38FFEFCE
+        B8FFE1A279FFFEFAF7FF62C088FF62C088FF62C088FF62C088FF62C088FF62C0
+        88FF62C088FF62C088FFFDF9F6FFCF936AFFCEA384FFAA6132FFBA6A36FFEFD0
+        BBFFE2A27AFFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFBF8FFFEFB
+        F8FFFEFBF8FFFEFBF8FFFEFBF8FFD3966DFFD2A78AFFAB6232FFBB6A36FFF0D2
+        BEFFE2A37AFFE2A37AFFE1A37AFFE2A37BFFE1A37BFFE0A178FFDE9F77FFDD9F
+        76FFDC9D74FFD99B72FFD89971FFD69970FFD5AB8EFFAD6333FFBB6A36FFF2D5
+        C2FFE3A37AFFE3A37AFFE2A37BFFE2A37BFFE2A47BFFE1A279FFE0A178FFDEA0
+        77FFDE9E75FFDC9D74FFDA9B73FFD99B73FFDAB095FFAF6433FFBB6A36FFF2D8
+        C5FFE3A47BFFE3A37AFFE3A47AFFE2A47BFFE2A37BFFE1A37BFFE1A279FFDFA0
+        77FFDE9F76FFDD9E74FFDB9C72FFDC9D74FFDDB59AFFB16534FFBB6B36FFF4D9
+        C7FFE6A67DFFC88C64FFC98D65FFC98E67FFCB926CFFCB926DFFCA9069FFC88C
+        65FFC88C64FFC88C64FFC88C64FFDA9C74FFE1BA9FFFB36634FFBB6B36FEF4DC
+        C9FFE7A77DFFF9ECE1FFF9ECE1FFF9EDE3FFFCF4EEFFFDFAF7FFFDF7F3FFFAED
+        E5FFF7E7DBFFF7E5D9FFF6E5D8FFDEA077FFE4BEA4FFB46734FFBC6B36FAF5DD
+        CCFFE7A87EFFFAF0E8FFFAF0E8FFC98D66FFFAF0E9FFFDF8F3FFFEFAF8FFFCF4
+        EFFFF9E9DFFFF7E7DBFFF7E5D9FFE0A278FFE7C2A9FFB66835FFBC6B36F0F6DF
+        D0FFE8A87EFFFCF6F1FFFCF6F1FFC88C64FFFAF1E9FFFBF4EEFFFDFAF7FFFDF9
+        F6FFFAF0E8FFF8E8DDFFF7E6DBFFE1A37AFFEFD5C3FFB76935FEBC6B36D8F6DF
+        D1FFE9AA80FFFEFAF6FFFDFAF6FFC88C64FFFBF3EEFFFBF1EAFFFCF6F2FFFEFB
+        F8FFFCF6F1FFF9ECE2FFF8E7DBFFEED0BAFFECD0BDFFBB703EF8BC6B369BF6E0
+        D1FFF7E0D1FFFEFBF8FFFEFBF7FFFDF9F6FFFCF5F0FFFAF0EAFFFBF2EDFFFDF9
+        F6FFFDFAF7FFFBF1EBFFF8E9DFFEECD0BDFBC9895EECB5693563BC6B3671BC6B
+        3690BC6B36CCBC6B36EEBC6B36FABB6B36FEBB6B36FFBB6A36FFBB6A36FFBC6C
+        39FFBD6E3BFFBB6D3AFFBB6B38EFBB703ECBB6693554FFFFFF00
+      }
+      OnClick = btnSalirClick
+      TabOrder = 0
+    end
+    object btnCancelar: TBitBtn
+      Left = 591
+      Height = 30
+      Top = 11
+      Width = 112
+      Anchors = [akRight, akBottom]
+      Caption = 'Cancelar'
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF000000F1EC0000F1FF0000F1FF0000F1FF0000EFFF0000
+        EFFF0000EDFF0000EDEDFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF000000F5EC1A20F5FF3C4CF9FF3A49F8FF3847F8FF3545F8FF3443
+        F7FF3242F7FF141BF1FF0000EDE8FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF000000F7EC1D23F9FF4453FAFF2429F9FF1212F7FF0F0FF6FF0C0CF5FF0909
+        F5FF161BF5FF3343F7FF141BF1FF0000EDE8FFFFFF00FFFFFF00FFFFFF000000
+        F9EC1F25FAFF4A58FBFF4247FBFFC9C9FDFF3B3BF9FF1313F7FF1010F6FF3333
+        F7FFC5C5FDFF3035F7FF3444F7FF141BF2FF0000EDE8FFFFFF00FFFFFF000000
+        FBFF4F5DFDFF3237FBFFCBCBFEFFF2F2FFFFEBEBFEFF3B3BF9FF3939F8FFEAEA
+        FEFFF1F1FEFFC5C5FDFF181DF6FF3343F7FF0000EFFFFFFFFF00FFFFFF000000
+        FDFF525FFDFF2828FCFF4747FCFFECECFFFFF2F2FFFFECECFFFFECECFEFFF1F1
+        FFFFEAEAFEFF3434F7FF0B0BF5FF3545F8FF0000EFFFFFFFFF00FFFFFF000000
+        FDFF5562FEFF2C2CFDFF2929FCFF4848FCFFEDEDFFFFF2F2FFFFF2F2FFFFECEC
+        FEFF3A3AF9FF1212F7FF0F0FF6FF3848F8FF0000F1FFFFFFFF00FFFFFF000000
+        FDFF5764FEFF3030FDFF2D2DFDFF4B4BFCFFEDEDFFFFF2F2FFFFF2F2FFFFECEC
+        FFFF3D3DF9FF1616F8FF1313F7FF3C4BF8FF0000F1FFFFFFFF00FFFFFF000000
+        FFFF5A67FEFF3333FEFF5050FDFFEDEDFFFFF3F3FFFFEDEDFFFFEDEDFFFFF2F2
+        FFFFECECFEFF3E3EFAFF1717F8FF3F4EF9FF0000F1FFFFFFFF00FFFFFF000000
+        FFFF5B68FFFF4347FEFFCFCFFFFFF3F3FFFFEDEDFFFF4C4CFCFF4A4AFCFFECEC
+        FFFFF2F2FFFFCACAFEFF2A2FFAFF4251FAFF0000F3FFFFFFFF00FFFFFF000000
+        FFEB262BFFFF5D6AFFFF585BFFFFCFCFFFFF5252FEFF2F2FFDFF2C2CFDFF4B4B
+        FCFFCCCCFEFF484CFBFF4957FBFF1D23F9FF0000F5EBFFFFFF00FFFFFF00FFFF
+        FF000000FFEB262BFFFF5D6AFFFF4347FFFF3434FEFF3232FEFF3030FDFF2D2D
+        FDFF383CFCFF4F5DFCFF1F25FAFF0000F7EBFFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF000000FFEB262BFFFF5C69FFFF5B68FFFF5A67FEFF5865FEFF5663
+        FEFF5461FEFF2227FCFF0000FBF2FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF000000FFEC0000FFFF0000FFFF0000FFFF0000FDFF0000
+        FDFF0000FDFF0000FDECFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+      }
+      OnClick = btnCancelarClick
+      TabOrder = 1
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 109
+    Top = 0
+    Width = 726
+    Align = alTop
+    ClientHeight = 109
+    ClientWidth = 726
+    TabOrder = 1
+    object DBEdit1: TDBEdit
+      Left = 17
+      Height = 24
+      Top = 27
+      Width = 362
+      DataField = 'cApellidos'
+      DataSource = ds_propietarios
+      Anchors = [akTop, akLeft, akRight]
+      CharCase = ecNormal
+      MaxLength = 500
+      TabOrder = 0
+    end
+    object DBEdit2: TDBEdit
+      Left = 392
+      Height = 24
+      Top = 28
+      Width = 320
+      DataField = 'cNombres'
+      DataSource = ds_propietarios
+      Anchors = [akTop, akRight]
+      CharCase = ecNormal
+      MaxLength = 500
+      TabOrder = 1
+    end
+    object cbTipoDoc: TComboBox
+      Left = 18
+      Height = 24
+      Top = 74
+      Width = 79
+      ItemHeight = 16
+      TabOrder = 2
+      Text = 'cbTipoDoc'
+    end
+    object DBEdit3: TDBEdit
+      Left = 143
+      Height = 24
+      Top = 74
+      Width = 129
+      DataField = 'Documento'
+      DataSource = ds_propietarios
+      CharCase = ecNormal
+      MaxLength = 20
+      TabOrder = 3
+    end
+    object DBEdit4: TDBEdit
+      Left = 322
+      Height = 24
+      Top = 74
+      Width = 138
+      DataField = 'CUIT'
+      DataSource = ds_propietarios
+      CharCase = ecNormal
+      MaxLength = 20
+      TabOrder = 4
+    end
+    object Label1: TLabel
+      Left = 18
+      Height = 17
+      Top = 11
+      Width = 54
+      Caption = 'Apellidos'
+      ParentColor = False
+    end
+    object Label2: TLabel
+      Left = 392
+      Height = 17
+      Top = 11
+      Width = 53
+      Anchors = [akTop, akRight]
+      Caption = 'Nombres'
+      ParentColor = False
+    end
+    object Label3: TLabel
+      Left = 18
+      Height = 17
+      Top = 58
+      Width = 52
+      Caption = 'Tipo Doc'
+      ParentColor = False
+    end
+    object Label4: TLabel
+      Left = 143
+      Height = 17
+      Top = 59
+      Width = 67
+      Caption = 'Documento'
+      ParentColor = False
+    end
+    object Label5: TLabel
+      Left = 325
+      Height = 17
+      Top = 58
+      Width = 29
+      Caption = 'CUIT'
+      ParentColor = False
+    end
+    object DBDateEdit1: TDBDateEdit
+      Left = 585
+      Height = 24
+      Top = 73
+      Width = 104
+      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+      OKCaption = 'OK'
+      CancelCaption = 'Cancel'
+      DateOrder = doNone
+      ButtonWidth = 23
+      Anchors = [akTop, akRight]
+      CharCase = ecNormal
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D69E
+        72C4D3996EF4D19668FFCE9263FFCB8E5EFFC98A5BFFC78756FFC38452FFC384
+        52FFC38452FFC38452FFC38452FFC38452FFBB7742B0FFFFFF00FFFFFF00D7A1
+        75FFF8F2EDFFF7F0EAFFF6EDE6FFF4EAE2FFF3E7DEFFF1E4DBFFF0E2D8FFEAD6
+        C8FFF2E5DCFFFAF4F1FFF9F3F0FFFAF5F2FFC58A5DFDFFFFFF00FFFFFF00D9A4
+        7AFFF9F3EEFFEBD2BEFFFFFFFFFFEBD3BFFFFFFFFFFFEBD3C0FFFFFFFFFFEAC7
+        ADFFECD9CDFFF1E4DBFFF9F3F0FFF9F2EFFFC68C5FFFFFFFFF00FFFFFF00DDA8
+        7EFFF9F3EFFFEBD0BAFFEBD0BBFF75B57AFF75B57AFF75B57AFFEBD1BDFFEACD
+        B5FFFAF4F0FFEBD9CCFFF1E4DBFFFAF4F1FFC68A5CFFFFFFFF00FFFFFF00DFAA
+        82FFF9F3EFFFEACEB7FFFFFFFFFF75B57AFF94D49BFF74B579FFFFFFFFFFEACF
+        BAFFFBF6F2FFFAF3F0FFEBD8CBFFF2E6DDFFC88D5FFFFFFFFF00FFFFFF00E1AE
+        87FFFAF4F0FFEACBB2FFEACCB3FF75B57AFF74B579FF73B478FFEACEB7FF70B3
+        75FF6FB274FF6EB172FFE8C8AEFFEAD7C9FFC48654FFFFFFFF00FFFFFF00E3B1
+        8CFFFAF6F1FFEAC9AEFFFFFFFFFFEAC9B0FFFFFFFFFFE9CBB3FFFFFFFFFF6FB1
+        73FF8ED295FF6BAF6FFFFFFFFFFFF1E5DBFFC68655FFFFFFFF00FFFFFF00E5B4
+        8FFFFAF6F2FFE9C6AAFFE9C6ACFFEAC7ACFFE9C7ADFFE9C9AEFFE9C9B0FF6CB0
+        71FF6AAF6EFF68AD6DFFE8CCB5FFF2E7DEFFC88A59FFFFFFFF00FFFFFF00E7B7
+        94FFFBF7F4FFE9C3A6FFFFFFFFFFE8C4A9FFFFFFFFFFE9C6AAFFFFFFFFFFE8C7
+        ACFFFFFFFFFFE8C8B0FFFFFFFFFFF7F1EBFFCB8F5FFFFFFFFF00FFFFFF00E9BA
+        98FFFBF7F4FF65A4FFFF64A3FFFF62A2FFFF61A1FFFF5F9FFFFF5C9DFFFF5A9A
+        FFFF5798FFFF5495FFFF5294FFFFFBF7F4FFCE9364FFFFFFFF00FFFFFF00EBBD
+        9BFFFBF7F4FF64A4FFFF79BDFFFF75BBFFFF71B9FFFF6DB8FFFF68B3FFFF61B0
+        FFFF5AABFFFF54A7FFFF3B7DFFFFFBF7F4FFD1976AFFFFFFFF00FFFFFF00ECBF
+        9EFFFBF7F4FF65A4FFFF64A3FFFF60A0FFFF5D9EFFFF5899FFFF5496FFFF4D90
+        FFFF478BFFFF4284FFFF3D7FFFFFFBF7F4FFD49B6FFFFFFFFF00FFFFFF00EEC1
+        A1EBFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7
+        F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFD7A074F8FFFFFF00FFFFFF00EFC2
+        A37EEFC1A2E3EDC09FFFEBBE9DFFEBBC9AFFE9BA96FFE7B793FFE6B590FFE4B2
+        8CFFE2AF88FFE0AC84FFDDA980FFDCA57DFFDAA37ACAFFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+      }
+      NumGlyphs = 0
+      MaxLength = 0
+      TabOrder = 5
+      DataField = 'fAlta'
+      DataSource = ds_propietarios
+    end
+    object Label6: TLabel
+      Left = 585
+      Height = 17
+      Top = 58
+      Width = 62
+      Anchors = [akTop, akRight]
+      Caption = 'Fecha alta'
+      ParentColor = False
+    end
+    object btnTugDocumento: TSpeedButton
+      Left = 100
+      Height = 22
+      Top = 74
+      Width = 23
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00113D55F7285F87FB4988BDFB428DBCC12D77B322FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D69E
+        72C4D3996EF4D19668FF2E6682FF94C7F9FF91C9F9FF4185C9FF2466A6FFA882
+        65FFC38452FFC38452FFC38452FFC38452FFBB7742B0FFFFFF00FFFFFF00D7A1
+        75FFF8F2EDFFF7F0EAFF4389AAFFE0F2FFFF549AD8FF1A7ABEFF4998C5FF478C
+        C3FFD0D2D7FFF0E2D8FFF0E2D8FFF0E2D8FFC58A5DFDFFFFFF00FFFFFF00D9A4
+        7AFFF9F3EEFFEBD2BEFFA7C5D9FF7AB6D5FF90B7D1FF55C9E4FF5BDFF5FF78D0
+        EDFF519DDDFFE4F0FAFFFFFFFFFFF0E2D8FFC68C5FFFFFFFFF00FFFFFF00DDA8
+        7EFFF9F3EFFFEBD0BAFFEBD0BBFFA7B7B9FF76B9D5FFC2F6FDFF63DFF7FF5DE2
+        F8FF79D3F0FF4997DAFFD4C5B9FFF0E2D8FFC68A5CFFFFFFFF00FFFFFF00DFAA
+        82FFF9F3EFFFEACEB7FFFFFFFFFFEBD0BBFFB1D6E7FF77CBE7FFC7F7FDFF5EDC
+        F5FF5AE1F7FF7BD4F1FF4C9ADEFFCAD0D8FFC88D5FFFFFFFFF00FFFFFF00E1AE
+        87FFFAF4F0FFEACBB2FFEACCB3FFEACCB3FFEACCB3FFB0C4BFFF79D3EEFFC7F7
+        FDFF5FDCF5FF5BE2F7FF7AD6F2FF50A0DEFFAC876BFFFFFFFF00FFFFFF00E3B1
+        8CFFFAF6F1FFEAC9AEFFFFFFFFFFEAC9B0FFFFFFFFFFFFFFFFFFC1EBF7FF7DD4
+        EDFFC4F6FDFF6CDDF6FF6DCAEDFF63A3D7FF6599C9FF5192CA26FFFFFF00E5B4
+        8FFFFAF6F2FFE9C6AAFFE9C6ACFFEAC7ACFFE9C7ADFFE9C9AEFFE9C9B0FFA6C1
+        BEFF81D5EDFFB2E3F9FF8BC0E7FFAED3F6FFC4E0FCFF669FD3F7FFFFFF00E7B7
+        94FFFBF7F4FFE9C3A6FFFFFFFFFFE8C4A9FFFFFFFFFFFFFFFFFFFFFFFFFFE8C7
+        ACFFB1E6F5FF77BEE7FFB4D2F0FFE5F3FFFFACD2EFFF488CC7E8FFFFFF00E9BA
+        98FFFBF7F4FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3
+        A6FFE9C3A6FFADBDB8FF58A5D8FF85B1DBFF469DD0FF2B95D15EFFFFFF00EBBD
+        9BFFFBF7F4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFBF7F4FFD1976AFFFFFFFF00FFFFFF00ECBF
+        9EFFFBF7F4FF9CD5A5FF98D3A1FF94D09DFF90CE98FF8BCB93FF87C98EFF82C6
+        89FF7EC384FF7AC180FF76BE7CFFFBF7F4FFD49B6FFFFFFFFF00FFFFFF00EEC1
+        A1EBFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7
+        F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFD7A074F8FFFFFF00FFFFFF00EFC2
+        A37EEFC1A2E3EDC09FFFEBBE9DFFEBBC9AFFE9BA96FFE7B793FFE6B590FFE4B2
+        8CFFE2AF88FFE0AC84FFDDA980FFDCA57DFFDAA37ACAFFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+      }
+      NumGlyphs = 0
+      OnClick = btnTugDocumentoClick
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Height = 133
+    Top = 109
+    Width = 726
+    Align = alClient
+    ClientHeight = 133
+    ClientWidth = 726
+    TabOrder = 2
+    object Panel6: TPanel
+      Left = 589
+      Height = 114
+      Top = 18
+      Width = 136
+      Align = alRight
+      BevelOuter = bvLowered
+      ClientHeight = 114
+      ClientWidth = 136
+      TabOrder = 0
+      object btnContactoNuevo: TBitBtn
+        Left = 8
+        Height = 30
+        Top = 8
+        Width = 123
+        Caption = 'Nuevo'
+        OnClick = btnContactoNuevoClick
+        TabOrder = 0
+      end
+      object btnContactoEditar: TBitBtn
+        Left = 8
+        Height = 30
+        Top = 42
+        Width = 123
+        Caption = 'Modificar'
+        OnClick = btnContactoEditarClick
+        TabOrder = 1
+      end
+      object btnContactoEliminar: TBitBtn
+        Left = 8
+        Height = 30
+        Top = 75
+        Width = 123
+        Caption = 'Borrar'
+        OnClick = btnContactoEliminarClick
+        TabOrder = 2
+      end
+    end
+    object DBGrid1: TDBGrid
+      Left = 1
+      Height = 114
+      Top = 18
+      Width = 588
+      Align = alClient
+      AutoFillColumns = True
+      Color = clWindow
+      Columns = <      
+        item
+          SizePriority = 0
+          Title.Alignment = taCenter
+          Title.Caption = 'Tipo'
+          Width = 120
+          FieldName = 'lxTipoContacto'
+        end      
+        item
+          Title.Alignment = taCenter
+          Title.Caption = 'Dato de Contacto'
+          Width = 464
+          FieldName = 'Contacto'
+        end>
+      DataSource = ds_contactos
+      FixedCols = 0
+      Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+      Scrollbars = ssAutoVertical
+      TabOrder = 1
+      TitleFont.CharSet = ANSI_CHARSET
+      TitleFont.Color = clBlack
+      TitleFont.Height = -13
+      TitleFont.Name = 'Arial'
+      TitleFont.Pitch = fpVariable
+      TitleFont.Quality = fqDraft
+    end
+    object StaticText1: TStaticText
+      Left = 1
+      Height = 17
+      Top = 1
+      Width = 724
+      Align = alTop
+      Caption = '  Formas de contacto'
+      TabOrder = 2
+    end
+  end
+  object Panel4: TPanel
+    Left = 0
+    Height = 135
+    Top = 242
+    Width = 726
+    Align = alBottom
+    ClientHeight = 135
+    ClientWidth = 726
+    TabOrder = 3
+    object StaticText2: TStaticText
+      Left = 1
+      Height = 17
+      Top = 1
+      Width = 724
+      Align = alTop
+      Caption = '  Domicilios'
+      TabOrder = 0
+    end
+    object Panel7: TPanel
+      Left = 589
+      Height = 116
+      Top = 18
+      Width = 136
+      Align = alRight
+      BevelOuter = bvLowered
+      ClientHeight = 116
+      ClientWidth = 136
+      TabOrder = 1
+      object btnDomNuevo: TBitBtn
+        Left = 8
+        Height = 30
+        Top = 8
+        Width = 123
+        Caption = 'Nuevo'
+        OnClick = btnDomNuevoClick
+        TabOrder = 0
+      end
+      object btnDomEditar: TBitBtn
+        Left = 8
+        Height = 30
+        Top = 42
+        Width = 123
+        Caption = 'Modificar'
+        OnClick = btnDomEditarClick
+        TabOrder = 1
+      end
+      object btnDomBorrar: TBitBtn
+        Left = 8
+        Height = 30
+        Top = 75
+        Width = 123
+        Caption = 'Borrar'
+        OnClick = btnDomBorrarClick
+        TabOrder = 2
+      end
+    end
+    object DBGrid2: TDBGrid
+      Left = 1
+      Height = 116
+      Top = 18
+      Width = 588
+      Align = alClient
+      AutoFillColumns = True
+      Color = clWindow
+      Columns = <      
+        item
+          Title.Alignment = taCenter
+          Title.Caption = 'Dirección'
+          Width = 383
+          FieldName = 'Direccion'
+        end      
+        item
+          SizePriority = 0
+          Title.Alignment = taCenter
+          Title.Caption = 'Localidad'
+          Width = 201
+          FieldName = 'lxLocalidad'
+        end>
+      DataSource = ds_domicilios
+      FixedCols = 0
+      Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+      Scrollbars = ssAutoVertical
+      TabOrder = 2
+      TitleFont.CharSet = ANSI_CHARSET
+      TitleFont.Color = clBlack
+      TitleFont.Height = -13
+      TitleFont.Name = 'Arial'
+      TitleFont.Pitch = fpVariable
+      TitleFont.Quality = fqDraft
+    end
+  end
+  object Panel5: TPanel
+    Left = 0
+    Height = 135
+    Top = 377
+    Width = 726
+    Align = alBottom
+    ClientHeight = 135
+    ClientWidth = 726
+    TabOrder = 4
+    object StaticText3: TStaticText
+      Left = 1
+      Height = 17
+      Top = 1
+      Width = 724
+      Align = alTop
+      Caption = '  Bancos/Cuentas'
+      TabOrder = 0
+    end
+    object Panel8: TPanel
+      Left = 589
+      Height = 116
+      Top = 18
+      Width = 136
+      Align = alRight
+      BevelOuter = bvLowered
+      ClientHeight = 116
+      ClientWidth = 136
+      TabOrder = 1
+      object btnBancoNuevo: TBitBtn
+        Left = 8
+        Height = 30
+        Top = 8
+        Width = 123
+        Caption = 'Nueva'
+        OnClick = btnBancoNuevoClick
+        TabOrder = 0
+      end
+      object btnBancoModificar: TBitBtn
+        Left = 8
+        Height = 30
+        Top = 42
+        Width = 123
+        Caption = 'Modificar'
+        OnClick = btnBancoModificarClick
+        TabOrder = 1
+      end
+      object btnBancoBorrar: TBitBtn
+        Left = 8
+        Height = 30
+        Top = 75
+        Width = 123
+        Caption = 'Borrar'
+        OnClick = btnBancoBorrarClick
+        TabOrder = 2
+      end
+    end
+    object DBGrid3: TDBGrid
+      Left = 1
+      Height = 116
+      Top = 18
+      Width = 588
+      Align = alClient
+      AutoFillColumns = True
+      Color = clWindow
+      Columns = <      
+        item
+          Title.Alignment = taCenter
+          Title.Caption = 'Banco'
+          Width = 134
+          FieldName = 'lxBanco'
+        end      
+        item
+          SizePriority = 0
+          Title.Alignment = taCenter
+          Title.Caption = 'Cuenta'
+          Width = 150
+          FieldName = 'Cuenta'
+        end      
+        item
+          SizePriority = 0
+          Title.Alignment = taCenter
+          Title.Caption = 'CBU'
+          Width = 300
+          FieldName = 'CBU'
+        end>
+      DataSource = ds_bancos
+      FixedCols = 0
+      Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+      Scrollbars = ssAutoVertical
+      TabOrder = 2
+      TitleFont.CharSet = ANSI_CHARSET
+      TitleFont.Color = clBlack
+      TitleFont.Height = -13
+      TitleFont.Name = 'Arial'
+      TitleFont.Pitch = fpVariable
+      TitleFont.Quality = fqDraft
+    end
+  end
+  object ds_propietarios: TDatasource
+    DataSet = DM_Propietarios.tbPropietarios
+    left = 453
+    top = 83
+  end
+  object ds_contactos: TDatasource
+    DataSet = DM_Propietarios.tbContactos
+    left = 453
+    top = 143
+  end
+  object ds_domicilios: TDatasource
+    DataSet = DM_Propietarios.tbDomicilios
+    left = 453
+    top = 208
+  end
+  object ds_bancos: TDatasource
+    DataSet = DM_Propietarios.tbBancos
+    left = 457
+    top = 280
+  end
+end

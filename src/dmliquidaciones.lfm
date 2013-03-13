@@ -1,0 +1,194 @@
+object DM_Liquidacion: TDM_Liquidacion
+  OldCreateOrder = False
+  Height = 400
+  HorizontalOffset = 371
+  VerticalOffset = 154
+  Width = 634
+  object tbLiqContrato: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idxDestino'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Destino'
+        DataType = ftString
+        Precision = 0
+        Size = 15
+      end    
+      item
+        Name = 'idxTipo'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Tipo'
+        DataType = ftString
+        Precision = 0
+        Size = 25
+      end    
+      item
+        Name = 'nAdeudado'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'fVencimiento'
+        DataType = ftDate
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nPagado'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'fPago'
+        DataType = ftDate
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'idTabla'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end>
+    left = 82
+    top = 31
+  end
+  object qLiqInqDescuentos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbContratos'
+      'WHERE idContrato = :idContrato'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContrato'
+        ParamType = ptUnknown
+      end>
+    left = 35
+    top = 92
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContrato'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContratosSEL1: TZQuery
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbContratos'
+      'WHERE idContrato = :idContrato'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContrato'
+        ParamType = ptUnknown
+      end>
+    left = 35
+    top = 149
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContrato'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContratosSEL2: TZQuery
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbContratos'
+      'WHERE idContrato = :idContrato'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContrato'
+        ParamType = ptUnknown
+      end>
+    left = 35
+    top = 208
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContrato'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContratosSEL3: TZQuery
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbContratos'
+      'WHERE idContrato = :idContrato'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContrato'
+        ParamType = ptUnknown
+      end>
+    left = 35
+    top = 261
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContrato'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContratosSEL4: TZQuery
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbContratos'
+      'WHERE idContrato = :idContrato'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContrato'
+        ParamType = ptUnknown
+      end>
+    left = 120
+    top = 92
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContrato'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContratosSEL5: TZQuery
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbContratos'
+      'WHERE idContrato = :idContrato'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContrato'
+        ParamType = ptUnknown
+      end>
+    left = 120
+    top = 149
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContrato'
+        ParamType = ptUnknown
+      end>
+  end
+end

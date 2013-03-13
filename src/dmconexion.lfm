@@ -1,0 +1,17 @@
+object DM_Conexion: TDM_Conexion
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 300
+  HorizontalOffset = 518
+  VerticalOffset = 176
+  Width = 400
+  object cnxGeneral: TZConnection
+    Protocol = 'firebird-2.1'
+    Database = 'C:\prg\simas\GTV.FDB'
+    User = 'SYSDBA'
+    Password = 'masterkey'
+    TransactIsolationLevel = tiRepeatableRead
+    left = 72
+    top = 56
+  end
+end

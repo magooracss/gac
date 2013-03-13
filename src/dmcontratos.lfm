@@ -1,0 +1,2607 @@
+object DM_Contratos: TDM_Contratos
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 537
+  HorizontalOffset = 130
+  VerticalOffset = 7
+  Width = 1099
+  object tbContratos: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idContrato'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'Carpeta'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Codigo'
+        DataType = ftString
+        Precision = 0
+        Size = 200
+      end    
+      item
+        Name = 'refTipoContrato'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'fInicio'
+        DataType = ftDate
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'fFinalizacion'
+        DataType = ftDate
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nSena'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nPorcGastosAdm'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nSellado'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nHonorarios'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nPorcPunitoriosDiarios'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bLiqPropietarioBanco'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refCuentaPropietario'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'txNotas'
+        DataType = ftString
+        Precision = 0
+        Size = 3000
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refPropiedad'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'nDiaVencimiento'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bAlqGarantizado'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nHonorCuotas'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nDepEfectivo'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nDepDocumento'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nDiligenc'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = tbContratosAfterInsert
+    PacketRecords = 0
+    left = 43
+    top = 34
+    object tbContratosidContrato: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idContrato'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbContratosCarpeta: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Carpeta'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContratosCodigo: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'Codigo'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbContratosrefTipoContrato: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refTipoContrato'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContratosfInicio: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fInicio'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContratosfFinalizacion: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fFinalizacion'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContratosnSena: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nSena'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbContratosnPorcGastosAdm: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nPorcGastosAdm'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = '########0.00 '
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbContratosnSellado: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nSellado'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbContratosnHonorarios: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nHonorarios'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = '###########0.00'
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbContratosnPorcPunitoriosDiarios: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nPorcPunitoriosDiarios'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = '########0.00 '
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbContratosbLiqPropietarioBanco: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bLiqPropietarioBanco'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContratosrefCuentaPropietario: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refCuentaPropietario'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbContratostxNotas: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'txNotas'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbContratosbVisible: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContratosrefPropiedad: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refPropiedad'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbContratosnDiaVencimiento: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nDiaVencimiento'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContratosbAlqGarantizado: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bAlqGarantizado'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContratosnHonorCuotas: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nHonorCuotas'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContratosnDepEfectivo: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nDepEfectivo'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbContratosnDepDocumento: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nDepDocumento'
+      Index = 20
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbContratosnDiligenc: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nDiligenc'
+      Index = 21
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+  end
+  object tugTiposContrato: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugContratosTipos'
+      'WHERE bVisible = 1'
+    )
+    Params = <>
+    left = 1042
+    top = 31
+  end
+  object tbCuentasPropietarios: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idPropietarioBanco'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'BancoCuentaCBU'
+        DataType = ftString
+        Precision = 0
+        Size = 2500
+      end>
+    PacketRecords = 0
+    left = 312
+    top = 34
+    object tbCuentasPropietariosidPropietarioBanco: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idPropietarioBanco'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbCuentasPropietariosBancoCuentaCBU: TStringField
+      DisplayWidth = 2500
+      FieldKind = fkData
+      FieldName = 'BancoCuentaCBU'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2500
+    end
+  end
+  object qLevantarCuentasPropietario: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM trPropietariosPropiedades PP'
+      '      INNER JOIN tbPropietarios P ON P.idPropietario = PP.refPropietario'
+      '      INNER JOIN tbPropietariosBancos PB ON PB.refPropietario = P.idPropietario  '
+      '      LEFT JOIN tugBancos B ON B.idBanco = PB.refBanco'
+      'WHERE PP.refPropiedad = :refPropiedad'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refPropiedad'
+        ParamType = ptUnknown
+      end>
+    left = 312
+    top = 96
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refPropiedad'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbPropietarios: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idPropietario'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'cApellidos'
+        DataType = ftString
+        Precision = 0
+        Size = 2000
+      end    
+      item
+        Name = 'cNombres'
+        DataType = ftString
+        Precision = 0
+        Size = 2000
+      end    
+      item
+        Name = 'Documento'
+        DataType = ftString
+        Precision = 0
+        Size = 200
+      end>
+    PacketRecords = 0
+    left = 185
+    top = 34
+    object tbPropietariosidPropietario: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idPropietario'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbPropietarioscApellidos: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'cApellidos'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object tbPropietarioscNombres: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'cNombres'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object tbPropietariosDocumento: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'Documento'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+  end
+  object tbGastosContrato: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idGastoMensual'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'refContrato'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'refGasto'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'nMonto'
+        DataType = ftFloat
+        Precision = 2
+        Size = 0
+      end    
+      item
+        Name = 'bInquilino'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'bPropietario'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'lxGasto'
+        DataType = ftString
+        Precision = -1
+        Size = 1000
+      end>
+    AfterInsert = tbGastosContratoAfterInsert
+    PacketRecords = 0
+    left = 474
+    top = 36
+    object tbGastosContratoidGastoMensual: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idGastoMensual'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbGastosContratorefContrato: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refContrato'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbGastosContratorefGasto: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refGasto'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbGastosContratonMonto: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nMonto'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbGastosContratobInquilino: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bInquilino'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbGastosContratobPropietario: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bPropietario'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbGastosContratobVisible: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbGastosContratolxGasto: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'lxGasto'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+  end
+  object tugGastosMensuales: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tugGastosMensuales'
+      'WHERE bVisible = 1'
+    )
+    Params = <>
+    left = 1040
+    top = 102
+  end
+  object tbGastosContratoSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbGastosMensuales'
+      'WHERE idGastoMensual = :idGastoMensual'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idGastoMensual'
+        ParamType = ptUnknown
+      end>
+    left = 474
+    top = 97
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idGastoMensual'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbGastosContratoINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO tbGastosMensuales'
+      '(IDGASTOMENSUAL, REFCONTRATO, REFGASTO, NMONTO, BINQUILINO, BPROPIETARIO, BVISIBLE)'
+      'VALUES'
+      '(:IDGASTOMENSUAL, :REFCONTRATO, :REFGASTO, :NMONTO, :BINQUILINO, :BPROPIETARIO, :BVISIBLE)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDGASTOMENSUAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONTRATO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFGASTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BINQUILINO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BPROPIETARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+    left = 474
+    top = 159
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDGASTOMENSUAL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONTRATO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFGASTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BINQUILINO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BPROPIETARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbGastosContratoUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbGastosMensuales'
+      'SET'
+      '  REFCONTRATO = :REFCONTRATO '
+      ', REFGASTO = :REFGASTO '
+      ', NMONTO = :NMONTO '
+      ', BINQUILINO = :BINQUILINO '
+      ', BPROPIETARIO = :BPROPIETARIO '
+      ', BVISIBLE = :BVISIBLE '
+      'WHERE IDGASTOMENSUAL = :IDGASTOMENSUAL'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONTRATO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFGASTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BINQUILINO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BPROPIETARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDGASTOMENSUAL'
+        ParamType = ptUnknown
+      end>
+    left = 474
+    top = 227
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONTRATO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFGASTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BINQUILINO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BPROPIETARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDGASTOMENSUAL'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbGastosContratoDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbGastosMensuales'
+      'SET bVisible = 0'
+      'WHERE idGastoMensual = :idGastoMensual'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idGastoMensual'
+        ParamType = ptUnknown
+      end>
+    left = 474
+    top = 296
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idGastoMensual'
+        ParamType = ptUnknown
+      end>
+  end
+  object qGastosContrato: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT GM.*'
+      '            ,TGM.GastoMensual as lxGasto'
+      'FROM tbGastosMensuales GM'
+      '           LEFT JOIN tugGastosMensuales TGM ON TGM.idGastoMensual = GM.refGasto'
+      'WHERE (refContrato = :refContrato)'
+      '            and (GM.bVisible = 1)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refContrato'
+        ParamType = ptUnknown
+      end>
+    left = 474
+    top = 361
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refContrato'
+        ParamType = ptUnknown
+      end>
+  end
+  object trContratosInquilinos: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idContratoInquilino'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'refContrato'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'refInquilino'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'cApellidos'
+        DataType = ftString
+        Precision = -1
+        Size = 2000
+      end    
+      item
+        Name = 'cNombres'
+        DataType = ftString
+        Precision = -1
+        Size = 2000
+      end    
+      item
+        Name = 'Documento'
+        DataType = ftString
+        Precision = -1
+        Size = 80
+      end>
+    AfterInsert = trContratosInquilinosAfterInsert
+    PacketRecords = 0
+    left = 613
+    top = 35
+    object trContratosInquilinosidContratoInquilino: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idContratoInquilino'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object trContratosInquilinosrefContrato: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refContrato'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object trContratosInquilinosrefInquilino: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refInquilino'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object trContratosInquilinoscApellidos1: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'cApellidos'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object trContratosInquilinoscNombres1: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'cNombres'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object trContratosInquilinosDocumento1: TStringField
+      DisplayWidth = 80
+      FieldKind = fkData
+      FieldName = 'Documento'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+  end
+  object qInquilinosContrato: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM trContratosInquilinos CI'
+      '           LEFT JOIN tbInquilinos  I ON I.idInquilino = CI.refInquilino'
+      'WHERE CI.refContrato = :refContrato'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refContrato'
+        ParamType = ptUnknown
+      end>
+    left = 616
+    top = 357
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refContrato'
+        ParamType = ptUnknown
+      end>
+  end
+  object qPropietarios: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM trPropietariosPropiedades PP'
+      '           LEFT JOIN tbPropietarios P ON P.idPropietario = PP.refPropietario'
+      'WHERE PP.refPropiedad = :refPropiedad'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refPropiedad'
+        ParamType = ptUnknown
+      end>
+    left = 185
+    top = 375
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refPropiedad'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContratosSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbContratos'
+      'WHERE idContrato = :idContrato'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContrato'
+        ParamType = ptUnknown
+      end>
+    left = 45
+    top = 109
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContrato'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContratosINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO tbContratos'
+      '(IDCONTRATO, CARPETA, CODIGO, REFTIPOCONTRATO, FINICIO, FFINALIZACION, NSENA, NPORCGASTOSADM, NSELLADO, NHONORARIOS, NPORCPUNITORIOSDIARIOS, BLIQPROPIETARIOBANCO, REFCUENTAPROPIETARIO, TXNOTAS, BVISIBLE, REFPROPIEDAD, NDIAVENCIMIENTO, BALQGARANTIZADO, nHonorCuotas, nDepEfectivo, nDepDocumento, nDiligenc)'
+      'VALUES'
+      '(:IDCONTRATO, :CARPETA, :CODIGO, :REFTIPOCONTRATO, :FINICIO, :FFINALIZACION, :NSENA, :NPORCGASTOSADM, :NSELLADO, :NHONORARIOS, :NPORCPUNITORIOSDIARIOS, :BLIQPROPIETARIOBANCO, :REFCUENTAPROPIETARIO, :TXNOTAS, :BVISIBLE, :REFPROPIEDAD, :NDIAVENCIMIENTO, :BALQGARANTIZADO, :nHonorCuotas, :nDepEfectivo, :nDepDocumento, :nDiligenc)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCONTRATO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CARPETA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CODIGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTIPOCONTRATO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FINICIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FFINALIZACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NSENA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NPORCGASTOSADM'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NSELLADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NHONORARIOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NPORCPUNITORIOSDIARIOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BLIQPROPIETARIOBANCO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCUENTAPROPIETARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXNOTAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFPROPIEDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NDIAVENCIMIENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BALQGARANTIZADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nHonorCuotas'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nDepEfectivo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nDepDocumento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nDiligenc'
+        ParamType = ptUnknown
+      end>
+    left = 43
+    top = 178
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCONTRATO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CARPETA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CODIGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTIPOCONTRATO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FINICIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FFINALIZACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NSENA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NPORCGASTOSADM'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NSELLADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NHONORARIOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NPORCPUNITORIOSDIARIOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BLIQPROPIETARIOBANCO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCUENTAPROPIETARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXNOTAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFPROPIEDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NDIAVENCIMIENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BALQGARANTIZADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nHonorCuotas'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nDepEfectivo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nDepDocumento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nDiligenc'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContratosUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbContratos'
+      'SET'
+      ' CARPETA = :CARPETA'
+      ', CODIGO = :CODIGO'
+      ', REFTIPOCONTRATO = :REFTIPOCONTRATO'
+      ', FINICIO = :FINICIO'
+      ', FFINALIZACION = :FFINALIZACION'
+      ', NSENA = :NSENA'
+      ', NPORCGASTOSADM = :NPORCGASTOSADM'
+      ', NSELLADO = :NSELLADO'
+      ', NHONORARIOS = :NHONORARIOS'
+      ', NPORCPUNITORIOSDIARIOS = :NPORCPUNITORIOSDIARIOS '
+      ', BLIQPROPIETARIOBANCO = :BLIQPROPIETARIOBANCO'
+      ', REFCUENTAPROPIETARIO = :REFCUENTAPROPIETARIO'
+      ', TXNOTAS = :TXNOTAS'
+      ', BVISIBLE = :BVISIBLE'
+      ', REFPROPIEDAD = :REFPROPIEDAD'
+      ', NDIAVENCIMIENTO = :NDIAVENCIMIENTO'
+      ', BALQGARANTIZADO = :BALQGARANTIZADO'
+      ', nHonorCuotas = :nHonorCuotas'
+      ', nDepEfectivo = :nDepEfectivo'
+      ', nDepDocumento = :nDepDocumento'
+      ', nDiligenc = :nDiligenc'
+      'WHERE IDCONTRATO = :IDCONTRATO'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'CARPETA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CODIGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTIPOCONTRATO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FINICIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FFINALIZACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NSENA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NPORCGASTOSADM'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NSELLADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NHONORARIOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NPORCPUNITORIOSDIARIOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BLIQPROPIETARIOBANCO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCUENTAPROPIETARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXNOTAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFPROPIEDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NDIAVENCIMIENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BALQGARANTIZADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nHonorCuotas'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nDepEfectivo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nDepDocumento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nDiligenc'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDCONTRATO'
+        ParamType = ptUnknown
+      end>
+    left = 43
+    top = 246
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'CARPETA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CODIGO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTIPOCONTRATO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FINICIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'FFINALIZACION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NSENA'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NPORCGASTOSADM'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NSELLADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NHONORARIOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NPORCPUNITORIOSDIARIOS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BLIQPROPIETARIOBANCO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCUENTAPROPIETARIO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'TXNOTAS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFPROPIEDAD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'NDIAVENCIMIENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BALQGARANTIZADO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nHonorCuotas'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nDepEfectivo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nDepDocumento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nDiligenc'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDCONTRATO'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContratosDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbContratos'
+      'SET bVisible = 0'
+      'WHERE idContrato = :idContrato'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContrato'
+        ParamType = ptUnknown
+      end>
+    left = 43
+    top = 315
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContrato'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContratosInquilinosSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM trContratosInquilinos'
+      'WHERE idContratoInquilino = :idContratoInquilino'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContratoInquilino'
+        ParamType = ptUnknown
+      end>
+    left = 617
+    top = 101
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContratoInquilino'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContratosInquilinosINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO trContratosInquilinos'
+      '(IDCONTRATOINQUILINO, refContrato, refInquilino)'
+      'VALUES'
+      '(:IDCONTRATOINQUILINO, :refContrato, :refInquilino)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCONTRATOINQUILINO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONTRATO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refInquilino'
+        ParamType = ptUnknown
+      end>
+    left = 612
+    top = 159
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCONTRATOINQUILINO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONTRATO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refInquilino'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContratosInquilinosUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE trContratosInquilinos'
+      'SET'
+      '  REFCONTRATO = :REFCONTRATO '
+      ', REFINQUILINO = :REFINQUILINO '
+      'WHERE IDCONTRATOINQUILINO = :IDCONTRATOINQUILINO'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONTRATO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFINQUILINO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDCONTRATOINQUILINO'
+        ParamType = ptUnknown
+      end>
+    left = 612
+    top = 227
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONTRATO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFINQUILINO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDCONTRATOINQUILINO'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContratosInquilinosDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'DELETE FROM trContratosInquilinos'
+      'WHERE idContratoInquilino = :idContratoInquilino'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContratoInquilino'
+        ParamType = ptUnknown
+      end>
+    left = 612
+    top = 296
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContratoInquilino'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbResultados: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idContrato'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'Carpeta'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Codigo'
+        DataType = ftString
+        Precision = 0
+        Size = 200
+      end    
+      item
+        Name = 'refTipoContrato'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'fInicio'
+        DataType = ftDate
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'fFinalizacion'
+        DataType = ftDate
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nSena'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nPorcGastosAdm'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nSellado'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nHonorarios'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'nPorcPunitoriosDiarios'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bLiqPropietarioBanco'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refCuentaPropietario'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'txNotas'
+        DataType = ftString
+        Precision = 0
+        Size = 3000
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refPropiedad'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'idPropiedad'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'Calle'
+        DataType = ftString
+        Precision = 0
+        Size = 2000
+      end    
+      item
+        Name = 'Altura'
+        DataType = ftString
+        Precision = 0
+        Size = 80
+      end    
+      item
+        Name = 'Persona'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end>
+    PacketRecords = 0
+    left = 839
+    top = 36
+    object tbContratosidContrato1: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idContrato'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbContratosCarpeta1: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Carpeta'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContratosCodigo1: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'Codigo'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object tbContratosrefTipoContrato1: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refTipoContrato'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContratosfInicio1: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fInicio'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContratosfFinalizacion1: TDateField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fFinalizacion'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContratosnSena1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nSena'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbContratosnPorcGastosAdm1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nPorcGastosAdm'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = '########0.00 '
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbContratosnSellado1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nSellado'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbContratosnHonorarios1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nHonorarios'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbContratosnPorcPunitoriosDiarios1: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'nPorcPunitoriosDiarios'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = '########0.00 '
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbContratosbLiqPropietarioBanco1: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bLiqPropietarioBanco'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContratosrefCuentaPropietario1: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refCuentaPropietario'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbContratostxNotas1: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'txNotas'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbContratosbVisible1: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbContratosrefPropiedad1: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refPropiedad'
+      Index = 15
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbResultadosidPropiedad: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idPropiedad'
+      Index = 16
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbResultadosCalle: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'Calle'
+      Index = 17
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object tbResultadosAltura: TStringField
+      DisplayWidth = 80
+      FieldKind = fkData
+      FieldName = 'Altura'
+      Index = 18
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object tbResultadosPersona: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'Persona'
+      Index = 19
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+  end
+  object qBusPropiedad: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM  tbContratos C'
+      '            INNER JOIN tbPropiedades P ON C.refPropiedad = P.idPropiedad'
+      'WHERE  (C.bVisible = 1) '
+      '      and  (UPPER(P.Calle) LIKE ''%'' || UPPER(:parametro) || ''%'' )'
+      ''
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 836
+    top = 95
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusCarpeta: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM  tbContratos C'
+      '            INNER JOIN tbPropiedades P ON C.refPropiedad = P.idPropiedad'
+      'WHERE  (C.bVisible = 1) '
+      '      and  (C.Carpeta = :parametro )'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 838
+    top = 160
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusCodigo: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM  tbContratos C'
+      '            INNER JOIN tbPropiedades P ON C.refPropiedad = P.idPropiedad'
+      'WHERE  (C.bVisible = 1) '
+      '      and  (UPPER(C.Codigo) LIKE ''%'' || UPPER(:parametro) || ''%'' )'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 839
+    top = 225
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusFVigencia: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM  tbContratos C'
+      '            INNER JOIN tbPropiedades P ON C.refPropiedad = P.idPropiedad'
+      'WHERE  (C.bVisible = 1) '
+      '      and  (C.fInicio >= :parametro )'
+      '      and (C.fFinalizacion <= :parametro)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 836
+    top = 287
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusFFin: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM  tbContratos C'
+      '            INNER JOIN tbPropiedades P ON C.refPropiedad = P.idPropiedad'
+      'WHERE  (C.bVisible = 1) '
+      '      and  (P.fFinalizacion = :parametro)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 839
+    top = 349
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qContratosActivos: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbContratos C'
+      '          INNER JOIN tbPropiedades P ON P.idPropiedad = C.refPropiedad'
+      'WHERE (C.bVisible = 1) and (C.fFinalizacion >= :fechaFin)'
+      'ORDER BY C.fFinalizacion '
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'fechaFin'
+        ParamType = ptUnknown
+      end>
+    left = 44
+    top = 384
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'fechaFin'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusPorInquilino: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT C.*,P.*,CI.*,I.*, (I.cApellidos || '' ''|| I.cNombres) as Persona'
+      'FROM  tbContratos C'
+      '        INNER JOIN tbPropiedades P ON C.refPropiedad = P.idPropiedad'
+      '        INNER JOIN trContratosInquilinos CI ON CI.refContrato = C.idContrato'
+      '        INNER JOIN tbInquilinos I ON I.idInquilino = CI.refInquilino'
+      'WHERE  (C.bVisible = 1) '
+      '      and  (UPPER(I.cApellidos) LIKE ''%'' || UPPER(:parametro) || ''%'' )'
+      ''
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 844
+    top = 412
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusPorPropietario: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT C.*,P.*,PP.*,Pr.*, (Pr.cApellidos || '' ''|| Pr.cNombres) as Persona'
+      'FROM  tbContratos C'
+      '        INNER JOIN tbPropiedades P ON C.refPropiedad = P.idPropiedad'
+      '        INNER JOIN trPropietariosPropiedades PP ON PP.refPropiedad = P.idPropiedad'
+      '        INNER JOIN tbPropietarios Pr ON Pr.idPropietario = PP.refPropietario'
+      'WHERE  (C.bVisible = 1) '
+      '      and  (UPPER(Pr.cApellidos) LIKE ''%'' || UPPER(:parametro) || ''%'' )'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 847
+    top = 469
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object trContratosGarantes: TRxMemoryData
+    Active = True
+    FieldDefs = <    
+      item
+        Name = 'idContratoGarante'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'refContrato'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'refGarante'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'cApellidos'
+        DataType = ftString
+        Precision = -1
+        Size = 2000
+      end    
+      item
+        Name = 'cNombres'
+        DataType = ftString
+        Precision = -1
+        Size = 2000
+      end    
+      item
+        Name = 'Documento'
+        DataType = ftString
+        Precision = -1
+        Size = 80
+      end>
+    AfterInsert = trContratosGarantesAfterInsert
+    PacketRecords = 0
+    left = 720
+    top = 35
+    object trContratosGarantesidContratoGarante: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idContratoGarante'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object trContratosGarantesrefContrato: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refContrato'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object trContratosGarantesrefGarante: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refGarante'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object trContratosGarantescApellidos: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'cApellidos'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object trContratosGarantescNombres: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'cNombres'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object trContratosGarantesDocumento: TStringField
+      DisplayWidth = 80
+      FieldKind = fkData
+      FieldName = 'Documento'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+  end
+  object qGarantesContrato: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM trContratosGarantes CG'
+      '           LEFT JOIN tbGarantes G ON G.idGarante = CG.refGarante'
+      'WHERE CG.refContrato = :refContrato'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refContrato'
+        ParamType = ptUnknown
+      end>
+    left = 727
+    top = 356
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refContrato'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContratosGarantesSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM trContratosGarantes'
+      'WHERE idContratoGarante = :idContratoGarante'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContratoGarante'
+        ParamType = ptUnknown
+      end>
+    left = 728
+    top = 100
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContratoGarante'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContratosGarantesINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO trContratosGarantes'
+      '(IDCONTRATOGarante, refContrato, refGarante)'
+      'VALUES'
+      '(:IDCONTRATOGarante, :refContrato, :refGarante)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCONTRATOGarante'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONTRATO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refGarante'
+        ParamType = ptUnknown
+      end>
+    left = 723
+    top = 158
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDCONTRATOGarante'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONTRATO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refGarante'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContratosGarantesUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE trContratosGarantes'
+      'SET'
+      '  REFCONTRATO = :REFCONTRATO '
+      ', REFGARANTE = :REFGARANTE'
+      'WHERE IDCONTRATOGARANTE = :IDCONTRATOGARANTE'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONTRATO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFGARANTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDCONTRATOGARANTE'
+        ParamType = ptUnknown
+      end>
+    left = 723
+    top = 226
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'REFCONTRATO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFGARANTE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDCONTRATOGARANTE'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbContratosGarantesDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'DELETE FROM trContratosGarantes'
+      'WHERE idContratoGarante = :idContratoGarante'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContratoGarante'
+        ParamType = ptUnknown
+      end>
+    left = 723
+    top = 295
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idContratoGarante'
+        ParamType = ptUnknown
+      end>
+  end
+  object qLevantarCuotasContratoPorPropiedad: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT PP.CuotaInicio'
+      '            ,PP.CuotaFin'
+      '            ,PP.nMonto'
+      'FROM tbPropiedadesPrecios PP'
+      'WHERE  PP.refPropiedad = :refPropiedad'
+      'ORDER BY PP.CuotaInicio'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refPropiedad'
+        ParamType = ptUnknown
+      end>
+    left = 110
+    top = 473
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refPropiedad'
+        ParamType = ptUnknown
+      end>
+  end
+end

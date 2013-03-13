@@ -1,0 +1,702 @@
+object DM_Garantes: TDM_Garantes
+  OldCreateOrder = False
+  Height = 371
+  HorizontalOffset = 589
+  VerticalOffset = 123
+  Width = 466
+  object tbGarantes: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idGarante'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'cApellidos'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end    
+      item
+        Name = 'cNombres'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end    
+      item
+        Name = 'refTipoDocumento'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Documento'
+        DataType = ftString
+        Precision = 0
+        Size = 80
+      end    
+      item
+        Name = 'CUIT'
+        DataType = ftString
+        Precision = 0
+        Size = 80
+      end    
+      item
+        Name = 'txNotas'
+        DataType = ftString
+        Precision = 0
+        Size = 3000
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'cTelFijo'
+        DataType = ftString
+        Precision = 0
+        Size = 300
+      end    
+      item
+        Name = 'cTelMovil'
+        DataType = ftString
+        Precision = 0
+        Size = 300
+      end    
+      item
+        Name = 'cEmail'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end>
+    AfterInsert = tbGarantesAfterInsert
+    left = 33
+    top = 13
+    object tbGarantesidGarante: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idGarante'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbGarantescApellidos: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'cApellidos'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbGarantescNombres: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'cNombres'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbGarantesrefTipoDocumento: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refTipoDocumento'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbGarantesDocumento: TStringField
+      DisplayWidth = 80
+      FieldKind = fkData
+      FieldName = 'Documento'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object tbGarantesCUIT: TStringField
+      DisplayWidth = 80
+      FieldKind = fkData
+      FieldName = 'CUIT'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object tbGarantestxNotas: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'txNotas'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbGarantesbVisible: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbGarantescTelFijo: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'cTelFijo'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object tbGarantescTelMovil: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'cTelMovil'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object tbGarantescEmail: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'cEmail'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+  end
+  object tbGarantesSEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbGarantes'
+      'WHERE idGarante = :idGarante'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idGarante'
+        ParamType = ptUnknown
+      end>
+    left = 33
+    top = 77
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idGarante'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbGarantesINS: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'INSERT INTO tbGarantes'
+      '(IDGarante, CAPELLIDOS, CNOMBRES, REFTIPODOCUMENTO, DOCUMENTO, CUIT, TXNOTAS, BVISIBLE, cTelFijo, cTelMovil, cEMail)'
+      'VALUES'
+      '(:IDGarante, :CAPELLIDOS, :CNOMBRES, :REFTIPODOCUMENTO, :DOCUMENTO, :CUIT, :TXNOTAS, :BVISIBLE, :cTelFijo, :cTelMovil, :cEMail)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDGarante'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cApellidos'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cNombres'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTIPODOCUMENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DOCUMENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CUIT'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txNotas'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'bVisible'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cTelFijo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cTelMovil'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cEMail'
+        ParamType = ptUnknown
+      end>
+    left = 33
+    top = 133
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'IDGarante'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cApellidos'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cNombres'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTIPODOCUMENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DOCUMENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CUIT'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txNotas'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'bVisible'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cTelFijo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cTelMovil'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cEMail'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbGarantesUPD: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbGarantes'
+      'SET '
+      '  CAPELLIDOS = :CAPELLIDOS'
+      ', CNOMBRES = :CNOMBRES'
+      ', REFTIPODOCUMENTO = :REFTIPODOCUMENTO'
+      ', DOCUMENTO = :DOCUMENTO'
+      ', CUIT = :CUIT'
+      ', TXNOTAS = :TXNOTAS'
+      ', BVISIBLE = :BVISIBLE'
+      ', cTelFijo = :cTelFijo'
+      ', cTelMovil = :cTelMovil'
+      ', cEMail = :cEmail'
+      'WHERE IDGarante = :IDGarante'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'cApellidos'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cNombres'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTIPODOCUMENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DOCUMENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CUIT'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txNotas'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'bVisible'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cTelFijo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cTelMovil'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cEmail'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDGarante'
+        ParamType = ptUnknown
+      end>
+    left = 33
+    top = 189
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'cApellidos'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cNombres'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'REFTIPODOCUMENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'DOCUMENTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'CUIT'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'txNotas'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'bVisible'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cTelFijo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cTelMovil'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cEmail'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'IDGarante'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbGarantesDEL: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'UPDATE tbGarantes'
+      'SET bVisible = 0'
+      'WHERE idGarante = :idGarante'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'idGarante'
+        ParamType = ptUnknown
+      end>
+    left = 33
+    top = 250
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'idGarante'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbResultados: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idGarante'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'cApellidos'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end    
+      item
+        Name = 'cNombres'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end    
+      item
+        Name = 'refTipoDocumento'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Documento'
+        DataType = ftString
+        Precision = 0
+        Size = 80
+      end    
+      item
+        Name = 'CUIT'
+        DataType = ftString
+        Precision = 0
+        Size = 80
+      end    
+      item
+        Name = 'txNotas'
+        DataType = ftString
+        Precision = 0
+        Size = 3000
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end>
+    left = 221
+    top = 13
+    object tbResultadosidGarante: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idGarante'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbResultadoscApellidos: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'cApellidos'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbResultadoscNombres: TStringField
+      DisplayWidth = 500
+      FieldKind = fkData
+      FieldName = 'cNombres'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 500
+    end
+    object tbResultadosrefTipoDocumento: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'refTipoDocumento'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbResultadosDocumento: TStringField
+      DisplayWidth = 80
+      FieldKind = fkData
+      FieldName = 'Documento'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object tbResultadosCUIT: TStringField
+      DisplayWidth = 80
+      FieldKind = fkData
+      FieldName = 'CUIT'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object tbResultadostxNotas: TStringField
+      DisplayWidth = 3000
+      FieldKind = fkData
+      FieldName = 'txNotas'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 3000
+    end
+    object tbResultadosbVisible: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object qBusApellido: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbGarantes'
+      'WHERE UPPER(cApellidos) LIKE ''%'' || :parametro || ''%'''
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 223
+    top = 77
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusDocumento: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbGarantes'
+      'WHERE UPPER(Documento) LIKE ''%'' || :parametro || ''%'''
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 224
+    top = 140
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+  object qBusCuit: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbGarantes'
+      'WHERE UPPER(CUIT) LIKE ''%'' || :parametro || ''%'''
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+    left = 224
+    top = 204
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'parametro'
+        ParamType = ptUnknown
+      end>
+  end
+end

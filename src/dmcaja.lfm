@@ -1,0 +1,7 @@
+object DM_Caja: TDM_Caja
+  OldCreateOrder = False
+  Height = 399
+  HorizontalOffset = 503
+  VerticalOffset = 48
+  Width = 368
+end

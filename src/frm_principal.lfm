@@ -1,0 +1,478 @@
+object frmAlquileres: TfrmAlquileres
+  Left = 247
+  Height = 406
+  Top = 137
+  Width = 632
+  Caption = 'Alquileres'
+  ClientHeight = 387
+  ClientWidth = 632
+  Font.CharSet = ANSI_CHARSET
+  Font.Color = clBlack
+  Font.Height = -13
+  Font.Name = 'Arial'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  ShowHint = True
+  LCLVersion = '0.9.30'
+  object ToolBar1: TToolBar
+    Left = 0
+    Height = 56
+    Top = 0
+    Width = 632
+    AutoSize = True
+    ButtonHeight = 54
+    ButtonWidth = 60
+    Caption = 'ToolBar1'
+    Images = DM_General.ImgAcciones
+    ShowCaptions = True
+    TabOrder = 0
+    object ToolButton1: TToolButton
+      Left = 1
+      Top = 2
+      Action = prgSalir
+    end
+    object ToolButton6: TToolButton
+      Left = 61
+      Top = 2
+      Width = 8
+      Caption = 'ToolButton6'
+      Style = tbsSeparator
+    end
+    object ToolButton7: TToolButton
+      Left = 69
+      Top = 2
+      Action = cajaIngreso
+      Visible = False
+    end
+    object ToolButton8: TToolButton
+      Left = 129
+      Top = 2
+      Action = cajaEgreso
+      Visible = False
+    end
+    object ToolButton9: TToolButton
+      Left = 189
+      Top = 2
+      Action = cajaMovimientos
+      Visible = False
+    end
+    object ToolButton2: TToolButton
+      Left = 329
+      Top = 2
+      Action = contDetalles
+    end
+    object ToolButton3: TToolButton
+      Left = 269
+      Top = 2
+      Action = propDetalles
+    end
+  end
+  object st: TStatusBar
+    Left = 0
+    Height = 20
+    Top = 367
+    Width = 632
+    Panels = <    
+      item
+        Alignment = taCenter
+        Width = 100
+      end    
+      item
+        Alignment = taRightJustify
+        Width = 50
+      end>
+    SimplePanel = False
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 311
+    Top = 56
+    Width = 632
+    Align = alClient
+    AutoFillColumns = True
+    Color = clWindow
+    Columns = <    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'Carpeta'
+        Width = 90
+        FieldName = 'Carpeta'
+      end    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'Código'
+        Width = 90
+        FieldName = 'codigo'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Calle'
+        Width = 226
+        FieldName = 'calle'
+      end    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'Altura'
+        Width = 90
+        FieldName = 'altura'
+      end    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'Finalización'
+        Width = 132
+        FieldName = 'fFinalizacion'
+        DisplayFormat = 'dd/mm/yyyy'
+      end>
+    DataSource = ds_ContratosActivos
+    FixedCols = 0
+    Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    Scrollbars = ssAutoVertical
+    TabOrder = 2
+    TitleFont.CharSet = ANSI_CHARSET
+    TitleFont.Color = clBlack
+    TitleFont.Height = -13
+    TitleFont.Name = 'Arial'
+    TitleFont.Pitch = fpVariable
+    TitleFont.Quality = fqDraft
+    OnDblClick = DBGrid1DblClick
+  end
+  object MainMenu1: TMainMenu
+    Images = DM_General.ImgAcciones
+    left = 184
+    top = 144
+    object MenuItem1: TMenuItem
+      Caption = 'Programa'
+      object MenuItem6: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem7: TMenuItem
+        Action = prgSalir
+      end
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'Propiedades'
+      object MenuItem8: TMenuItem
+        Action = propAgregar
+      end
+      object MenuItem9: TMenuItem
+        Action = propModicar
+      end
+      object MenuItem10: TMenuItem
+        Action = propBorrar
+      end
+      object MenuItem11: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem12: TMenuItem
+        Action = propDetalles
+      end
+    end
+    object MenuItem27: TMenuItem
+      Caption = 'Propietarios'
+      object MenuItem28: TMenuItem
+        Action = dueAgregar
+      end
+      object MenuItem29: TMenuItem
+        Action = dueEditar
+      end
+      object MenuItem30: TMenuItem
+        Action = dueEliminar
+      end
+    end
+    object MenuItem3: TMenuItem
+      Caption = 'Inquilinos'
+      object MenuItem13: TMenuItem
+        Action = inqNuevo
+      end
+      object MenuItem15: TMenuItem
+        Action = inqModificar
+      end
+      object MenuItem14: TMenuItem
+        Action = inqDetalles
+      end
+    end
+    object MenuItem4: TMenuItem
+      Caption = 'Contratos'
+      object MenuItem16: TMenuItem
+        Action = contNuevo
+      end
+      object MenuItem17: TMenuItem
+        Action = contModificar
+      end
+      object MenuItem18: TMenuItem
+        Action = contBorrar
+      end
+      object MenuItem19: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem20: TMenuItem
+        Action = contDetalles
+      end
+    end
+    object MenuItem5: TMenuItem
+      Caption = 'Caja'
+      Visible = False
+      object MenuItem21: TMenuItem
+        Action = cajaIngreso
+        Bitmap.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+          FF0060A664315BA25FCC569F5A4BFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00196B3788196B37F2196B37FF196B37F2196B3788FFFFFF00FFFFFF006AAE
+          6E0565AA69AF60A665FD6BAE6FFF4C9750FB529C56344E995222FFFFFF00196B
+          3784288C53FF64BA8DFF95D2B2FF64BA8DFF288C53FF196B378CFFFFFF006FB2
+          74277CBB81FCB7DEBBFF67AC6CFF75B67AFF4E9851FE539C57B84F99537A1B6C
+          39F762BA8BFF60BA87FFFFFFFFFF60B987FF67BC8FFF196B37F7FFFFFF0075B6
+          7A9B9CCDA0FF6FB273FF8DC792FFAADCAFFF76B67BFF519B55FF77B77BFF317B
+          4CFF9CD4B6FFFFFFFFFFFFFFFFFFFFFFFFFF95D2B2FF196B37FF7FBE84197BBB
+          80FF77B77CFF91CB97FFABDEB1FF9CD7A2FFAADDB0FF77B77CFF60AC65FF478A
+          60FF90D3B1FF92D6B1FFFFFFFFFF65BC8CFF67BC8FFF196B37F77FBD84A07FBD
+          84FF97CE9CFFADDFB3FF6FB374FF96D59DFF9DD8A3FFAADDB0FF78B87CFF61A4
+          6FFF61AB81FF95D4B4FFBAE6D0FF6ABB8FFF2D8F57FF1F7039A37BBB80FF8EC8
+          93FFAFDFB5FFA1DAA7FF98D79FFF97D69EFF7EC083FF82C187FFABDDB0FF79B9
+          7DFF5EA16BFF5E9873FF4F8E66FF46895EFF3F894EFF459249118DC9937D7DBB
+          82FF8FC894FFB0E0B6FFA2DAA8FF7FC185FFA4D0A7FFDDEEDFFF80B883FFABDE
+          B1FF7AB97FFF569F5AFFC4E7C8FF78B87CFF4E995284FFFFFF00FFFFFF008EC9
+          93257DBC82FA90C995FFB0E0B6FF85C28AFFF7FCF8FF95C297FFDDEEDFFF82C2
+          87FFABDEB1FF7BBA7FFF58A05CFF59A15DFF539C5704FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF007EBD83F691CA96FFB1E0B6FFD9F3DDFFF7FCF8FFA4D0A7FF7EC0
+          84FF9FD9A5FFACDEB2FF7BBB80FF569F5AFBFFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF007FBE85F592CB97FFB1E1B6FF85C38AFF80C185FF99D7
+          A0FF98D79FFF9FD9A5FFACDFB2FF7DBB81FF58A05CF6FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF0081BF86F593CC98FFB1E1B7FFA3DBA9FF9BD8
+          A2FF73B477FFAFDFB4FF87C38CFF65AA69FF5DA4610EFFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0082C087F594CC99FFB2E2B7FFA3DC
+          AAFFB0E0B6FF8CC692FF6EB173FF66AB6B0EFFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0083C188F594CD9AFFB3E2
+          B7FF93CB98FF77B77CFF70B2740EFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0084C28AF596CD
+          9BFF80BE85FF79B97E0EFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0086C3
+          8BF582C0870EFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+        }
+      end
+      object MenuItem22: TMenuItem
+        Action = cajaEgreso
+        Bitmap.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+          FF0060A664315BA25FCC569F5A4BFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF001D57C4780345B9DF0442BCFE0345B9E30345B87AFFFFFF00FFFFFF006AAE
+          6E0565AA69AF60A665FD6BAE6FFF4C9750FB529C56344E995222FFFFFF001A57
+          C3802564C9FB2177E6FF0579EAFF0164DDFF044DBDFC0345B87AFFFFFF006FB2
+          74277CBB81FCB7DEBBFF67AC6CFF75B67AFF4E9851FE539C57B84F99537A0345
+          B9E3639DF4FF187FFFFF0076F8FF0076EEFF0368E1FF0345B9E4FFFFFF0075B6
+          7A9B9CCDA0FF6FB273FF8DC792FFAADCAFFF76B67BFF519B55FF77B77BFF0442
+          BCFFAECDFEFFFFFFFF00FFFFFF00FFFFFF00187FEFFF0442BCFE7FBE84197BBB
+          80FF77B77CFF91CB97FFABDEB1FF9CD7A2FFAADDB0FF77B77CFF60AC65FF1A58
+          B8FF8DB5F6FF4D92FFFF1177FFFF2186FFFF408AEBFF0344B9DE7FBD84A07FBD
+          84FF97CE9CFFADDFB3FF6FB374FF96D59DFF9DD8A3FFAADDB0FF78B87CFF4B8C
+          9AFF3B76D1FF8DB5F7FFB8D6FEFF72A8F5FF2D6BCAFD1153A18A7BBB80FF8EC8
+          93FFAFDFB5FFA1DAA7FF98D79FFF97D69EFF7EC083FF82C187FFABDDB0FF79B9
+          7DFF438693FF235FC1FF0543BCFF1857BAFF2B7283FF459249118DC9937D7DBB
+          82FF8FC894FFB0E0B6FFA2DAA8FF7FC185FFA4D0A7FFDDEEDFFF80B883FFABDE
+          B1FF7AB97FFF569F5AFFC4E7C8FF78B87CFF4E995284FFFFFF00FFFFFF008EC9
+          93257DBC82FA90C995FFB0E0B6FF85C28AFFF7FCF8FF95C297FFDDEEDFFF82C2
+          87FFABDEB1FF7BBA7FFF58A05CFF59A15DFF539C5704FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF007EBD83F691CA96FFB1E0B6FFD9F3DDFFF7FCF8FFA4D0A7FF7EC0
+          84FF9FD9A5FFACDEB2FF7BBB80FF569F5AFBFFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF007FBE85F592CB97FFB1E1B6FF85C38AFF80C185FF99D7
+          A0FF98D79FFF9FD9A5FFACDFB2FF7DBB81FF58A05CF6FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF0081BF86F593CC98FFB1E1B7FFA3DBA9FF9BD8
+          A2FF73B477FFAFDFB4FF87C38CFF65AA69FF5DA4610EFFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0082C087F594CC99FFB2E2B7FFA3DC
+          AAFFB0E0B6FF8CC692FF6EB173FF66AB6B0EFFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0083C188F594CD9AFFB3E2
+          B7FF93CB98FF77B77CFF70B2740EFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0084C28AF596CD
+          9BFF80BE85FF79B97E0EFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0086C3
+          8BF582C0870EFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+        }
+      end
+      object MenuItem25: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem26: TMenuItem
+        Action = cajaMovimientos
+        Bitmap.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF003C963F6A68B76EF267B66CF23D96
+          3F8DFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0054AB56C18DC891FF8EC991FF56AE
+          59D2FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00439B476067B66CDF86C58AFF97CD9BFF96CC99FF81C3
+          84FF56AC58CF39923D50FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF0048A24D105DB064BF8BC790FF96CD9AFF93CB96FF87C58CFF82C385FF8EC9
+          90FF8CC890FF7BC07FFF3A943D40FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF004CA3512073BB79DF90CB96FF8CC792FF59B05FBF439B4770429A46505BB0
+          61CF8CC890FF8BC78EFF4CA54FAFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF004DA5511054AA599F48A24D70FFFFFF00FFFFFF00FFFFFF00429B
+          464081C286FF96CD99FF6CB870EFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0048A14D40469E4B7F6BB8
+          72DF90CA95FF91CA96FF55AB58BFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF0050A7551067B770BF88C58EFF8CC792FF91CB97FF9BCF
+          9FFF96CC9AFF88C68CFF429B4650FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF006EBA77BF9ACE9EFFA5D3AAFF98CE9DFF8FCA95FF87C5
+          8CFF68B76FCF469E4B50FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF0056AE5F2095CC9CFFAAD6AFFF9BCFA1FF54AB5A8F4EA654504DA5
+          5110FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF0059AF63409BCFA1FFACD7B1FF91CB99FF52AA5810FFFFFF004FA6
+          54104DA6527F55AB5A9F4AA24F10FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF0090C998EFA9D5AFFF9FD2A5FF81C389DF6FBA77BF85C5
+          8CEF99CE9EFF96CD9CFF6EBA75CFFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF005EB26A609DD0A5FFA7D4ACFFABD6B0FFA5D4ABFFA8D6
+          AEFF9DD0A2FF90C995FF53AA598FFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF005FB26B4089C791DDACD6B2FFADD8B3FF8EC9
+          96F65AB0638F53AA5920FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0085C48ED0AAD7B1FFACD7B3FF8AC7
+          92E8FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0063B46F4F92CB9AEB92CB9AEF5DB2
+          6870FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+        }
+      end
+    end
+  end
+  object ActionList1: TActionList
+    Images = DM_General.ImgAcciones
+    left = 184
+    top = 194
+    object prgSalir: TAction
+      Category = 'Programa'
+      Caption = '&Salir'
+      Hint = 'Sale del programa'
+      ImageIndex = 0
+      OnExecute = prgSalirExecute
+    end
+    object propAgregar: TAction
+      Category = 'Propiedades'
+      Caption = 'Nueva'
+      ImageIndex = 25
+      OnExecute = propAgregarExecute
+    end
+    object propModicar: TAction
+      Category = 'Propiedades'
+      Caption = 'Modificar'
+      ImageIndex = 23
+      OnExecute = propModicarExecute
+    end
+    object propBorrar: TAction
+      Category = 'Propiedades'
+      Caption = 'Borrar'
+      ImageIndex = 24
+      OnExecute = propBorrarExecute
+    end
+    object propDetalles: TAction
+      Category = 'Propiedades'
+      Caption = 'Detalles'
+      ImageIndex = 23
+      OnExecute = propDetallesExecute
+    end
+    object inqNuevo: TAction
+      Category = 'Inquilinos'
+      Caption = 'Nuevo'
+      ImageIndex = 5
+      OnExecute = inqNuevoExecute
+    end
+    object inqModificar: TAction
+      Category = 'Inquilinos'
+      Caption = 'Modificar'
+      ImageIndex = 6
+      OnExecute = inqModificarExecute
+    end
+    object inqBorrar: TAction
+      Category = 'Inquilinos'
+      Caption = 'Borrar'
+      ImageIndex = 4
+    end
+    object inqDetalles: TAction
+      Category = 'Inquilinos'
+      Caption = 'Detalles'
+      ImageIndex = 16
+      OnExecute = inqDetallesExecute
+    end
+    object contNuevo: TAction
+      Category = 'Contratos'
+      Caption = 'Nuevo'
+      Hint = 'Alta de un contrato nuevo'
+      ImageIndex = 18
+      OnExecute = contNuevoExecute
+    end
+    object contModificar: TAction
+      Category = 'Contratos'
+      Caption = 'Modificar'
+      Hint = 'Modifica los datos del contrato'
+      ImageIndex = 17
+      OnExecute = contModificarExecute
+    end
+    object contBorrar: TAction
+      Category = 'Contratos'
+      Caption = 'Borrar'
+      Hint = 'Elimina el contrato'
+      ImageIndex = 19
+      OnExecute = contBorrarExecute
+    end
+    object contDetalles: TAction
+      Category = 'Contratos'
+      Caption = 'Ver Contrato'
+      Hint = 'Muestra los detalles del contrato'
+      ImageIndex = 20
+      OnExecute = contDetallesExecute
+    end
+    object cajaIngreso: TAction
+      Category = 'Caja'
+      Caption = 'Ingreso'
+      Hint = 'Carga un ingreso a la caja'
+      ImageIndex = 12
+      OnExecute = cajaIngresoExecute
+    end
+    object cajaEgreso: TAction
+      Category = 'Caja'
+      Caption = 'Egreso'
+      Hint = 'Carga un egreso en la caja'
+      ImageIndex = 21
+      OnExecute = cajaEgresoExecute
+    end
+    object cajaMovimientos: TAction
+      Category = 'Caja'
+      Caption = 'Movimientos'
+      Hint = 'Movimientos de caja'
+      ImageIndex = 7
+      OnExecute = cajaMovimientosExecute
+    end
+    object dueAgregar: TAction
+      Category = 'Duenos'
+      Caption = 'Agregar'
+      Hint = 'Agrega un nuevo propietario a la base de datos'
+      ImageIndex = 5
+      OnExecute = dueAgregarExecute
+    end
+    object dueEditar: TAction
+      Category = 'Duenos'
+      Caption = 'Modificar'
+      Hint = 'Modifica los datos de un propietario'
+      ImageIndex = 6
+      OnExecute = dueEditarExecute
+    end
+    object dueEliminar: TAction
+      Category = 'Duenos'
+      Caption = 'Borrar'
+      Hint = 'Borra un propeitario de la base de datos'
+      ImageIndex = 4
+      OnExecute = dueEliminarExecute
+    end
+  end
+  object ds_ContratosActivos: TDatasource
+    DataSet = DM_Contratos.qContratosActivos
+    left = 367
+    top = 198
+  end
+end
