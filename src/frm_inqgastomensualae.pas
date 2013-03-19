@@ -15,8 +15,8 @@ type
   TfrmInqGastoMensualae = class(TForm)
     btnAceptar: TBitBtn;
     btnCancelar: TBitBtn;
-    ds_LiqInq: TDatasource;
     DBDateEdit1: TDBDateEdit;
+    ds_LiqInq: TDatasource;
     DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
     DBEdit3: TDBEdit;

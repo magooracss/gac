@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 GAC
 ===
 
@@ -30,4 +29,3 @@ gac
 ===
 
 Gestión de Alquileres y Caja para inmobiliarias
->>>>>>> e62338b10652ce064c41253faa769cbcd2c33a82

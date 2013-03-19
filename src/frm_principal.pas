@@ -14,6 +14,7 @@ type
   { TfrmAlquileres }
 
   TfrmAlquileres = class(TForm)
+    cajaLiqInq: TAction;
     DBGrid1: TDBGrid;
     ds_ContratosActivos: TDatasource;
     dueEditar: TAction;
@@ -40,6 +41,8 @@ type
     MenuItem20: TMenuItem;
     MenuItem21: TMenuItem;
     MenuItem22: TMenuItem;
+    MenuItem23: TMenuItem;
+    MenuItem24: TMenuItem;
     MenuItem25: TMenuItem;
     MenuItem26: TMenuItem;
     MenuItem27: TMenuItem;
@@ -70,6 +73,8 @@ type
     ToolButton1: TToolButton;
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
+    ToolButton4: TToolButton;
+    ToolButton5: TToolButton;
     ToolButton6: TToolButton;
     ToolButton7: TToolButton;
     ToolButton8: TToolButton;
