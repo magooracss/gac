@@ -68,6 +68,8 @@ type
     procedure edMensInqPunitoriosChange(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure tabMensualidadShow(Sender: TObject);
+    procedure tabPagareContextPopup(Sender: TObject; MousePos: TPoint;
+      var Handled: Boolean);
   private
     procedure CargarDestinos;
     procedure CargarTipos;
@@ -207,6 +209,12 @@ end;
 procedure TfrmCuentaContratoAE.tabMensualidadShow(Sender: TObject);
 begin
   InicializarMensualidad;
+end;
+
+procedure TfrmCuentaContratoAE.tabPagareContextPopup(Sender: TObject;
+  MousePos: TPoint; var Handled: Boolean);
+begin
+
 end;
 
 

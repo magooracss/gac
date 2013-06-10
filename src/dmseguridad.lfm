@@ -1,0 +1,85 @@
+object DM_Seguridad: TDM_Seguridad
+  OldCreateOrder = False
+  Height = 455
+  HorizontalOffset = 469
+  VerticalOffset = 224
+  Width = 663
+  object tbUsuarios: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idUsuario'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'Usuario'
+        DataType = ftString
+        Precision = 0
+        Size = 60
+      end    
+      item
+        Name = 'Clave'
+        DataType = ftString
+        Precision = 0
+        Size = 60
+      end    
+      item
+        Name = 'tbUsuariosField4'
+        DataType = ftUnknown
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'tbUsuariosField5'
+        DataType = ftUnknown
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'tbUsuariosField6'
+        DataType = ftUnknown
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'tbUsuariosField7'
+        DataType = ftUnknown
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'tbUsuariosField8'
+        DataType = ftUnknown
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'tbUsuariosField9'
+        DataType = ftUnknown
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'tbUsuariosField10'
+        DataType = ftUnknown
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'tbUsuariosField11'
+        DataType = ftUnknown
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'tbUsuariosField12'
+        DataType = ftUnknown
+        Precision = 0
+        Size = 0
+      end>
+    PacketRecords = 0
+    left = 72
+    top = 16
+  end
+end

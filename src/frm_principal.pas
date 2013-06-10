@@ -81,6 +81,7 @@ type
     ToolButton9: TToolButton;
     procedure cajaEgresoExecute(Sender: TObject);
     procedure cajaIngresoExecute(Sender: TObject);
+    procedure cajaLiqInqExecute(Sender: TObject);
     procedure cajaMovimientosExecute(Sender: TObject);
     procedure contBorrarExecute(Sender: TObject);
     procedure contDetallesExecute(Sender: TObject);
@@ -133,6 +134,7 @@ uses
  ,frm_contratoae
  ,frm_buscarcontratos
  ,dmcontratos
+ ,frm_inquilinoscaja
  ;
 
 
@@ -213,6 +215,21 @@ begin
   try
     pant.TipoMovimiento:= ingreso;
     pant.ShowModal;
+  finally
+    pant.Free;
+  end;
+end;
+
+procedure TfrmAlquileres.cajaLiqInqExecute(Sender: TObject);
+var
+  pant: TfrmCajaInquilino;
+begin
+  pant:= TfrmCajaInquilino.Create(self);
+  try
+    if pant.ShowModal = mrOK then
+    begin
+
+    end;
   finally
     pant.Free;
   end;

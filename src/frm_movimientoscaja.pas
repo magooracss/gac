@@ -17,9 +17,9 @@ type
     BitBtn2: TBitBtn;
     BitBtn3: TBitBtn;
     BitBtn4: TBitBtn;
-    edFechaIni: TDateEdit;
-    edFechaFin: TDateEdit;
     DBGrid1: TDBGrid;
+    edFechaFin: TDateEdit;
+    edFechaIni: TDateEdit;
     Panel1: TPanel;
     Panel2: TPanel;
     procedure BitBtn1Click(Sender: TObject);

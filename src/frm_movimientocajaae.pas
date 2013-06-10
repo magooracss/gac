@@ -17,8 +17,8 @@ type
     btnAceptar: TBitBtn;
     btnCancelar: TBitBtn;
     cbTipoMovimiento: TComboBox;
-    edFecha: TDateEdit;
     edDetalles: TEdit;
+    edFecha: TDateEdit;
     edMonto: TFloatSpinEdit;
     Label1: TLabel;
     Label2: TLabel;

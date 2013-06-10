@@ -26,11 +26,11 @@ type
     btnBancoModificar: TBitBtn;
     btnBancoBorrar: TBitBtn;
     cbTipoDoc: TComboBox;
+    DBDateEdit1: TDBDateEdit;
     ds_propietarios: TDatasource;
     ds_contactos: TDatasource;
     ds_domicilios: TDatasource;
     ds_bancos: TDatasource;
-    DBDateEdit1: TDBDateEdit;
     DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
     DBEdit3: TDBEdit;

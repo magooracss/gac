@@ -24,6 +24,7 @@ type
     cbLocalidad: TComboBox;
     cbTipo: TComboBox;
     ckAjustarImagen: TCheckBox;
+    DBDateEdit1: TDBDateEdit;
     DBEdit3: TDBEdit;
     DBEdit6: TDBEdit;
     ds_cuotas: TDatasource;
@@ -36,7 +37,6 @@ type
     DBGrid3: TDBGrid;
     DBMemo2: TDBMemo;
     DS_Propiedad: TDatasource;
-    DBDateEdit1: TDBDateEdit;
     DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
     DBEdit4: TDBEdit;
