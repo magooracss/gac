@@ -1,4 +1,5 @@
 object DM_LIQINQ: TDM_LIQINQ
+  OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 560
   HorizontalOffset = 470
@@ -950,6 +951,12 @@ object DM_LIQINQ: TDM_LIQINQ
         DataType = ftInteger
         Precision = 0
         Size = 0
+      end    
+      item
+        Name = 'refContrato'
+        DataType = ftString
+        Precision = 0
+        Size = 38
       end>
     AfterInsert = tbLiqInqCajaAfterInsert
     PacketRecords = 0
@@ -1066,6 +1073,17 @@ object DM_LIQINQ: TDM_LIQINQ
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+    end
+    object tbLiqInqCajarefContrato: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refContrato'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
     end
   end
   object tbDescSEL: TZQuery
@@ -1223,9 +1241,9 @@ object DM_LIQINQ: TDM_LIQINQ
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'INSERT INTO tbLiqInqGastos'
-      '(IDLIQINQGASTO, REFLIQCABECERA, REFREPARACION, GASTO, NMONTO)'
+      '(IDLIQINQGASTO, REFLIQCABECERA, REFREPARACION, GASTO, NMONTO, refContrato, bVisible)'
       'VALUES'
-      '(:IDLIQINQGASTO, :REFLIQCABECERA, :REFREPARACION, :GASTO, :NMONTO)'
+      '(:IDLIQINQGASTO, :REFLIQCABECERA, :REFREPARACION, :GASTO, :NMONTO, :refContrato, :bVisible)'
     )
     Params = <    
       item
@@ -1251,6 +1269,16 @@ object DM_LIQINQ: TDM_LIQINQ
       item
         DataType = ftUnknown
         Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refContrato'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'bVisible'
         ParamType = ptUnknown
       end>
     left = 175
@@ -1280,6 +1308,16 @@ object DM_LIQINQ: TDM_LIQINQ
         DataType = ftUnknown
         Name = 'NMONTO'
         ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refContrato'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'bVisible'
+        ParamType = ptUnknown
       end>
   end
   object tbGastosUPD: TZQuery
@@ -1291,6 +1329,8 @@ object DM_LIQINQ: TDM_LIQINQ
       ', REFREPARACION = :REFREPARACION '
       ', GASTO = :GASTO '
       ', NMONTO = :NMONTO '
+      ', refContrato = :refContrato'
+      ', bVisible = :bVisible'
       'WHERE IDLIQINQGASTO = :IDLIQINQGASTO'
     )
     Params = <    
@@ -1316,10 +1356,20 @@ object DM_LIQINQ: TDM_LIQINQ
       end    
       item
         DataType = ftUnknown
+        Name = 'refContrato'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'bVisible'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
         Name = 'IDLIQINQGASTO'
         ParamType = ptUnknown
       end>
-    left = 175
+    left = 176
     top = 240
     ParamData = <    
       item
@@ -1340,6 +1390,16 @@ object DM_LIQINQ: TDM_LIQINQ
       item
         DataType = ftUnknown
         Name = 'NMONTO'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refContrato'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'bVisible'
         ParamType = ptUnknown
       end    
       item
@@ -1566,9 +1626,9 @@ object DM_LIQINQ: TDM_LIQINQ
     Connection = DM_Conexion.cnxGeneral
     SQL.Strings = (
       'INSERT INTO tbLiqInqCaja'
-      '(IDLIQINQCAJA, REFLIQINQCABECERA, DESCRIPCION, MONTO, FVENCIMIENTO, FPAGO, PAGADO, REFTIPO, REFERENCIA, BVISIBLE)'
+      '(IDLIQINQCAJA, REFLIQINQCABECERA, DESCRIPCION, MONTO, FVENCIMIENTO, FPAGO, PAGADO, REFTIPO, REFERENCIA, BVISIBLE, refContrato)'
       'VALUES'
-      '(:IDLIQINQCAJA, :REFLIQINQCABECERA, :DESCRIPCION, :MONTO, :FVENCIMIENTO, :FPAGO, :PAGADO, :REFTIPO, :REFERENCIA, :BVISIBLE)'
+      '(:IDLIQINQCAJA, :REFLIQINQCABECERA, :DESCRIPCION, :MONTO, :FVENCIMIENTO, :FPAGO, :PAGADO, :REFTIPO, :REFERENCIA, :BVISIBLE, :refContrato)'
     )
     Params = <    
       item
@@ -1619,6 +1679,11 @@ object DM_LIQINQ: TDM_LIQINQ
       item
         DataType = ftUnknown
         Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refContrato'
         ParamType = ptUnknown
       end>
     left = 552
@@ -1673,6 +1738,11 @@ object DM_LIQINQ: TDM_LIQINQ
         DataType = ftUnknown
         Name = 'BVISIBLE'
         ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refContrato'
+        ParamType = ptUnknown
       end>
   end
   object tbCajaUPD: TZQuery
@@ -1689,6 +1759,7 @@ object DM_LIQINQ: TDM_LIQINQ
       ', REFTIPO = :REFTIPO '
       ', REFERENCIA = :REFERENCIA '
       ', BVISIBLE = :BVISIBLE '
+      ', refContrato = :refContrato'
       'WHERE IDLIQINQCAJA = :IDLIQINQCAJA'
     )
     Params = <    
@@ -1735,6 +1806,11 @@ object DM_LIQINQ: TDM_LIQINQ
       item
         DataType = ftUnknown
         Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'refContrato'
         ParamType = ptUnknown
       end    
       item
@@ -1792,7 +1868,58 @@ object DM_LIQINQ: TDM_LIQINQ
       end    
       item
         DataType = ftUnknown
+        Name = 'refContrato'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
         Name = 'IDLIQINQCAJA'
+        ParamType = ptUnknown
+      end>
+  end
+  object qGastosPorContrato: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbLiqInqGastos'
+      'WHERE (refContrato = :refContrato)'
+      '        and (bVisible = 1)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refContrato'
+        ParamType = ptUnknown
+      end>
+    left = 176
+    top = 320
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refContrato'
+        ParamType = ptUnknown
+      end>
+  end
+  object qCajaPorContrato: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbLiqInqCaja'
+      'WHERE (refContrato = :refContrato)'
+      '        and (bVisible = 1)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refContrato'
+        ParamType = ptUnknown
+      end>
+    left = 552
+    top = 308
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refContrato'
         ParamType = ptUnknown
       end>
   end

@@ -73,6 +73,7 @@ object frmAlquileres: TfrmAlquileres
       Left = 422
       Top = 2
       Action = cajaLiqInq
+      Enabled = False
     end
     object ToolButton5: TToolButton
       Left = 412

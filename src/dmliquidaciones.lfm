@@ -61,6 +61,7 @@ object DM_Liquidacion: TDM_Liquidacion
         Precision = 0
         Size = 38
       end>
+    PacketRecords = 0
     left = 82
     top = 31
   end

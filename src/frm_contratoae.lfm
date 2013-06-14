@@ -2,10 +2,10 @@ object frmContratoAE: TfrmContratoAE
   Left = 298
   Height = 614
   Top = 129
-  Width = 883
+  Width = 905
   Caption = 'Contrato'
   ClientHeight = 614
-  ClientWidth = 883
+  ClientWidth = 905
   Font.CharSet = ANSI_CHARSET
   Font.Color = clBlack
   Font.Height = -13
@@ -20,10 +20,10 @@ object frmContratoAE: TfrmContratoAE
     Left = 0
     Height = 45
     Top = 569
-    Width = 883
+    Width = 905
     Align = alBottom
     ClientHeight = 45
-    ClientWidth = 883
+    ClientWidth = 905
     TabOrder = 0
     object btnGrabarSalir: TBitBtn
       Left = 15
@@ -75,7 +75,7 @@ object frmContratoAE: TfrmContratoAE
     Left = 0
     Height = 569
     Top = 0
-    Width = 883
+    Width = 905
     ActivePage = TabSheet2
     Align = alClient
     TabIndex = 3
@@ -568,7 +568,7 @@ object frmContratoAE: TfrmContratoAE
                   item
                     Title.Alignment = taCenter
                     Title.Caption = 'Tipo'
-                    Width = 146
+                    Width = 130
                     FieldName = 'Tipo'
                   end                
                   item
@@ -781,7 +781,7 @@ object frmContratoAE: TfrmContratoAE
             item
               Title.Alignment = taCenter
               Title.Caption = 'Gasto'
-              Width = 458
+              Width = 442
               FieldName = 'lxGasto'
             end          
             item
@@ -1165,12 +1165,12 @@ object frmContratoAE: TfrmContratoAE
     object TabSheet2: TTabSheet
       Caption = 'Cuentas Inquilinos'
       ClientHeight = 540
-      ClientWidth = 875
+      ClientWidth = 897
       object PageControl1: TPageControl
         Left = 0
         Height = 540
         Top = 0
-        Width = 875
+        Width = 897
         ActivePage = TabSheet4
         Align = alClient
         TabIndex = 0
@@ -1178,31 +1178,241 @@ object frmContratoAE: TfrmContratoAE
         object TabSheet4: TTabSheet
           Caption = 'Pendientes'
           ClientHeight = 511
-          ClientWidth = 867
+          ClientWidth = 889
           object PageControl2: TPageControl
             Left = 0
             Height = 206
             Top = 0
-            Width = 867
-            ActivePage = TabSheet5
+            Width = 889
+            ActivePage = TabSheet8
             Align = alTop
             TabIndex = 0
             TabOrder = 0
+            object TabSheet8: TTabSheet
+              Caption = 'Caja'
+              ClientHeight = 177
+              ClientWidth = 881
+              object DBGrid9: TDBGrid
+                Left = 0
+                Height = 177
+                Top = 0
+                Width = 711
+                Align = alClient
+                AutoFillColumns = True
+                Color = clWindow
+                Columns = <                
+                  item
+                    Title.Alignment = taCenter
+                    Title.Caption = 'Descripción'
+                    Width = 281
+                    FieldName = 'Descripcion'
+                  end                
+                  item
+                    Alignment = taRightJustify
+                    SizePriority = 0
+                    Title.Alignment = taCenter
+                    Title.Caption = 'Monto'
+                    Width = 120
+                    FieldName = 'Monto'
+                  end                
+                  item
+                    SizePriority = 0
+                    Title.Alignment = taCenter
+                    Title.Caption = 'Vencimiento'
+                    Width = 93
+                    FieldName = 'fVencimiento'
+                    DisplayFormat = 'dd/mm/yyyy'
+                  end                
+                  item
+                    Alignment = taRightJustify
+                    SizePriority = 0
+                    Title.Alignment = taCenter
+                    Title.Caption = 'Pagado'
+                    Width = 120
+                    FieldName = 'Pagado'
+                  end                
+                  item
+                    SizePriority = 0
+                    Title.Alignment = taCenter
+                    Title.Caption = 'Pago'
+                    Width = 93
+                    FieldName = 'fPago'
+                    DisplayFormat = 'dd/mm/yyyy'
+                  end>
+                DataSource = ds_inqCaja
+                FixedCols = 0
+                Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+                Scrollbars = ssAutoVertical
+                TabOrder = 0
+                TitleFont.CharSet = ANSI_CHARSET
+                TitleFont.Color = clBlack
+                TitleFont.Height = -13
+                TitleFont.Name = 'Arial'
+                TitleFont.Pitch = fpVariable
+                TitleFont.Quality = fqDraft
+                OnPrepareCanvas = DBGrid9PrepareCanvas
+              end
+              object Panel15: TPanel
+                Left = 711
+                Height = 177
+                Top = 0
+                Width = 170
+                Align = alRight
+                ClientHeight = 177
+                ClientWidth = 170
+                TabOrder = 1
+                object btnInqCajaNew: TBitBtn
+                  Left = 19
+                  Height = 30
+                  Top = 29
+                  Width = 132
+                  Caption = 'Nueva'
+                  Glyph.Data = {
+                    36040000424D3604000000000000360000002800000010000000100000000100
+                    2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00ABABAB38AAAA
+                    AA1E196B3788196B37F2196B37FF196B37F2196B3788FFFFFF00FFFFFF00FFFF
+                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00AFAFAF38ADADADF6658F
+                    74FF288C53FF64BA8DFF95D2B2FF64BA8DFF288C53FF196B378CFFFFFF00FFFF
+                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00B2B2B238B1B1B1F6E0E0E0FF216F
+                    3EFF62BA8BFF60BA87FFFFFFFFFF60B987FF67BC8FFF196B37F7FFFFFF00FFFF
+                    FF00FFFFFF00FFFFFF00FFFFFF00B6B6B63BB4B4B4F6E2E2E2FFFDFDFDFF317B
+                    4CFF9CD4B6FFFFFFFFFFFFFFFFFFFFFFFFFF95D2B2FF196B37FFFFFFFF00FFFF
+                    FF00FFFFFF00FFFFFF00BABABA3BB8B8B8F6E4E4E4FFFDFDFDFFFBECD5FF4A89
+                    5FFF90D3B1FF92D6B1FFFFFFFFFF65BC8CFF67BC8FFF196B37F7FFFFFF00FFFF
+                    FF00FFFFFF00BDBDBD3BBCBCBCF6E5E5E5FFFDFDFDFFFBECD6FFFDCD86FFA8AF
+                    7AFF61AB81FF95D4B4FFBAE6D0FF6ABB8FFF2D8F57FF196B378CFFFFFF00FFFF
+                    FF00C1C1C13BC0C0C0F6E7E7E7FFFDFDFDFFFBECD6FFFDCD88FFFFD598FFFFD6
+                    9CFFAEB37FFF609770FF4F8E66FF488860FF749882FFACACAC1FFFFFFF00C5C5
+                    C53BC3C3C3F6E8E8E8FFFDFDFDFFFBECD6FFFDCD88FFFFD598FFFFD79EFFFFD6
+                    9BFFFFCE89FFFDE1BAFFFDFDFDFFD7D7D7FFB5B5B5FFAEAEAE15C9C9C93DC7C7
+                    C7F6E9E9E9FFFDFDFDFFFBEBD3FFFFCC83FFFFD498FFFFD79EFFFFD69BFFFFCF
+                    8BFFFDE2BCFFFDFDFDFFD9D9D9FFB9B9B9FFB1B1B115FFFFFF00CBCBCBF6EBEB
+                    EBFFFDFDFDFFFAFAFAFFFBF3E7FFFECE89FFFFD496FFFFD59AFFFFCF8BFFFDE2
+                    BCFFFDFDFDFFDADADAFFBDBDBDFFB5B5B515FFFFFF00FFFFFF00CDCDCDFFFDFD
+                    FDFFFDFDFDFFFCFCFCFFF7F7F7FFFDF5EAFFFECF8AFFFFCC83FFFDE2BCFFFDFD
+                    FDFFDCDCDCFFC0C0C0FFB9B9B915FFFFFF00FFFFFF00FFFFFF00CECECEFFFDFD
+                    FDFFE0E0E0FFCACACAF9C8C8C8E2F7F7F7FFFBF3E8FFFDE3BDFFFDFDFDFFDEDE
+                    DEFFC3C3C3FFBDBDBD15FFFFFF00FFFFFF00FFFFFF00FFFFFF00D0D0D0FFFDFD
+                    FDFFCDCDCDFFFFFFFF00CACACACDF3F3F3FFFBFBFBFFFDFDFDFFE0E0E0FFC7C7
+                    C7FFC0C0C015FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D2D2D2FFFDFD
+                    FDFFE2E2E2FFCECECEFFE0E0E0FFFDFDFDFFFDFDFDFFE2E2E2FFCBCBCBFFC4C4
+                    C415FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D3D3D3FFFDFD
+                    FDFFFDFDFDFFFDFDFDFFFDFDFDFFFDFDFDFFE4E4E4FFCDCDCDFFC8C8C815FFFF
+                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D5D5D5FFD4D4
+                    D4FFD2D2D2FFD1D1D1FFD0D0D0FFCECECEFFCDCDCDFFCBCBCB15FFFFFF00FFFF
+                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+                  }
+                  OnClick = btnInqCajaNewClick
+                  TabOrder = 0
+                end
+                object btnInqCajaUpd: TBitBtn
+                  Left = 19
+                  Height = 30
+                  Top = 64
+                  Width = 132
+                  Caption = 'Editar'
+                  Glyph.Data = {
+                    36040000424D3604000000000000360000002800000010000000100000000100
+                    2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00ABABAB38AAAA
+                    AA1EFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00AFAFAF38ADADADF6B6B6
+                    B6FFAAAAAA21FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00B2B2B238B1B1B1F6E0E0E0FFD8D8
+                    D8FFB6B6B6FFABABAB21FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+                    FF00FFFFFF00FFFFFF00FFFFFF00B6B6B63BB4B4B4F6E2E2E2FFFDFDFDFFFDFD
+                    FDFFD9D9D9FFB6B6B6FFABABAB21FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+                    FF00FFFFFF00FFFFFF00BABABA3BB8B8B8F6E4E4E4FFFDFDFDFFFBECD5FFFDD2
+                    97FFFDFBF7FFD9D9D9FFB7B7B7FFABABAB21FFFFFF00FFFFFF00FFFFFF00FFFF
+                    FF00FFFFFF00BDBDBD3BBCBCBCF6E5E5E5FFFDFDFDFFFBECD6FFFDCD86FFFFCF
+                    8CFFFAD197FFF9F7F3FFD9D9D9FFB7B7B7FFACACAC21FFFFFF00FFFFFF00FFFF
+                    FF00C1C1C13BC0C0C0F6E7E7E7FFFDFDFDFFFBECD6FFFDCD88FFFFD598FFFFD6
+                    9CFFFFD08EFFF7CC8DFFFDFCFBFFD9D9D9FFB7B7B7FFACACAC1FFFFFFF00C5C5
+                    C53BC3C3C3F6E8E8E8FFFDFDFDFFFBECD6FFFDCD88FFFFD598FFFFD79EFFFFD6
+                    9BFFFFCE89FFFDE1BAFFFDFDFDFFD7D7D7FFB5B5B5FFAEAEAE15C9C9C93DC7C7
+                    C7F6E9E9E9FFFDFDFDFFFBEBD3FFFFCC83FFFFD498FFFFD79EFFFFD69BFFFFCF
+                    8BFFFDE2BCFFFDFDFDFFD9D9D9FFB9B9B9FFB1B1B115FFFFFF00CBCBCBF6EBEB
+                    EBFFFDFDFDFFFAFAFAFFFBF3E7FFFECE89FFFFD496FFFFD59AFFFFCF8BFFFDE2
+                    BCFFFDFDFDFFDADADAFFBDBDBDFFB5B5B515FFFFFF00FFFFFF00CDCDCDFFFDFD
+                    FDFFFDFDFDFFFCFCFCFFF7F7F7FFFDF5EAFFFECF8AFFFFCC83FFFDE2BCFFFDFD
+                    FDFFDCDCDCFFC0C0C0FFB9B9B915FFFFFF00FFFFFF00FFFFFF00CECECEFFFDFD
+                    FDFFE0E0E0FFCACACAF9C8C8C8E2F7F7F7FFFBF3E8FFFDE3BDFFFDFDFDFFDEDE
+                    DEFFC3C3C3FFBDBDBD15FFFFFF00FFFFFF00FFFFFF00FFFFFF00D0D0D0FFFDFD
+                    FDFFCDCDCDFFFFFFFF00CACACACDF3F3F3FFFBFBFBFFFDFDFDFFE0E0E0FFC7C7
+                    C7FFC0C0C015FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D2D2D2FFFDFD
+                    FDFFE2E2E2FFCECECEFFE0E0E0FFFDFDFDFFFDFDFDFFE2E2E2FFCBCBCBFFC4C4
+                    C415FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D3D3D3FFFDFD
+                    FDFFFDFDFDFFFDFDFDFFFDFDFDFFFDFDFDFFE4E4E4FFCDCDCDFFC8C8C815FFFF
+                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D5D5D5FFD4D4
+                    D4FFD2D2D2FFD1D1D1FFD0D0D0FFCECECEFFCDCDCDFFCBCBCB15FFFFFF00FFFF
+                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+                  }
+                  OnClick = btnInqCajaUpdClick
+                  TabOrder = 1
+                end
+                object btnInqCajaDel: TBitBtn
+                  Left = 19
+                  Height = 30
+                  Top = 99
+                  Width = 132
+                  Caption = 'Borrar'
+                  Glyph.Data = {
+                    36040000424D3604000000000000360000002800000010000000100000000100
+                    2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00ABABAB38AAAA
+                    AA1E1D57C4780345B9DF0442BCFE0345B9E30345B87AFFFFFF00FFFFFF00FFFF
+                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00AFAFAF38ADADADF66886
+                    BDFF2664C9FC2177E6FF0579EAFF0164DDFF044DBDFC0345B87AFFFFFF00FFFF
+                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00B2B2B238B1B1B1F6E0E0E0FF1A55
+                    BCFF639DF4FF187FFFFF0076F8FF0076EEFF0368E1FF0345B9E4FFFFFF00FFFF
+                    FF00FFFFFF00FFFFFF00FFFFFF00B6B6B63BB4B4B4F6E2E2E2FFFDFDFDFF0543
+                    BCFFAECDFEFFFFFFFFFFFFFFFFFFFFFFFFFF187FEFFF0442BCFEFFFFFF00FFFF
+                    FF00FFFFFF00FFFFFF00BABABA3BB8B8B8F6E4E4E4FFFDFDFDFFFBECD5FF2457
+                    B4FF8DB5F6FF4D92FFFF1177FFFF2186FFFF408AEBFF0344B9DEFFFFFF00FFFF
+                    FF00FFFFFF00BDBDBD3BBCBCBCF6E5E5E5FFFDFDFDFFFBECD6FFFDCD86FF9697
+                    A6FF3D75D0FF8DB5F7FFB8D6FEFF72A8F5FF2D6BCBFC0443BA6DFFFFFF00FFFF
+                    FF00C1C1C13BC0C0C0F6E7E7E7FFFDFDFDFFFBECD6FFFDCD88FFFFD598FFFFD6
+                    9CFF9598A7FF295CBAFF0543BCFF1B56BDFF6281B8FFACACAC1FFFFFFF00C5C5
+                    C53BC3C3C3F6E8E8E8FFFDFDFDFFFBECD6FFFDCD88FFFFD598FFFFD79EFFFFD6
+                    9BFFFFCE89FFFDE1BAFFFDFDFDFFD7D7D7FFB5B5B5FFAEAEAE15C9C9C93DC7C7
+                    C7F6E9E9E9FFFDFDFDFFFBEBD3FFFFCC83FFFFD498FFFFD79EFFFFD69BFFFFCF
+                    8BFFFDE2BCFFFDFDFDFFD9D9D9FFB9B9B9FFB1B1B115FFFFFF00CBCBCBF6EBEB
+                    EBFFFDFDFDFFFAFAFAFFFBF3E7FFFECE89FFFFD496FFFFD59AFFFFCF8BFFFDE2
+                    BCFFFDFDFDFFDADADAFFBDBDBDFFB5B5B515FFFFFF00FFFFFF00CDCDCDFFFDFD
+                    FDFFFDFDFDFFFCFCFCFFF7F7F7FFFDF5EAFFFECF8AFFFFCC83FFFDE2BCFFFDFD
+                    FDFFDCDCDCFFC0C0C0FFB9B9B915FFFFFF00FFFFFF00FFFFFF00CECECEFFFDFD
+                    FDFFE0E0E0FFCACACAF9C8C8C8E2F7F7F7FFFBF3E8FFFDE3BDFFFDFDFDFFDEDE
+                    DEFFC3C3C3FFBDBDBD15FFFFFF00FFFFFF00FFFFFF00FFFFFF00D0D0D0FFFDFD
+                    FDFFCDCDCDFFFFFFFF00CACACACDF3F3F3FFFBFBFBFFFDFDFDFFE0E0E0FFC7C7
+                    C7FFC0C0C015FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D2D2D2FFFDFD
+                    FDFFE2E2E2FFCECECEFFE0E0E0FFFDFDFDFFFDFDFDFFE2E2E2FFCBCBCBFFC4C4
+                    C415FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D3D3D3FFFDFD
+                    FDFFFDFDFDFFFDFDFDFFFDFDFDFFFDFDFDFFE4E4E4FFCDCDCDFFC8C8C815FFFF
+                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D5D5D5FFD4D4
+                    D4FFD2D2D2FFD1D1D1FFD0D0D0FFCECECEFFCDCDCDFFCBCBCB15FFFFFF00FFFF
+                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+                  }
+                  OnClick = btnInqCajaDelClick
+                  TabOrder = 2
+                end
+              end
+            end
             object TabSheet5: TTabSheet
               Caption = 'Mensualidades'
               ClientHeight = 177
-              ClientWidth = 859
+              ClientWidth = 881
               object gbMensualidades1: TGroupBox
                 Left = 0
                 Height = 169
                 Top = 0
-                Width = 859
+                Width = 881
                 Align = alTop
                 ClientHeight = 151
-                ClientWidth = 855
+                ClientWidth = 877
                 TabOrder = 0
                 object Panel10: TPanel
-                  Left = 701
+                  Left = 723
                   Height = 151
                   Top = 0
                   Width = 154
@@ -1395,7 +1605,7 @@ object frmContratoAE: TfrmContratoAE
                   Left = 0
                   Height = 151
                   Top = 0
-                  Width = 701
+                  Width = 723
                   Align = alClient
                   AutoFillColumns = True
                   Color = clWindow
@@ -1403,37 +1613,37 @@ object frmContratoAE: TfrmContratoAE
                     item
                       Title.Alignment = taCenter
                       Title.Caption = 'Año'
-                      Width = 116
+                      Width = 117
                       FieldName = 'nAno'
                     end                  
                     item
                       Title.Alignment = taCenter
                       Title.Caption = 'Mes'
-                      Width = 116
+                      Width = 117
                       FieldName = 'nMes'
                     end                  
                     item
                       Title.Alignment = taCenter
                       Title.Caption = 'Monto'
-                      Width = 116
+                      Width = 117
                       FieldName = 'nMonto'
                     end                  
                     item
                       Title.Alignment = taCenter
                       Title.Caption = 'Vencimiento'
-                      Width = 116
+                      Width = 117
                       FieldName = 'fVencimiento'
                     end                  
                     item
                       Title.Alignment = taCenter
                       Title.Caption = 'Punitorios'
-                      Width = 116
+                      Width = 117
                       FieldName = 'nPunitorios'
                     end                  
                     item
                       Title.Alignment = taCenter
                       Title.Caption = 'Pagado'
-                      Width = 117
+                      Width = 118
                       FieldName = 'nTotal'
                     end>
                   DataSource = ds_inqMeses
@@ -1453,9 +1663,9 @@ object frmContratoAE: TfrmContratoAE
             object Gastos: TTabSheet
               Caption = 'Gastos'
               ClientHeight = 177
-              ClientWidth = 859
+              ClientWidth = 881
               object Panel14: TPanel
-                Left = 689
+                Left = 711
                 Height = 177
                 Top = 0
                 Width = 170
@@ -1463,7 +1673,7 @@ object frmContratoAE: TfrmContratoAE
                 ClientHeight = 177
                 ClientWidth = 170
                 TabOrder = 0
-                object btnInqMensNew2: TBitBtn
+                object btnInqGastoNew: TBitBtn
                   Left = 19
                   Height = 30
                   Top = 29
@@ -1505,10 +1715,10 @@ object frmContratoAE: TfrmContratoAE
                     D4FFD2D2D2FFD1D1D1FFD0D0D0FFCECECEFFCDCDCDFFCBCBCB15FFFFFF00FFFF
                     FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
                   }
-                  OnClick = btnInqMensNewClick
+                  OnClick = btnInqGastoNewClick
                   TabOrder = 0
                 end
-                object btnInqMensEdit2: TBitBtn
+                object btnInqGastoEdit: TBitBtn
                   Left = 19
                   Height = 30
                   Top = 64
@@ -1550,13 +1760,13 @@ object frmContratoAE: TfrmContratoAE
                     D4FFD2D2D2FFD1D1D1FFD0D0D0FFCECECEFFCDCDCDFFCBCBCB15FFFFFF00FFFF
                     FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
                   }
-                  OnClick = btnInqMensEditClick
+                  OnClick = btnInqGastoEditClick
                   TabOrder = 1
                 end
-                object btnInqMensDel2: TBitBtn
+                object btnInqGastoDel: TBitBtn
                   Left = 19
                   Height = 30
-                  Top = 99
+                  Top = 101
                   Width = 132
                   Caption = 'Borrar'
                   Glyph.Data = {
@@ -1595,7 +1805,7 @@ object frmContratoAE: TfrmContratoAE
                     D4FFD2D2D2FFD1D1D1FFD0D0D0FFCECECEFFCDCDCDFFCBCBCB15FFFFFF00FFFF
                     FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
                   }
-                  OnClick = btnInqMensDelClick
+                  OnClick = btnInqGastoDelClick
                   TabOrder = 2
                 end
               end
@@ -1603,10 +1813,29 @@ object frmContratoAE: TfrmContratoAE
                 Left = 0
                 Height = 177
                 Top = 0
-                Width = 689
+                Width = 711
                 Align = alClient
+                AutoFillColumns = True
                 Color = clWindow
-                Columns = <>
+                Columns = <                
+                  item
+                    Title.Alignment = taCenter
+                    Title.Caption = 'Detalle del gasto'
+                    Width = 587
+                    FieldName = 'Gasto'
+                  end                
+                  item
+                    Alignment = taRightJustify
+                    SizePriority = 0
+                    Title.Alignment = taCenter
+                    Title.Caption = 'Monto'
+                    Width = 120
+                    FieldName = 'nMonto'
+                  end>
+                DataSource = ds_inqGastos
+                FixedCols = 0
+                Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+                Scrollbars = ssAutoVertical
                 TabOrder = 1
                 TitleFont.CharSet = ANSI_CHARSET
                 TitleFont.Color = clBlack
@@ -1614,186 +1843,39 @@ object frmContratoAE: TfrmContratoAE
                 TitleFont.Name = 'Arial'
                 TitleFont.Pitch = fpVariable
                 TitleFont.Quality = fqDraft
-              end
-            end
-            object TabSheet8: TTabSheet
-              Caption = 'Caja'
-              ClientHeight = 177
-              ClientWidth = 859
-              object DBGrid9: TDBGrid
-                Left = 0
-                Height = 177
-                Top = 0
-                Width = 689
-                Align = alClient
-                Color = clWindow
-                Columns = <>
-                TabOrder = 0
-                TitleFont.CharSet = ANSI_CHARSET
-                TitleFont.Color = clBlack
-                TitleFont.Height = -13
-                TitleFont.Name = 'Arial'
-                TitleFont.Pitch = fpVariable
-                TitleFont.Quality = fqDraft
-              end
-              object Panel15: TPanel
-                Left = 689
-                Height = 177
-                Top = 0
-                Width = 170
-                Align = alRight
-                ClientHeight = 177
-                ClientWidth = 170
-                TabOrder = 1
-                object btnInqMensNew3: TBitBtn
-                  Left = 19
-                  Height = 30
-                  Top = 29
-                  Width = 132
-                  Caption = 'Nueva'
-                  Glyph.Data = {
-                    36040000424D3604000000000000360000002800000010000000100000000100
-                    2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
-                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00ABABAB38AAAA
-                    AA1E196B3788196B37F2196B37FF196B37F2196B3788FFFFFF00FFFFFF00FFFF
-                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00AFAFAF38ADADADF6658F
-                    74FF288C53FF64BA8DFF95D2B2FF64BA8DFF288C53FF196B378CFFFFFF00FFFF
-                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00B2B2B238B1B1B1F6E0E0E0FF216F
-                    3EFF62BA8BFF60BA87FFFFFFFFFF60B987FF67BC8FFF196B37F7FFFFFF00FFFF
-                    FF00FFFFFF00FFFFFF00FFFFFF00B6B6B63BB4B4B4F6E2E2E2FFFDFDFDFF317B
-                    4CFF9CD4B6FFFFFFFFFFFFFFFFFFFFFFFFFF95D2B2FF196B37FFFFFFFF00FFFF
-                    FF00FFFFFF00FFFFFF00BABABA3BB8B8B8F6E4E4E4FFFDFDFDFFFBECD5FF4A89
-                    5FFF90D3B1FF92D6B1FFFFFFFFFF65BC8CFF67BC8FFF196B37F7FFFFFF00FFFF
-                    FF00FFFFFF00BDBDBD3BBCBCBCF6E5E5E5FFFDFDFDFFFBECD6FFFDCD86FFA8AF
-                    7AFF61AB81FF95D4B4FFBAE6D0FF6ABB8FFF2D8F57FF196B378CFFFFFF00FFFF
-                    FF00C1C1C13BC0C0C0F6E7E7E7FFFDFDFDFFFBECD6FFFDCD88FFFFD598FFFFD6
-                    9CFFAEB37FFF609770FF4F8E66FF488860FF749882FFACACAC1FFFFFFF00C5C5
-                    C53BC3C3C3F6E8E8E8FFFDFDFDFFFBECD6FFFDCD88FFFFD598FFFFD79EFFFFD6
-                    9BFFFFCE89FFFDE1BAFFFDFDFDFFD7D7D7FFB5B5B5FFAEAEAE15C9C9C93DC7C7
-                    C7F6E9E9E9FFFDFDFDFFFBEBD3FFFFCC83FFFFD498FFFFD79EFFFFD69BFFFFCF
-                    8BFFFDE2BCFFFDFDFDFFD9D9D9FFB9B9B9FFB1B1B115FFFFFF00CBCBCBF6EBEB
-                    EBFFFDFDFDFFFAFAFAFFFBF3E7FFFECE89FFFFD496FFFFD59AFFFFCF8BFFFDE2
-                    BCFFFDFDFDFFDADADAFFBDBDBDFFB5B5B515FFFFFF00FFFFFF00CDCDCDFFFDFD
-                    FDFFFDFDFDFFFCFCFCFFF7F7F7FFFDF5EAFFFECF8AFFFFCC83FFFDE2BCFFFDFD
-                    FDFFDCDCDCFFC0C0C0FFB9B9B915FFFFFF00FFFFFF00FFFFFF00CECECEFFFDFD
-                    FDFFE0E0E0FFCACACAF9C8C8C8E2F7F7F7FFFBF3E8FFFDE3BDFFFDFDFDFFDEDE
-                    DEFFC3C3C3FFBDBDBD15FFFFFF00FFFFFF00FFFFFF00FFFFFF00D0D0D0FFFDFD
-                    FDFFCDCDCDFFFFFFFF00CACACACDF3F3F3FFFBFBFBFFFDFDFDFFE0E0E0FFC7C7
-                    C7FFC0C0C015FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D2D2D2FFFDFD
-                    FDFFE2E2E2FFCECECEFFE0E0E0FFFDFDFDFFFDFDFDFFE2E2E2FFCBCBCBFFC4C4
-                    C415FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D3D3D3FFFDFD
-                    FDFFFDFDFDFFFDFDFDFFFDFDFDFFFDFDFDFFE4E4E4FFCDCDCDFFC8C8C815FFFF
-                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D5D5D5FFD4D4
-                    D4FFD2D2D2FFD1D1D1FFD0D0D0FFCECECEFFCDCDCDFFCBCBCB15FFFFFF00FFFF
-                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
-                  }
-                  OnClick = btnInqMensNewClick
-                  TabOrder = 0
-                end
-                object btnInqMensEdit3: TBitBtn
-                  Left = 19
-                  Height = 30
-                  Top = 64
-                  Width = 132
-                  Caption = 'Editar'
-                  Glyph.Data = {
-                    36040000424D3604000000000000360000002800000010000000100000000100
-                    2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
-                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00ABABAB38AAAA
-                    AA1EFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00AFAFAF38ADADADF6B6B6
-                    B6FFAAAAAA21FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00B2B2B238B1B1B1F6E0E0E0FFD8D8
-                    D8FFB6B6B6FFABABAB21FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-                    FF00FFFFFF00FFFFFF00FFFFFF00B6B6B63BB4B4B4F6E2E2E2FFFDFDFDFFFDFD
-                    FDFFD9D9D9FFB6B6B6FFABABAB21FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-                    FF00FFFFFF00FFFFFF00BABABA3BB8B8B8F6E4E4E4FFFDFDFDFFFBECD5FFFDD2
-                    97FFFDFBF7FFD9D9D9FFB7B7B7FFABABAB21FFFFFF00FFFFFF00FFFFFF00FFFF
-                    FF00FFFFFF00BDBDBD3BBCBCBCF6E5E5E5FFFDFDFDFFFBECD6FFFDCD86FFFFCF
-                    8CFFFAD197FFF9F7F3FFD9D9D9FFB7B7B7FFACACAC21FFFFFF00FFFFFF00FFFF
-                    FF00C1C1C13BC0C0C0F6E7E7E7FFFDFDFDFFFBECD6FFFDCD88FFFFD598FFFFD6
-                    9CFFFFD08EFFF7CC8DFFFDFCFBFFD9D9D9FFB7B7B7FFACACAC1FFFFFFF00C5C5
-                    C53BC3C3C3F6E8E8E8FFFDFDFDFFFBECD6FFFDCD88FFFFD598FFFFD79EFFFFD6
-                    9BFFFFCE89FFFDE1BAFFFDFDFDFFD7D7D7FFB5B5B5FFAEAEAE15C9C9C93DC7C7
-                    C7F6E9E9E9FFFDFDFDFFFBEBD3FFFFCC83FFFFD498FFFFD79EFFFFD69BFFFFCF
-                    8BFFFDE2BCFFFDFDFDFFD9D9D9FFB9B9B9FFB1B1B115FFFFFF00CBCBCBF6EBEB
-                    EBFFFDFDFDFFFAFAFAFFFBF3E7FFFECE89FFFFD496FFFFD59AFFFFCF8BFFFDE2
-                    BCFFFDFDFDFFDADADAFFBDBDBDFFB5B5B515FFFFFF00FFFFFF00CDCDCDFFFDFD
-                    FDFFFDFDFDFFFCFCFCFFF7F7F7FFFDF5EAFFFECF8AFFFFCC83FFFDE2BCFFFDFD
-                    FDFFDCDCDCFFC0C0C0FFB9B9B915FFFFFF00FFFFFF00FFFFFF00CECECEFFFDFD
-                    FDFFE0E0E0FFCACACAF9C8C8C8E2F7F7F7FFFBF3E8FFFDE3BDFFFDFDFDFFDEDE
-                    DEFFC3C3C3FFBDBDBD15FFFFFF00FFFFFF00FFFFFF00FFFFFF00D0D0D0FFFDFD
-                    FDFFCDCDCDFFFFFFFF00CACACACDF3F3F3FFFBFBFBFFFDFDFDFFE0E0E0FFC7C7
-                    C7FFC0C0C015FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D2D2D2FFFDFD
-                    FDFFE2E2E2FFCECECEFFE0E0E0FFFDFDFDFFFDFDFDFFE2E2E2FFCBCBCBFFC4C4
-                    C415FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D3D3D3FFFDFD
-                    FDFFFDFDFDFFFDFDFDFFFDFDFDFFFDFDFDFFE4E4E4FFCDCDCDFFC8C8C815FFFF
-                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D5D5D5FFD4D4
-                    D4FFD2D2D2FFD1D1D1FFD0D0D0FFCECECEFFCDCDCDFFCBCBCB15FFFFFF00FFFF
-                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
-                  }
-                  OnClick = btnInqMensEditClick
-                  TabOrder = 1
-                end
-                object btnInqMensDel3: TBitBtn
-                  Left = 19
-                  Height = 30
-                  Top = 99
-                  Width = 132
-                  Caption = 'Borrar'
-                  Glyph.Data = {
-                    36040000424D3604000000000000360000002800000010000000100000000100
-                    2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
-                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00ABABAB38AAAA
-                    AA1E1D57C4780345B9DF0442BCFE0345B9E30345B87AFFFFFF00FFFFFF00FFFF
-                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00AFAFAF38ADADADF66886
-                    BDFF2664C9FC2177E6FF0579EAFF0164DDFF044DBDFC0345B87AFFFFFF00FFFF
-                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00B2B2B238B1B1B1F6E0E0E0FF1A55
-                    BCFF639DF4FF187FFFFF0076F8FF0076EEFF0368E1FF0345B9E4FFFFFF00FFFF
-                    FF00FFFFFF00FFFFFF00FFFFFF00B6B6B63BB4B4B4F6E2E2E2FFFDFDFDFF0543
-                    BCFFAECDFEFFFFFFFFFFFFFFFFFFFFFFFFFF187FEFFF0442BCFEFFFFFF00FFFF
-                    FF00FFFFFF00FFFFFF00BABABA3BB8B8B8F6E4E4E4FFFDFDFDFFFBECD5FF2457
-                    B4FF8DB5F6FF4D92FFFF1177FFFF2186FFFF408AEBFF0344B9DEFFFFFF00FFFF
-                    FF00FFFFFF00BDBDBD3BBCBCBCF6E5E5E5FFFDFDFDFFFBECD6FFFDCD86FF9697
-                    A6FF3D75D0FF8DB5F7FFB8D6FEFF72A8F5FF2D6BCBFC0443BA6DFFFFFF00FFFF
-                    FF00C1C1C13BC0C0C0F6E7E7E7FFFDFDFDFFFBECD6FFFDCD88FFFFD598FFFFD6
-                    9CFF9598A7FF295CBAFF0543BCFF1B56BDFF6281B8FFACACAC1FFFFFFF00C5C5
-                    C53BC3C3C3F6E8E8E8FFFDFDFDFFFBECD6FFFDCD88FFFFD598FFFFD79EFFFFD6
-                    9BFFFFCE89FFFDE1BAFFFDFDFDFFD7D7D7FFB5B5B5FFAEAEAE15C9C9C93DC7C7
-                    C7F6E9E9E9FFFDFDFDFFFBEBD3FFFFCC83FFFFD498FFFFD79EFFFFD69BFFFFCF
-                    8BFFFDE2BCFFFDFDFDFFD9D9D9FFB9B9B9FFB1B1B115FFFFFF00CBCBCBF6EBEB
-                    EBFFFDFDFDFFFAFAFAFFFBF3E7FFFECE89FFFFD496FFFFD59AFFFFCF8BFFFDE2
-                    BCFFFDFDFDFFDADADAFFBDBDBDFFB5B5B515FFFFFF00FFFFFF00CDCDCDFFFDFD
-                    FDFFFDFDFDFFFCFCFCFFF7F7F7FFFDF5EAFFFECF8AFFFFCC83FFFDE2BCFFFDFD
-                    FDFFDCDCDCFFC0C0C0FFB9B9B915FFFFFF00FFFFFF00FFFFFF00CECECEFFFDFD
-                    FDFFE0E0E0FFCACACAF9C8C8C8E2F7F7F7FFFBF3E8FFFDE3BDFFFDFDFDFFDEDE
-                    DEFFC3C3C3FFBDBDBD15FFFFFF00FFFFFF00FFFFFF00FFFFFF00D0D0D0FFFDFD
-                    FDFFCDCDCDFFFFFFFF00CACACACDF3F3F3FFFBFBFBFFFDFDFDFFE0E0E0FFC7C7
-                    C7FFC0C0C015FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D2D2D2FFFDFD
-                    FDFFE2E2E2FFCECECEFFE0E0E0FFFDFDFDFFFDFDFDFFE2E2E2FFCBCBCBFFC4C4
-                    C415FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D3D3D3FFFDFD
-                    FDFFFDFDFDFFFDFDFDFFFDFDFDFFFDFDFDFFE4E4E4FFCDCDCDFFC8C8C815FFFF
-                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D5D5D5FFD4D4
-                    D4FFD2D2D2FFD1D1D1FFD0D0D0FFCECECEFFCDCDCDFFCBCBCB15FFFFFF00FFFF
-                    FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
-                  }
-                  OnClick = btnInqMensDelClick
-                  TabOrder = 2
-                end
               end
             end
             object TabSheet10: TTabSheet
               Caption = 'Descuentos'
               ClientHeight = 177
-              ClientWidth = 859
+              ClientWidth = 881
               object DBGrid10: TDBGrid
                 Left = 0
                 Height = 177
                 Top = 0
-                Width = 689
+                Width = 711
                 Align = alClient
+                AutoFillColumns = True
                 Color = clWindow
-                Columns = <>
+                Columns = <                
+                  item
+                    Title.Alignment = taCenter
+                    Title.Caption = 'Descuento'
+                    Width = 587
+                    FieldName = 'Descuento'
+                  end                
+                  item
+                    Alignment = taRightJustify
+                    SizePriority = 0
+                    Title.Alignment = taCenter
+                    Title.Caption = 'Monto'
+                    Width = 120
+                    FieldName = 'nMonto'
+                  end>
+                DataSource = ds_inqDescuentos
+                FixedCols = 0
+                Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+                Scrollbars = ssAutoVertical
                 TabOrder = 0
                 TitleFont.CharSet = ANSI_CHARSET
                 TitleFont.Color = clBlack
@@ -1803,7 +1885,7 @@ object frmContratoAE: TfrmContratoAE
                 TitleFont.Quality = fqDraft
               end
               object Panel16: TPanel
-                Left = 689
+                Left = 711
                 Height = 177
                 Top = 0
                 Width = 170
@@ -1811,7 +1893,7 @@ object frmContratoAE: TfrmContratoAE
                 ClientHeight = 177
                 ClientWidth = 170
                 TabOrder = 1
-                object btnInqMensNew4: TBitBtn
+                object btnInqDescNew: TBitBtn
                   Left = 19
                   Height = 30
                   Top = 29
@@ -1853,10 +1935,10 @@ object frmContratoAE: TfrmContratoAE
                     D4FFD2D2D2FFD1D1D1FFD0D0D0FFCECECEFFCDCDCDFFCBCBCB15FFFFFF00FFFF
                     FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
                   }
-                  OnClick = btnInqMensNewClick
+                  OnClick = btnInqDescNewClick
                   TabOrder = 0
                 end
-                object btnInqMensEdit4: TBitBtn
+                object btnInqDescUpd: TBitBtn
                   Left = 19
                   Height = 30
                   Top = 64
@@ -1898,10 +1980,10 @@ object frmContratoAE: TfrmContratoAE
                     D4FFD2D2D2FFD1D1D1FFD0D0D0FFCECECEFFCDCDCDFFCBCBCB15FFFFFF00FFFF
                     FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
                   }
-                  OnClick = btnInqMensEditClick
+                  OnClick = btnInqDescUpdClick
                   TabOrder = 1
                 end
-                object btnInqMensDel4: TBitBtn
+                object btnInqDescDel: TBitBtn
                   Left = 19
                   Height = 30
                   Top = 99
@@ -1943,7 +2025,7 @@ object frmContratoAE: TfrmContratoAE
                     D4FFD2D2D2FFD1D1D1FFD0D0D0FFCECECEFFCDCDCDFFCBCBCB15FFFFFF00FFFF
                     FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
                   }
-                  OnClick = btnInqMensDelClick
+                  OnClick = btnInqDescDelClick
                   TabOrder = 2
                 end
               end
@@ -1951,15 +2033,50 @@ object frmContratoAE: TfrmContratoAE
             object TabSheet9: TTabSheet
               Caption = 'Pagares'
               ClientHeight = 177
-              ClientWidth = 859
+              ClientWidth = 881
               object DBGrid11: TDBGrid
                 Left = 0
                 Height = 177
                 Top = 0
-                Width = 689
+                Width = 711
                 Align = alClient
+                AutoFillColumns = True
                 Color = clWindow
-                Columns = <>
+                Columns = <                
+                  item
+                    SizePriority = 0
+                    Title.Alignment = taCenter
+                    Title.Caption = 'Vencimiento'
+                    Width = 93
+                    FieldName = 'fVencimiento'
+                  end                
+                  item
+                    Alignment = taRightJustify
+                    SizePriority = 0
+                    Title.Alignment = taCenter
+                    Title.Caption = 'Monto'
+                    Width = 120
+                    FieldName = 'nMonto'
+                  end                
+                  item
+                    Alignment = taRightJustify
+                    SizePriority = 0
+                    Title.Alignment = taCenter
+                    Title.Caption = 'Punitorios'
+                    Width = 120
+                    FieldName = 'nPunitorios'
+                  end                
+                  item
+                    Alignment = taRightJustify
+                    Title.Alignment = taCenter
+                    Title.Caption = 'Total'
+                    Width = 374
+                    FieldName = 'nTotal'
+                  end>
+                DataSource = ds_inqPagares
+                FixedCols = 0
+                Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+                Scrollbars = ssAutoVertical
                 TabOrder = 0
                 TitleFont.CharSet = ANSI_CHARSET
                 TitleFont.Color = clBlack
@@ -1969,7 +2086,7 @@ object frmContratoAE: TfrmContratoAE
                 TitleFont.Quality = fqDraft
               end
               object Panel17: TPanel
-                Left = 689
+                Left = 711
                 Height = 177
                 Top = 0
                 Width = 170
@@ -1977,7 +2094,7 @@ object frmContratoAE: TfrmContratoAE
                 ClientHeight = 177
                 ClientWidth = 170
                 TabOrder = 1
-                object btnInqMensNew5: TBitBtn
+                object btnInqPagareNew: TBitBtn
                   Left = 19
                   Height = 30
                   Top = 29
@@ -2019,10 +2136,10 @@ object frmContratoAE: TfrmContratoAE
                     D4FFD2D2D2FFD1D1D1FFD0D0D0FFCECECEFFCDCDCDFFCBCBCB15FFFFFF00FFFF
                     FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
                   }
-                  OnClick = btnInqMensNewClick
+                  OnClick = btnInqPagareNewClick
                   TabOrder = 0
                 end
-                object btnInqMensEdit5: TBitBtn
+                object btnInqPagareEdit: TBitBtn
                   Left = 19
                   Height = 30
                   Top = 64
@@ -2064,10 +2181,10 @@ object frmContratoAE: TfrmContratoAE
                     D4FFD2D2D2FFD1D1D1FFD0D0D0FFCECECEFFCDCDCDFFCBCBCB15FFFFFF00FFFF
                     FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
                   }
-                  OnClick = btnInqMensEditClick
+                  OnClick = btnInqPagareEditClick
                   TabOrder = 1
                 end
-                object btnInqMensDel5: TBitBtn
+                object btnInqPagareDel: TBitBtn
                   Left = 19
                   Height = 30
                   Top = 99
@@ -2109,7 +2226,7 @@ object frmContratoAE: TfrmContratoAE
                     D4FFD2D2D2FFD1D1D1FFD0D0D0FFCECECEFFCDCDCDFFCBCBCB15FFFFFF00FFFF
                     FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
                   }
-                  OnClick = btnInqMensDelClick
+                  OnClick = btnInqPagareDelClick
                   TabOrder = 2
                 end
               end
@@ -2117,17 +2234,16 @@ object frmContratoAE: TfrmContratoAE
             object TabSheet6: TTabSheet
               Caption = '-------------------'
               ClientHeight = 177
-              ClientWidth = 859
-              TabVisible = False
+              ClientWidth = 881
               object GroupBox3: TGroupBox
                 Left = 0
                 Height = 99
                 Top = 0
-                Width = 859
+                Width = 881
                 Align = alTop
                 Caption = 'Costos Iniciales del Contrato'
                 ClientHeight = 81
-                ClientWidth = 855
+                ClientWidth = 877
                 TabOrder = 0
                 object DBEdit3: TDBEdit
                   Left = 66
@@ -2302,21 +2418,21 @@ object frmContratoAE: TfrmContratoAE
             Left = 0
             Height = 305
             Top = 206
-            Width = 867
+            Width = 889
             Align = alClient
             ClientHeight = 305
-            ClientWidth = 867
+            ClientWidth = 889
             TabOrder = 1
             object Panel6: TPanel
               Left = 1
               Height = 50
               Top = 1
-              Width = 865
+              Width = 887
               Align = alTop
               BevelInner = bvLowered
               BevelOuter = bvLowered
               ClientHeight = 50
-              ClientWidth = 865
+              ClientWidth = 887
               TabOrder = 0
               object BitBtn1: TBitBtn
                 Left = 311
@@ -2334,9 +2450,17 @@ object frmContratoAE: TfrmContratoAE
                 Caption = 'Quitar'
                 TabOrder = 1
               end
+              object btnGenerarLiquidacion: TBitBtn
+                Left = 15
+                Height = 36
+                Top = 7
+                Width = 96
+                Caption = 'Generar'
+                TabOrder = 2
+              end
             end
             object Panel13: TPanel
-              Left = 728
+              Left = 750
               Height = 253
               Top = 51
               Width = 138
@@ -2347,7 +2471,7 @@ object frmContratoAE: TfrmContratoAE
               object BitBtn3: TBitBtn
                 Left = 16
                 Height = 40
-                Top = 45
+                Top = 37
                 Width = 112
                 Caption = 'Grabar'
                 TabOrder = 0
@@ -2365,17 +2489,17 @@ object frmContratoAE: TfrmContratoAE
               Left = 1
               Height = 253
               Top = 51
-              Width = 727
+              Width = 749
               Align = alClient
               Caption = 'Liquidación actual'
               ClientHeight = 235
-              ClientWidth = 723
+              ClientWidth = 745
               TabOrder = 2
               object DBGrid2: TDBGrid
                 Left = 0
                 Height = 235
                 Top = 0
-                Width = 723
+                Width = 745
                 Align = alClient
                 AutoFillColumns = True
                 Color = clWindow
@@ -2383,7 +2507,7 @@ object frmContratoAE: TfrmContratoAE
                   item
                     Title.Alignment = taCenter
                     Title.Caption = 'Concepto'
-                    Width = 599
+                    Width = 621
                   end                
                   item
                     SizePriority = 0
@@ -2445,5 +2569,25 @@ object frmContratoAE: TfrmContratoAE
     DataSet = DM_Contratos.trContratosGarantes
     left = 568
     top = 562
+  end
+  object ds_inqGastos: TDatasource
+    DataSet = DM_LIQINQ.tbLiqInqGastos
+    left = 408
+    top = 448
+  end
+  object ds_inqCaja: TDatasource
+    DataSet = DM_LIQINQ.tbLiqInqCaja
+    left = 472
+    top = 448
+  end
+  object ds_inqDescuentos: TDatasource
+    DataSet = DM_LIQINQ.tbLiqInqDescuentos
+    left = 544
+    top = 448
+  end
+  object ds_inqPagares: TDatasource
+    DataSet = DM_LIQINQ.tbLiqInqPagares
+    left = 600
+    top = 448
   end
 end

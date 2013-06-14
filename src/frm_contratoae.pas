@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, db, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
   ComCtrls, DbCtrls, StdCtrls, DBGrids, Buttons, dbdateedit
-  ,dmgeneral;
+  ,dmgeneral, Grids;
 
 type
 
@@ -18,22 +18,23 @@ type
     BitBtn2: TBitBtn;
     BitBtn3: TBitBtn;
     BitBtn4: TBitBtn;
+    btnGenerarLiquidacion: TBitBtn;
     btnAgregarGarantes: TBitBtn;
     btnInqMensDel1: TBitBtn;
-    btnInqMensDel2: TBitBtn;
-    btnInqMensDel3: TBitBtn;
-    btnInqMensDel4: TBitBtn;
-    btnInqMensDel5: TBitBtn;
+    btnInqGastoDel: TBitBtn;
+    btnInqCajaDel: TBitBtn;
+    btnInqDescDel: TBitBtn;
+    btnInqPagareDel: TBitBtn;
     btnInqMensEdit1: TBitBtn;
-    btnInqMensEdit2: TBitBtn;
-    btnInqMensEdit3: TBitBtn;
-    btnInqMensEdit4: TBitBtn;
-    btnInqMensEdit5: TBitBtn;
+    btnInqGastoEdit: TBitBtn;
+    btnInqCajaUpd: TBitBtn;
+    btnInqDescUpd: TBitBtn;
+    btnInqPagareEdit: TBitBtn;
     btnInqMensNew1: TBitBtn;
-    btnInqMensNew2: TBitBtn;
-    btnInqMensNew3: TBitBtn;
-    btnInqMensNew4: TBitBtn;
-    btnInqMensNew5: TBitBtn;
+    btnInqGastoNew: TBitBtn;
+    btnInqCajaNew: TBitBtn;
+    btnInqDescNew: TBitBtn;
+    btnInqPagareNew: TBitBtn;
     btnQuitarGarantes: TBitBtn;
     BitBtn5: TBitBtn;
     btnAgregarCuenta: TBitBtn;
@@ -77,6 +78,10 @@ type
     DBEdit7: TDBEdit;
     DBGrid1: TDBGrid;
     DBMemo1: TDBMemo;
+    ds_inqGastos: TDatasource;
+    ds_inqCaja: TDatasource;
+    ds_inqDescuentos: TDatasource;
+    ds_inqPagares: TDatasource;
     ds_Inquilinos: TDatasource;
     ds_garantes: TDatasource;
     ds_ResumenLiquidacion: TDatasource;
@@ -149,9 +154,21 @@ type
     tabTodo: TTabSheet;
     procedure btnAgregarCuentaClick(Sender: TObject);
     procedure btnAgregarGarantesClick(Sender: TObject);
+    procedure btnInqCajaDelClick(Sender: TObject);
+    procedure btnInqCajaNewClick(Sender: TObject);
+    procedure btnInqDescDelClick(Sender: TObject);
+    procedure btnInqDescNewClick(Sender: TObject);
+    procedure btnInqDescUpdClick(Sender: TObject);
+    procedure btnInqGastoDelClick(Sender: TObject);
+    procedure btnInqGastoEditClick(Sender: TObject);
+    procedure btnInqGastoNewClick(Sender: TObject);
     procedure btnInqMensDelClick(Sender: TObject);
+    procedure btnInqCajaUpdClick(Sender: TObject);
     procedure btnInqMensEditClick(Sender: TObject);
     procedure btnInqMensNewClick(Sender: TObject);
+    procedure btnInqPagareDelClick(Sender: TObject);
+    procedure btnInqPagareEditClick(Sender: TObject);
+    procedure btnInqPagareNewClick(Sender: TObject);
     procedure btnQuitarGarantesClick(Sender: TObject);
     procedure btnQuitarInquilinoClick(Sender: TObject);
     procedure btnAgregarGastoClick(Sender: TObject);
@@ -163,6 +180,8 @@ type
     procedure btnTugTipoContratoClick(Sender: TObject);
     procedure ckBancoChange(Sender: TObject);
     procedure DBEdit9Change(Sender: TObject);
+    procedure DBGrid9PrepareCanvas(sender: TObject; DataCol: Integer;
+      Column: TColumn; AState: TGridDrawState);
     procedure FormShow(Sender: TObject);
   private
     _idContrato: GUID_ID;
@@ -170,6 +189,8 @@ type
     procedure LevantarCuentasCorrientes;
 
     procedure PantInqMensualidad (idMensualidad: GUID_ID);
+    procedure PantGastos (operacion: TOperacion);
+    procedure PantCaja (operacion: TOperacion);
 
 
   public
@@ -193,6 +214,8 @@ uses
   ,frm_inqgastomensualae
   ,frm_garanteslistado
   ,dmgarantes
+  ,frm_gastosAE
+  ,frm_cajaae
   ;
 
 { TfrmContratoAE }
@@ -244,6 +267,30 @@ begin
     edHonorariosTotal.Text:= '$ 00.00';
 end;
 
+procedure TfrmContratoAE.DBGrid9PrepareCanvas(sender: TObject;
+  DataCol: Integer; Column: TColumn; AState: TGridDrawState);
+begin
+  if ( (Column.Field.FieldName = 'fPago')
+     or (Column.Field.FieldName = 'fVencimiento')
+      ) then
+  begin
+      if (   (Column.Field.IsNull)
+          or (Column.Field.Value = StrToDate('30/12/1899'))
+          or (Column.Field.Text = '30/12/1899')
+         )then
+       begin
+         with (Sender As TDBGrid) do
+         begin
+           //Custom drawing
+//           Canvas.Brush.Color:=clYellow;
+           Canvas.Font.Color:=Canvas.Brush.Color;
+//           Canvas.Font.Style:=[fsBold];
+         end;
+       end;
+  end;
+end;
+
+
 procedure TfrmContratoAE.FormShow(Sender: TObject);
 begin
   Inicializar;
@@ -274,7 +321,9 @@ end;
 procedure TfrmContratoAE.LevantarCuentasCorrientes;
 begin
   DM_General.CargarComboBoxTb(cbCuentaCorriente, 'BancoCuentaCBU', 'idPropietarioBanco', DM_Contratos.tbCuentasPropietarios);
-  DM_LIQINQ.LevantarCuotasPorContrato(_idContrato);
+  DM_LIQINQ.LevantarCuentaCorrienteContrato (_idContrato);
+//  DM_LIQINQ.LevantarCuotasPorContrato(_idContrato);
+
 end;
 
 procedure TfrmContratoAE.btnGrabarSalirClick(Sender: TObject);
@@ -463,12 +512,150 @@ begin
   end;
 end;
 
-
 procedure TfrmContratoAE.btnQuitarGarantesClick(Sender: TObject);
 begin
    if (MessageDlg ('ATENCION', 'Borro el garante seleccionado?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
     DM_Contratos.BajaGarante;
 end;
+
+
+(*******************************************************************************
+*** GASTOS INQUILINOS
+*******************************************************************************)
+
+procedure TfrmContratoAE.PantGastos(operacion: TOperacion);
+var
+  pant: TfrmGastoAE;
+begin
+  pant:= TfrmGastoAE.Create(self);
+  try
+   if (Operacion = modificar) then
+   begin
+     pant.descripcion:= ds_inqGastos.DataSet.FieldByName('Gasto').asString;
+     pant.monto:= ds_inqGastos.DataSet.FieldByName('nMonto').AsFloat;
+   end;
+   if pant.ShowModal = mrOK then
+   begin
+     DM_LIQINQ.AsentarGasto (_idContrato, pant.descripcion, pant.monto, operacion);
+   end;
+  finally
+    pant.Free;
+  end;
+end;
+
+procedure TfrmContratoAE.btnInqGastoNewClick(Sender: TObject);
+begin
+  PantGastos(nuevo);
+end;
+
+procedure TfrmContratoAE.btnInqGastoEditClick(Sender: TObject);
+begin
+  if (ds_inqGastos.DataSet.RecordCount > 0) then
+    PantGastos(modificar);
+end;
+
+procedure TfrmContratoAE.btnInqGastoDelClick(Sender: TObject);
+begin
+   if (MessageDlg ('ATENCION', 'Borro el gasto seleccionado?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
+   begin
+     DM_LIQINQ.BorrarGastoActual;
+   end;
+end;
+
+(*******************************************************************************
+*** CAJA INQUILINOS
+*******************************************************************************)
+
+procedure TfrmContratoAE.PantCaja(operacion: TOperacion);
+var
+  pant: TfrmCajaAE;
+begin
+  pant:= TfrmCajaAE.Create(self);
+  try
+   if (Operacion = modificar) then
+   begin
+     pant.descripcion:= ds_inqCaja.DataSet.FieldByName('Descripcion').asString;
+     pant.monto:= ds_inqCaja.DataSet.FieldByName('Monto').AsFloat;
+     pant.fVencimiento:= ds_inqCaja.DataSet.FieldByName('fVencimiento').AsDateTime;
+     pant.montoPago:= ds_inqCaja.DataSet.FieldByName('Pagado').AsFloat;
+     pant.fPago:= ds_inqCaja.DataSet.FieldByName('fPago').AsDateTime;
+     pant.refTipo:= ds_inqCaja.DataSet.FieldByName('refTipo').AsInteger;
+   end;
+   if pant.ShowModal = mrOK then
+   begin
+     DM_LIQINQ.AsentarCaja (_idContrato, pant.descripcion, pant.monto
+                          , pant.fVencimiento, pant.montoPago, pant.fPago
+                          , pant.refTipo, operacion);
+   end;
+  finally
+    pant.Free;
+  end;
+end;
+
+procedure TfrmContratoAE.btnInqCajaNewClick(Sender: TObject);
+begin
+  PantCaja(nuevo);
+end;
+
+procedure TfrmContratoAE.btnInqCajaUpdClick(Sender: TObject);
+begin
+   PantCaja(modificar);
+end;
+
+procedure TfrmContratoAE.btnInqCajaDelClick(Sender: TObject);
+begin
+   if (MessageDlg ('ATENCION', 'Borro el movimiento de caja seleccionado?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
+   begin
+     DM_LIQINQ.BorrarCajaActual;
+   end;
+end;
+
+(*******************************************************************************
+*** DESCUENTOS INQUILINOS
+*******************************************************************************)
+
+procedure TfrmContratoAE.btnInqDescNewClick(Sender: TObject);
+begin
+
+end;
+
+procedure TfrmContratoAE.btnInqDescUpdClick(Sender: TObject);
+begin
+
+end;
+
+procedure TfrmContratoAE.btnInqDescDelClick(Sender: TObject);
+begin
+   if (MessageDlg ('ATENCION', 'Borro el descuento seleccionado?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
+   begin
+
+   end;
+end;
+
+
+(*******************************************************************************
+*** PAGARES INQUILINOS
+*******************************************************************************)
+
+procedure TfrmContratoAE.btnInqPagareNewClick(Sender: TObject);
+begin
+
+end;
+
+procedure TfrmContratoAE.btnInqPagareEditClick(Sender: TObject);
+begin
+
+end;
+
+procedure TfrmContratoAE.btnInqPagareDelClick(Sender: TObject);
+begin
+   if (MessageDlg ('ATENCION', 'Borro el Pagaré seleccionado?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
+   begin
+
+   end;
+end;
+
+
 
 end.
 
