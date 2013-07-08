@@ -1184,9 +1184,9 @@ object frmContratoAE: TfrmContratoAE
             Height = 206
             Top = 0
             Width = 889
-            ActivePage = TabSheet8
+            ActivePage = TabSheet9
             Align = alTop
-            TabIndex = 0
+            TabIndex = 4
             TabOrder = 0
             object TabSheet8: TTabSheet
               Caption = 'Caja'
@@ -2456,6 +2456,7 @@ object frmContratoAE: TfrmContratoAE
                 Top = 7
                 Width = 96
                 Caption = 'Generar'
+                OnClick = btnGenerarLiquidacionClick
                 TabOrder = 2
               end
             end

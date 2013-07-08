@@ -1,54 +1,27 @@
-object frmGastoAE: TfrmGastoAE
-  Left = 618
-  Height = 143
-  Top = 60
-  Width = 661
-  Caption = 'Gasto'
-  ClientHeight = 143
-  ClientWidth = 661
+object frmSeleccionMes: TfrmSeleccionMes
+  Left = 539
+  Height = 119
+  Top = 354
+  Width = 392
+  BorderStyle = bsDialog
+  Caption = 'Seleccione el mes a liquidar'
+  ClientHeight = 119
+  ClientWidth = 392
   Font.CharSet = ANSI_CHARSET
   Font.Color = clBlack
   Font.Height = -13
   Font.Name = 'Arial'
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
+  FormStyle = fsStayOnTop
+  OnShow = FormShow
   Position = poOwnerFormCenter
   LCLVersion = '1.0.4.0'
-  object edDetalle: TLabeledEdit
-    Left = 8
-    Height = 24
-    Top = 48
-    Width = 536
-    Anchors = [akTop, akLeft, akRight]
-    EditLabel.AnchorSideLeft.Control = edDetalle
-    EditLabel.AnchorSideRight.Control = edDetalle
-    EditLabel.AnchorSideRight.Side = asrBottom
-    EditLabel.AnchorSideBottom.Control = edDetalle
-    EditLabel.Left = 8
-    EditLabel.Height = 17
-    EditLabel.Top = 28
-    EditLabel.Width = 536
-    EditLabel.Caption = 'Detalle'
-    EditLabel.ParentColor = False
-    TabOrder = 0
-  end
-  object edMonto: TFloatSpinEdit
-    Left = 558
-    Height = 24
-    Top = 48
-    Width = 90
-    Anchors = [akTop, akRight]
-    Increment = 1
-    MaxValue = 1000000
-    MinValue = -1000000
-    TabOrder = 1
-    Value = 0
-  end
-  object btnAceptar: TBitBtn
-    Left = 48
+  object BitBtn1: TBitBtn
+    Left = 40
     Height = 30
-    Top = 96
-    Width = 107
+    Top = 77
+    Width = 104
     Caption = 'Aceptar'
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
@@ -86,15 +59,14 @@ object frmGastoAE: TfrmGastoAE
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
     }
-    OnClick = btnAceptarClick
-    TabOrder = 2
+    OnClick = BitBtn1Click
+    TabOrder = 0
   end
   object btnCancelar: TBitBtn
-    Left = 488
+    Left = 244
     Height = 30
-    Top = 96
-    Width = 107
-    Anchors = [akTop, akRight]
+    Top = 77
+    Width = 112
     Caption = 'Cancelar'
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
@@ -133,15 +105,36 @@ object frmGastoAE: TfrmGastoAE
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
     }
     OnClick = btnCancelarClick
-    TabOrder = 3
+    TabOrder = 1
   end
-  object Label1: TLabel
-    Left = 560
-    Height = 17
-    Top = 29
-    Width = 37
-    Anchors = [akTop, akRight]
-    Caption = 'Monto'
-    ParentColor = False
+  object cbMes: TComboBox
+    Left = 40
+    Height = 24
+    Top = 24
+    Width = 316
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ItemHeight = 18
+    Items.Strings = (
+      '01 - ENERO'
+      '02 - FEBRERO'
+      '03 - MARZO'
+      '04 - ABRIL'
+      '05 - MAYO'
+      '06 - JUNIO'
+      '07 - JULIO'
+      '08 - AGOSTO'
+      '09 - SEPTIEMBRE'
+      '10 - OCTUBRE'
+      '11 - NOVIEMBRE'
+      '12 - DICIEMBRE '
+    )
+    ParentFont = False
+    Style = csDropDownList
+    TabOrder = 2
   end
 end

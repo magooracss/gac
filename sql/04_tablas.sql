@@ -10,6 +10,9 @@ alter table tbUsuarios add pAplicacion varchar (4) DEFAULT 'N';
 alter table tbLiqInqGastos add refContrato "guid" DEFAULT '{00000000-0000-0000-0000-000000000000}';
 alter table tbLiqInqGastos add bVisible int DEFAULT 1;
 alter table tbLiqInqCaja add refContrato "guid" DEFAULT '{00000000-0000-0000-0000-000000000000}';
+alter table tbliqInqDescuentos add refContrato "guid" DEFAULT '{00000000-0000-0000-0000-000000000000}';
+alter table tbLiqInqDescuentos add bVisible int DEFAULT 1;
+alter table tbLiqInqPagares add bVisible int DEFAULT 1;
 
 CREATE TABLE tugCajaTipoMovimientos
 (

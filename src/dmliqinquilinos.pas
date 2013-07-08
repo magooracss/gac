@@ -15,6 +15,8 @@ type
 
   TDM_LIQINQ = class(TDataModule)
     qCajaPorContrato: TZQuery;
+    qDescuentosPorContrato: TZQuery;
+    qPagaresPorContrato: TZQuery;
     qLevantarCuotasContrato: TZQuery;
     qLevantarCuotasLiquidadas: TZQuery;
     qGastosPorContrato: TZQuery;
@@ -90,6 +92,8 @@ type
   private
     procedure LevantarGastosPorContrato (refContrato: GUID_ID);
     procedure LevantarCajaPorContrato (refContrato: GUID_ID);
+    procedure LevantarDescuentoPorContrato (refContrato: GUID_ID);
+    procedure LevantarPagaresPorContrato (refContrato: GUID_ID);
   public
     procedure CargarCuotasPorContrato (refContrato: GUID_ID); // Dado un contrato, se generan las cuotas a liquidar
     procedure LevantarCuotasPorContrato (refContrato: GUID_ID); //Levanta de la base las cuotas del contrato
@@ -116,6 +120,15 @@ type
                           ; refTipo: integer; operacion: TOperacion);
     procedure BorrarCajaActual;
 
+    procedure AsentarDescuento (refContrato: GUID_ID; descripcion: string; monto: double; operacion: TOperacion);
+    procedure BorrarDescuentoActual;
+
+    procedure AsentarPagare (refContrato: GUID_ID; fVencimiento: TDate
+                            ; monto, punitorios, total: double
+                            ; operacion: TOperacion);
+    procedure BorrarPagareActual;
+
+    procedure CargarLiquidacionMes (elMes: word);
 
   end; 
 
@@ -221,6 +234,9 @@ begin
   DM_General.GrabarDatos(tbMesesSEL, tbMesesINS, tbMesesUPD, tbLiqInqMeses, 'idLiqInqMes');
   DM_General.GrabarDatos(tbGastosSEL, tbGastosINS, tbGastosUPD, tbLiqInqGastos, 'idLiqInqGasto');
   DM_General.GrabarDatos(tbCajaSEL, tbCajaINS, tbCajaUPD, tbLiqInqCaja, 'idLiqInqCaja');
+  DM_General.GrabarDatos(tbCajaSEL, tbCajaINS, tbCajaUPD, tbLiqInqCaja, 'idLiqInqCaja');
+  DM_General.GrabarDatos(tbDescSEL, tbDescINS, tbDescUPD, tbLiqInqDescuentos, 'idLiqInqDescuento');
+  DM_General.GrabarDatos(tbPagaresSEL, tbPagareINS, tbParareUPD, tbLiqInqPagares, 'idLiqInqPagare');
 end;
 
 
@@ -316,6 +332,8 @@ begin
   LevantarCuotasPorContrato(refContrato);
   LevantarGastosPorContrato(refContrato);
   LevantarCajaPorContrato(refContrato);
+  LevantarDescuentoPorContrato(refContrato);
+  LevantarPagaresPorContrato (refContrato);
 end;
 
 function TDM_LIQINQ.MensualidadLiquidada(refMensualidad: GUID_ID): boolean;
@@ -349,6 +367,24 @@ begin
   qCajaPorContrato.Open;
   tbLiqInqCaja.LoadFromDataSet(qCajaPorContrato, 0, lmAppend);
   qCajaPorContrato.Close;
+end;
+
+procedure TDM_LIQINQ.LevantarDescuentoPorContrato(refContrato: GUID_ID);
+begin
+  if tbLiqInqDescuentos.Active then tbLiqInqDescuentos.Close;
+  qDescuentosPorContrato.ParamByName('refContrato').asString:= refContrato;
+  qDescuentosPorContrato.Open;
+  tbLiqInqDescuentos.LoadFromDataSet(qDescuentosPorContrato,0,lmAppend);
+  qDescuentosPorContrato.Close;
+end;
+
+procedure TDM_LIQINQ.LevantarPagaresPorContrato(refContrato: GUID_ID);
+begin
+  if tbLiqInqPagares.Active then tbLiqInqPagares.Close;
+  qPagaresPorContrato.ParamByName('refContrato').asString:= refContrato;
+  qPagaresPorContrato.Open;
+  tbLiqInqPagares.LoadFromDataSet(qPagaresPorContrato,0,lmAppend);
+  qPagaresPorContrato.Close;
 end;
 
 procedure TDM_LIQINQ.AsentarGasto(refContrato: GUID_ID; descripcion: string;
@@ -422,6 +458,82 @@ begin
       LevantarCajaPorContrato(refContrato);
     end;
   end;
+end;
+
+procedure TDM_LIQINQ.AsentarDescuento(refContrato: GUID_ID;
+  descripcion: string; monto: double; operacion: TOperacion);
+begin
+  with tbLiqInqDescuentos do
+  begin
+    case operacion of
+      nuevo: Insert;
+      modificar: Edit;
+    end;
+    tbLiqInqDescuentosrefContrato.AsString:= refContrato;
+    tbLiqInqDescuentosDescuento.asString:= descripcion;
+    tbLiqInqDescuentosnMonto.AsFloat:= monto;
+    Post;
+  end;
+end;
+
+procedure TDM_LIQINQ.BorrarDescuentoActual;
+var
+  refContrato: GUID_ID;
+begin
+  with tbLiqInqDescuentos do
+  begin
+    if (RecordCount > 0) then
+    begin
+      tbLiqInqDescuentos.Edit;
+      tbLiqInqDescuentosbVisible.AsInteger:= 0;
+      tbLiqInqDescuentos.Post;
+      refContrato:= tbLiqInqDescuentosrefContrato.AsString;
+      DM_General.GrabarDatos(tbDescSEL, tbDescINS, tbDescUPD, tbLiqInqDescuentos, 'idLiqInqDescuento');
+      LevantarDescuentoPorContrato(refContrato);
+    end;
+  end;
+end;
+
+procedure TDM_LIQINQ.AsentarPagare(refContrato: GUID_ID; fVencimiento: TDate;
+  monto, punitorios, total: double; operacion: TOperacion);
+begin
+  with tbLiqInqPagares do
+  begin
+    case operacion of
+      nuevo: Insert;
+      modificar: Edit;
+    end;
+    tbLiqInqPagaresrefContratoPagare.AsString:= refContrato;
+    tbLiqInqPagaresfVencimiento.AsDateTime:= fVencimiento;
+    tbLiqInqPagaresnMonto.AsFloat:= monto;
+    tbLiqInqPagaresnPunitorios.AsFloat:= punitorios;
+    tbLiqInqPagaresnTotal.asFloat:= total;
+    Post;
+  end;
+end;
+
+procedure TDM_LIQINQ.BorrarPagareActual;
+var
+  refContrato: GUID_ID;
+begin
+  with tbLiqInqPagares do
+  begin
+    if (RecordCount > 0) then
+    begin
+      tbLiqInqPagares.Edit;
+      tbLiqInqPagaresbVisible.AsInteger:= 0;
+      tbLiqInqPagares.Post;
+      refContrato:= tbLiqInqPagaresrefContratoPagare.AsString;
+
+      DM_General.GrabarDatos(tbPagaresSEL, tbPagareINS, tbParareUPD, tbLiqInqPagares, 'idLiqInqPagare');
+      LevantarPagaresPorContrato(refContrato);
+    end;
+  end;
+end;
+
+procedure TDM_LIQINQ.CargarLiquidacionMes(elMes: word);
+begin
+
 end;
 
 

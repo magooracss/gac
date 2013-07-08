@@ -17,7 +17,8 @@ uses
   frm_gastosmensualeslistado, frm_gastomensualdestino, frm_buscarcontratos,
   dmliquidaciones, dmliqinquilinos, frm_cuentacontratoae, frm_propiedadescuotas,
   frm_inqgastomensualae, frm_garanteslistado, frm_garantesae, dmgarantes,
-frm_inquilinoscaja, dmseguridad, frm_gastosAE, frm_cajaae;
+  frm_inquilinoscaja, dmseguridad, frm_gastosAE, frm_cajaae, frm_descuentosae,
+  frm_pagaresae, frm_selMes;
 
 {$R *.res}
 

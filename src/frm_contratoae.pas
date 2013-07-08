@@ -154,6 +154,7 @@ type
     tabTodo: TTabSheet;
     procedure btnAgregarCuentaClick(Sender: TObject);
     procedure btnAgregarGarantesClick(Sender: TObject);
+    procedure btnGenerarLiquidacionClick(Sender: TObject);
     procedure btnInqCajaDelClick(Sender: TObject);
     procedure btnInqCajaNewClick(Sender: TObject);
     procedure btnInqDescDelClick(Sender: TObject);
@@ -191,6 +192,8 @@ type
     procedure PantInqMensualidad (idMensualidad: GUID_ID);
     procedure PantGastos (operacion: TOperacion);
     procedure PantCaja (operacion: TOperacion);
+    procedure PantDescuentos (operacion: TOperacion);
+    procedure PantPagares (operacion: TOperacion);
 
 
   public
@@ -216,6 +219,9 @@ uses
   ,dmgarantes
   ,frm_gastosAE
   ,frm_cajaae
+  ,frm_descuentosae
+  ,frm_pagaresae
+  ,frm_selMes
   ;
 
 { TfrmContratoAE }
@@ -614,21 +620,42 @@ end;
 *** DESCUENTOS INQUILINOS
 *******************************************************************************)
 
+procedure TfrmContratoAE.PantDescuentos(operacion: TOperacion);
+var
+  pant: TfrmDescuentosAE;
+begin
+  pant:= TfrmDescuentosAE.Create(self);
+  try
+   if (Operacion = modificar) then
+   begin
+     pant.descripcion:= ds_inqDescuentos.DataSet.FieldByName('Descuento').asString;
+     pant.monto:= ds_inqDescuentos.DataSet.FieldByName('nMonto').AsFloat;
+   end;
+
+   if pant.ShowModal = mrOK then
+   begin
+     DM_LIQINQ.AsentarDescuento (_idContrato, pant.descripcion, pant.monto, operacion );
+   end;
+  finally
+    pant.Free;
+  end;
+end;
+
 procedure TfrmContratoAE.btnInqDescNewClick(Sender: TObject);
 begin
-
+  PantDescuentos(nuevo);
 end;
 
 procedure TfrmContratoAE.btnInqDescUpdClick(Sender: TObject);
 begin
-
+  PantDescuentos(modificar);
 end;
 
 procedure TfrmContratoAE.btnInqDescDelClick(Sender: TObject);
 begin
    if (MessageDlg ('ATENCION', 'Borro el descuento seleccionado?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
    begin
-
+     DM_LIQINQ.BorrarDescuentoActual;
    end;
 end;
 
@@ -637,24 +664,67 @@ end;
 *** PAGARES INQUILINOS
 *******************************************************************************)
 
+procedure TfrmContratoAE.PantPagares(operacion: TOperacion);
+var
+  pant: TfrmPagaresAE;
+begin
+  pant:= TfrmPagaresAE.Create(self);
+  try
+   if (Operacion = modificar) then
+   begin
+     pant.fVencimiento:= ds_inqPagares.DataSet.FieldByName('fVencimiento').AsDateTime;
+     pant.monto:= ds_inqPagares.DataSet.FieldByName('nMonto').AsFloat;
+     pant.montoPunitorios:= ds_inqPagares.DataSet.FieldByName('nPunitorios').AsFloat;
+     pant.montoTotal:= ds_inqPagares.DataSet.FieldByName('nTotal').AsFloat;
+   end;
+   if pant.ShowModal = mrOK then
+   begin
+     DM_LIQINQ.AsentarPagare (_idContrato, pant.fVencimiento, pant.monto
+                          , pant.montoPunitorios, pant.montoTotal, operacion);
+   end;
+  finally
+    pant.Free;
+  end;
+end;
+
+
 procedure TfrmContratoAE.btnInqPagareNewClick(Sender: TObject);
 begin
-
+  PantPagares(nuevo);
 end;
 
 procedure TfrmContratoAE.btnInqPagareEditClick(Sender: TObject);
 begin
-
+  PantPagares(modificar);
 end;
 
 procedure TfrmContratoAE.btnInqPagareDelClick(Sender: TObject);
 begin
    if (MessageDlg ('ATENCION', 'Borro el Pagaré seleccionado?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
    begin
-
+     DM_LIQINQ.BorrarPagareActual;
    end;
 end;
 
+
+(*******************************************************************************
+*** GENERAR LIQUIDACION
+*******************************************************************************)
+
+procedure TfrmContratoAE.btnGenerarLiquidacionClick(Sender: TObject);
+var
+  selMes: TfrmSeleccionMes;
+begin
+  selMes:= TfrmSeleccionMes.Create(self);
+  try
+   if selMes.ShowModal = mrOK then
+   begin
+     DM_LIQINQ.CargarLiquidacionMes(selMes.MesSeleccionado);
+   end;
+  finally
+    selMes.Free;
+  end;
+end;
 
 
 end.

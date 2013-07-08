@@ -1,18 +1,17 @@
-object frmGastoAE: TfrmGastoAE
-  Left = 618
-  Height = 143
-  Top = 60
-  Width = 661
-  Caption = 'Gasto'
-  ClientHeight = 143
-  ClientWidth = 661
+object frmDescuentosAE: TfrmDescuentosAE
+  Left = 394
+  Height = 146
+  Top = 343
+  Width = 658
+  Caption = 'Descuentos'
+  ClientHeight = 146
+  ClientWidth = 658
   Font.CharSet = ANSI_CHARSET
   Font.Color = clBlack
   Font.Height = -13
   Font.Name = 'Arial'
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
-  Position = poOwnerFormCenter
   LCLVersion = '1.0.4.0'
   object edDetalle: TLabeledEdit
     Left = 8

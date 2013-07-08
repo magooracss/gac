@@ -60,15 +60,15 @@
         <PackageName Value="LCL"/>
       </Item6>
     </RequiredPackages>
-    <Units Count="47">
+    <Units Count="50">
       <Unit0>
         <Filename Value="gac.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="gac"/>
-        <EditorIndex Value="8"/>
+        <EditorIndex Value="11"/>
         <WindowIndex Value="0"/>
         <TopLine Value="6"/>
-        <CursorPos X="55" Y="23"/>
+        <CursorPos X="55" Y="24"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -106,7 +106,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmgeneral"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="8"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="18"/>
@@ -150,7 +150,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmcaja"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
         <TopLine Value="27"/>
         <CursorPos X="127" Y="46"/>
@@ -293,7 +293,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="120" Y="7"/>
-        <UsageCount Value="194"/>
+        <UsageCount Value="200"/>
       </Unit19>
       <Unit20>
         <Filename Value="dmpropiedades.pas"/>
@@ -305,7 +305,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="196"/>
         <CursorPos X="61" Y="210"/>
-        <UsageCount Value="193"/>
+        <UsageCount Value="200"/>
       </Unit20>
       <Unit21>
         <Filename Value="..\..\..\Utiles\lazarus\lcl\extctrls.pp"/>
@@ -325,7 +325,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="97"/>
         <CursorPos X="3" Y="97"/>
-        <UsageCount Value="178"/>
+        <UsageCount Value="185"/>
       </Unit22>
       <Unit23>
         <Filename Value="dminquilinos.pas"/>
@@ -337,7 +337,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="49"/>
         <CursorPos X="3" Y="66"/>
-        <UsageCount Value="170"/>
+        <UsageCount Value="177"/>
       </Unit23>
       <Unit24>
         <Filename Value="frm_inquilinosae.pas"/>
@@ -349,7 +349,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="32"/>
         <CursorPos X="90" Y="32"/>
-        <UsageCount Value="170"/>
+        <UsageCount Value="177"/>
       </Unit24>
       <Unit25>
         <Filename Value="frm_inquilinoslistado.pas"/>
@@ -361,7 +361,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="60"/>
         <CursorPos X="1" Y="73"/>
-        <UsageCount Value="160"/>
+        <UsageCount Value="167"/>
       </Unit25>
       <Unit26>
         <Filename Value="frm_contratoae.pas"/>
@@ -370,15 +370,14 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_contratoae"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="267"/>
-        <CursorPos X="3" Y="286"/>
-        <UsageCount Value="156"/>
+        <TopLine Value="691"/>
+        <CursorPos X="59" Y="722"/>
+        <UsageCount Value="163"/>
         <Bookmarks Count="2">
-          <Item0 X="3" Y="324" ID="2"/>
-          <Item1 X="1" Y="571" ID="1"/>
+          <Item0 X="3" Y="330" ID="2"/>
+          <Item1 X="9" Y="669" ID="1"/>
         </Bookmarks>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -393,7 +392,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="310"/>
         <CursorPos X="45" Y="326"/>
-        <UsageCount Value="156"/>
+        <UsageCount Value="163"/>
       </Unit27>
       <Unit28>
         <Filename Value="frm_gastosmensualeslistado.pas"/>
@@ -405,7 +404,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="52"/>
         <CursorPos X="15" Y="70"/>
-        <UsageCount Value="143"/>
+        <UsageCount Value="150"/>
       </Unit28>
       <Unit29>
         <Filename Value="frm_gastomensualdestino.pas"/>
@@ -414,11 +413,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_gastomensualdestino"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="9"/>
         <WindowIndex Value="0"/>
         <TopLine Value="65"/>
         <CursorPos X="51" Y="71"/>
-        <UsageCount Value="140"/>
+        <UsageCount Value="147"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit29>
@@ -432,7 +431,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="71"/>
         <CursorPos X="170" Y="65"/>
-        <UsageCount Value="132"/>
+        <UsageCount Value="139"/>
       </Unit30>
       <Unit31>
         <Filename Value="..\..\..\Utiles\lazarus\fpc\2.4.2\source\rtl\objpas\sysutils\sysinth.inc"/>
@@ -451,7 +450,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="13"/>
         <CursorPos X="56" Y="22"/>
-        <UsageCount Value="107"/>
+        <UsageCount Value="114"/>
       </Unit32>
       <Unit33>
         <Filename Value="dmliqinquilinos.pas"/>
@@ -460,11 +459,12 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmliqinquilinos"/>
-        <EditorIndex Value="7"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="10"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="192"/>
-        <CursorPos X="148" Y="202"/>
-        <UsageCount Value="105"/>
+        <TopLine Value="507"/>
+        <CursorPos X="3" Y="536"/>
+        <UsageCount Value="112"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit33>
@@ -478,7 +478,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="184"/>
         <CursorPos X="24" Y="192"/>
-        <UsageCount Value="103"/>
+        <UsageCount Value="110"/>
       </Unit34>
       <Unit35>
         <Filename Value="frm_propiedadescuotas.pas"/>
@@ -490,7 +490,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="30"/>
         <CursorPos X="40" Y="62"/>
-        <UsageCount Value="89"/>
+        <UsageCount Value="96"/>
       </Unit35>
       <Unit36>
         <Filename Value="..\..\..\Utiles\lazarus\components\rxfpc\rxmemds.pas"/>
@@ -517,7 +517,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="54" Y="11"/>
-        <UsageCount Value="68"/>
+        <UsageCount Value="75"/>
       </Unit38>
       <Unit39>
         <Filename Value="frm_garanteslistado.pas"/>
@@ -529,7 +529,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="86"/>
         <CursorPos X="6" Y="102"/>
-        <UsageCount Value="61"/>
+        <UsageCount Value="68"/>
       </Unit39>
       <Unit40>
         <Filename Value="frm_garantesae.pas"/>
@@ -541,7 +541,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="53"/>
         <CursorPos X="3" Y="76"/>
-        <UsageCount Value="61"/>
+        <UsageCount Value="68"/>
       </Unit40>
       <Unit41>
         <Filename Value="dmgarantes.pas"/>
@@ -553,7 +553,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="111"/>
         <CursorPos X="58" Y="128"/>
-        <UsageCount Value="61"/>
+        <UsageCount Value="68"/>
       </Unit41>
       <Unit42>
         <Filename Value="frm_inqgastomensualae.lfm"/>
@@ -573,7 +573,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="78"/>
         <CursorPos X="50" Y="82"/>
-        <UsageCount Value="48"/>
+        <UsageCount Value="55"/>
       </Unit43>
       <Unit44>
         <Filename Value="dmseguridad.pas"/>
@@ -585,7 +585,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="28" Y="17"/>
-        <UsageCount Value="42"/>
+        <UsageCount Value="49"/>
       </Unit44>
       <Unit45>
         <Filename Value="frm_gastosae.pas"/>
@@ -594,11 +594,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_gastosAE"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="25"/>
-        <CursorPos X="33" Y="28"/>
-        <UsageCount Value="32"/>
+        <TopLine Value="1"/>
+        <CursorPos X="51" Y="17"/>
+        <UsageCount Value="39"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit45>
@@ -606,137 +606,182 @@
         <Filename Value="frm_cajaae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmCajaAE"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_cajaae"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="120"/>
-        <CursorPos X="52" Y="150"/>
-        <UsageCount Value="27"/>
+        <TopLine Value="78"/>
+        <CursorPos X="75" Y="58"/>
+        <UsageCount Value="34"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit46>
+      <Unit47>
+        <Filename Value="frm_descuentosae.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDescuentosAE"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frm_descuentosae"/>
+        <EditorIndex Value="4"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="40"/>
+        <CursorPos X="21" Y="45"/>
+        <UsageCount Value="24"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit47>
+      <Unit48>
+        <Filename Value="frm_pagaresae.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmPagaresAE"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frm_pagaresae"/>
+        <EditorIndex Value="6"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="12"/>
+        <CursorPos X="1" Y="86"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit48>
+      <Unit49>
+        <Filename Value="frm_selmes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmSeleccionMes"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frm_selMes"/>
+        <EditorIndex Value="2"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="16"/>
+        <CursorPos X="1" Y="40"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit49>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="dmliqinquilinos.pas"/>
-        <Caret Line="1" Column="1" TopLine="1"/>
+        <Filename Value="frm_pagaresae.pas"/>
+        <Caret Line="117" Column="1" TopLine="83"/>
       </Position1>
       <Position2>
-        <Filename Value="dmliqinquilinos.pas"/>
-        <Caret Line="90" Column="32" TopLine="62"/>
+        <Filename Value="frm_pagaresae.pas"/>
+        <Caret Line="37" Column="1" TopLine="22"/>
       </Position2>
       <Position3>
-        <Filename Value="dmliqinquilinos.pas"/>
-        <Caret Line="314" Column="20" TopLine="286"/>
+        <Filename Value="frm_contratoae.pas"/>
+        <Caret Line="195" Column="51" TopLine="168"/>
       </Position3>
       <Position4>
-        <Filename Value="dmliqinquilinos.pas"/>
-        <Caret Line="333" Column="1" TopLine="311"/>
+        <Filename Value="frm_contratoae.pas"/>
+        <Caret Line="657" Column="1" TopLine="640"/>
       </Position4>
       <Position5>
-        <Filename Value="dmliqinquilinos.pas"/>
-        <Caret Line="91" Column="62" TopLine="76"/>
+        <Filename Value="frm_contratoae.pas"/>
+        <Caret Line="666" Column="13" TopLine="656"/>
       </Position5>
       <Position6>
-        <Filename Value="dmliqinquilinos.pas"/>
-        <Caret Line="415" Column="1" TopLine="383"/>
+        <Filename Value="frm_contratoae.pas"/>
+        <Caret Line="222" Column="17" TopLine="202"/>
       </Position6>
       <Position7>
-        <Filename Value="dmliqinquilinos.pas"/>
-        <Caret Line="91" Column="1" TopLine="86"/>
+        <Filename Value="frm_contratoae.pas"/>
+        <Caret Line="713" Column="1" TopLine="679"/>
       </Position7>
       <Position8>
         <Filename Value="dmliqinquilinos.pas"/>
-        <Caret Line="345" Column="5" TopLine="323"/>
+        <Caret Line="127" Column="34" TopLine="103"/>
       </Position8>
       <Position9>
         <Filename Value="dmliqinquilinos.pas"/>
-        <Caret Line="348" Column="19" TopLine="324"/>
+        <Caret Line="514" Column="105" TopLine="487"/>
       </Position9>
       <Position10>
         <Filename Value="dmliqinquilinos.pas"/>
-        <Caret Line="420" Column="30" TopLine="393"/>
+        <Caret Line="1" Column="1" TopLine="1"/>
       </Position10>
       <Position11>
         <Filename Value="dmliqinquilinos.pas"/>
-        <Caret Line="1" Column="1" TopLine="1"/>
+        <Caret Line="107" Column="21" TopLine="79"/>
       </Position11>
       <Position12>
         <Filename Value="dmliqinquilinos.pas"/>
-        <Caret Line="91" Column="32" TopLine="63"/>
+        <Caret Line="215" Column="101" TopLine="202"/>
       </Position12>
       <Position13>
         <Filename Value="dmliqinquilinos.pas"/>
-        <Caret Line="317" Column="38" TopLine="288"/>
+        <Caret Line="290" Column="17" TopLine="262"/>
       </Position13>
       <Position14>
         <Filename Value="dmliqinquilinos.pas"/>
-        <Caret Line="338" Column="39" TopLine="307"/>
+        <Caret Line="309" Column="30" TopLine="281"/>
       </Position14>
       <Position15>
         <Filename Value="dmliqinquilinos.pas"/>
-        <Caret Line="416" Column="24" TopLine="376"/>
+        <Caret Line="311" Column="17" TopLine="283"/>
       </Position15>
       <Position16>
         <Filename Value="dmliqinquilinos.pas"/>
-        <Caret Line="1" Column="1" TopLine="1"/>
+        <Caret Line="317" Column="44" TopLine="289"/>
       </Position16>
       <Position17>
         <Filename Value="dmliqinquilinos.pas"/>
-        <Caret Line="104" Column="21" TopLine="76"/>
+        <Caret Line="323" Column="30" TopLine="295"/>
       </Position17>
       <Position18>
-        <Filename Value="frm_contratoae.pas"/>
-        <Caret Line="580" Column="151" TopLine="568"/>
+        <Filename Value="dmliqinquilinos.pas"/>
+        <Caret Line="333" Column="44" TopLine="299"/>
       </Position18>
       <Position19>
-        <Filename Value="frm_contratoae.pas"/>
-        <Caret Line="276" Column="36" TopLine="259"/>
+        <Filename Value="dmliqinquilinos.pas"/>
+        <Caret Line="96" Column="65" TopLine="69"/>
       </Position19>
       <Position20>
         <Filename Value="frm_contratoae.pas"/>
-        <Caret Line="273" Column="20" TopLine="256"/>
+        <Caret Line="695" Column="10" TopLine="682"/>
       </Position20>
       <Position21>
         <Filename Value="frm_contratoae.pas"/>
-        <Caret Line="274" Column="34" TopLine="257"/>
+        <Caret Line="698" Column="24" TopLine="666"/>
       </Position21>
       <Position22>
         <Filename Value="frm_contratoae.pas"/>
-        <Caret Line="275" Column="9" TopLine="257"/>
+        <Caret Line="519" Column="1" TopLine="519"/>
       </Position22>
       <Position23>
-        <Filename Value="frm_contratoae.pas"/>
-        <Caret Line="273" Column="41" TopLine="256"/>
+        <Filename Value="frm_selmes.pas"/>
+        <Caret Line="1" Column="1" TopLine="1"/>
       </Position23>
       <Position24>
-        <Filename Value="frm_contratoae.pas"/>
-        <Caret Line="276" Column="7" TopLine="256"/>
+        <Filename Value="frm_selmes.pas"/>
+        <Caret Line="38" Column="22" TopLine="7"/>
       </Position24>
       <Position25>
-        <Filename Value="frm_contratoae.pas"/>
-        <Caret Line="279" Column="1" TopLine="261"/>
+        <Filename Value="frm_selmes.pas"/>
+        <Caret Line="24" Column="5" TopLine="13"/>
       </Position25>
       <Position26>
-        <Filename Value="frm_contratoae.pas"/>
-        <Caret Line="275" Column="36" TopLine="261"/>
+        <Filename Value="frm_selmes.pas"/>
+        <Caret Line="25" Column="44" TopLine="7"/>
       </Position26>
       <Position27>
-        <Filename Value="frm_contratoae.pas"/>
-        <Caret Line="280" Column="36" TopLine="270"/>
+        <Filename Value="frm_selmes.pas"/>
+        <Caret Line="43" Column="31" TopLine="20"/>
       </Position27>
       <Position28>
         <Filename Value="frm_contratoae.pas"/>
-        <Caret Line="281" Column="64" TopLine="265"/>
+        <Caret Line="224" Column="14" TopLine="206"/>
       </Position28>
       <Position29>
-        <Filename Value="frm_contratoae.pas"/>
-        <Caret Line="288" Column="1" TopLine="269"/>
+        <Filename Value="dmliqinquilinos.pas"/>
+        <Caret Line="371" Column="25" TopLine="358"/>
       </Position29>
       <Position30>
-        <Filename Value="frm_contratoae.pas"/>
-        <Caret Line="183" Column="1" TopLine="166"/>
+        <Filename Value="dmliqinquilinos.pas"/>
+        <Caret Line="131" Column="50" TopLine="103"/>
       </Position30>
     </JumpHistory>
   </ProjectOptions>
