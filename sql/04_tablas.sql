@@ -60,3 +60,20 @@ INSERT INTO tugCajaTipoMovimientos
 (idCajaTipoMovimiento, TipoMovimiento, refOperacion, refAfecta, bVisible)
 VALUES
 (2,'COBRO',1,0,1);
+
+
+CREATE TABLE tbLiqInqItems
+(
+     idLiqInqItems         "guid"
+    , refLiqInqCabecera    "guid"
+    , refLiqInqItem        "guid"
+    , tipoItem             smallint default 0
+    , montoPagado          float default 0
+    , bVisible             smallint default 1
+);
+
+alter table tbLiqInqCaja add bPagado smallint default 0;
+alter table tbLiqInqMeses add bPagado smallint default 0;
+alter table tbLiqInqGastos add bPagado smallint default 0;
+alter table tbLiqInqDescuentos add bPagado smallint default 0;
+alter table tbLiqInqPagares add bPagado smallint default 0;

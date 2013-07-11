@@ -2032,4 +2032,10 @@ object DM_LIQINQ: TDM_LIQINQ
         ParamType = ptUnknown
       end>
   end
+  object tbLiquidacion: TRxMemoryData
+    FieldDefs = <>
+    PacketRecords = 0
+    left = 641
+    top = 29
+  end
 end

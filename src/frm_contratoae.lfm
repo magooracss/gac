@@ -83,15 +83,15 @@ object frmContratoAE: TfrmContratoAE
     object tabDatos: TTabSheet
       Caption = 'Datos'
       ClientHeight = 540
-      ClientWidth = 875
+      ClientWidth = 897
       object Panel2: TPanel
         Left = 0
         Height = 239
         Top = 0
-        Width = 875
+        Width = 897
         Align = alTop
         ClientHeight = 239
-        ClientWidth = 875
+        ClientWidth = 897
         TabOrder = 0
         object DBEdit1: TDBEdit
           Left = 10
@@ -119,14 +119,14 @@ object frmContratoAE: TfrmContratoAE
           Left = 256
           Height = 24
           Top = 82
-          Width = 213
+          Width = 235
           Anchors = [akTop, akLeft, akRight]
           ItemHeight = 16
           TabOrder = 2
           Text = 'cbTipoContrato'
         end
         object GroupBox1: TGroupBox
-          Left = 560
+          Left = 582
           Height = 115
           Top = 119
           Width = 307
@@ -190,7 +190,7 @@ object frmContratoAE: TfrmContratoAE
           ParentColor = False
         end
         object Label4: TLabel
-          Left = 545
+          Left = 567
           Height = 17
           Top = 64
           Width = 71
@@ -199,7 +199,7 @@ object frmContratoAE: TfrmContratoAE
           ParentColor = False
         end
         object Label5: TLabel
-          Left = 708
+          Left = 730
           Height = 17
           Top = 64
           Width = 110
@@ -335,11 +335,11 @@ object frmContratoAE: TfrmContratoAE
           Left = 1
           Height = 58
           Top = 1
-          Width = 873
+          Width = 895
           Align = alTop
           Caption = 'Propiedad'
           ClientHeight = 40
-          ClientWidth = 869
+          ClientWidth = 891
           TabOrder = 5
           object btnBuscar: TBitBtn
             Left = 9
@@ -398,14 +398,14 @@ object frmContratoAE: TfrmContratoAE
             Left = 126
             Height = 24
             Top = 8
-            Width = 729
+            Width = 751
             Anchors = [akTop, akLeft, akRight]
             Color = clMoneyGreen
             TabOrder = 1
           end
         end
         object DBDateEdit1: TDBDateEdit
-          Left = 545
+          Left = 567
           Height = 24
           Top = 83
           Width = 103
@@ -461,7 +461,7 @@ object frmContratoAE: TfrmContratoAE
           DataSource = DS_Contrato
         end
         object DBDateEdit2: TDBDateEdit
-          Left = 706
+          Left = 728
           Height = 24
           Top = 83
           Width = 103
@@ -521,17 +521,17 @@ object frmContratoAE: TfrmContratoAE
         Left = 0
         Height = 301
         Top = 239
-        Width = 875
+        Width = 897
         Align = alClient
         ClientHeight = 301
-        ClientWidth = 875
+        ClientWidth = 897
         TabOrder = 2
         Visible = False
         object PcCuentaCorriente: TPageControl
           Left = 1
           Height = 299
           Top = 1
-          Width = 873
+          Width = 895
           ActivePage = tabTodo
           Align = alClient
           TabIndex = 0
@@ -539,21 +539,21 @@ object frmContratoAE: TfrmContratoAE
           object tabTodo: TTabSheet
             Caption = 'Cuentas Corrientes'
             ClientHeight = 270
-            ClientWidth = 865
+            ClientWidth = 887
             object Panel7: TPanel
               Left = 0
               Height = 270
               Top = 0
-              Width = 865
+              Width = 887
               Align = alClient
               ClientHeight = 270
-              ClientWidth = 865
+              ClientWidth = 887
               TabOrder = 0
               object DBGrid4: TDBGrid
                 Left = 1
                 Height = 251
                 Top = 18
-                Width = 741
+                Width = 763
                 Align = alClient
                 AutoFillColumns = True
                 Color = clWindow
@@ -568,7 +568,7 @@ object frmContratoAE: TfrmContratoAE
                   item
                     Title.Alignment = taCenter
                     Title.Caption = 'Tipo'
-                    Width = 130
+                    Width = 168
                     FieldName = 'Tipo'
                   end                
                   item
@@ -612,7 +612,7 @@ object frmContratoAE: TfrmContratoAE
                 TitleFont.Quality = fqDraft
               end
               object Panel8: TPanel
-                Left = 742
+                Left = 764
                 Height = 251
                 Top = 18
                 Width = 122
@@ -642,7 +642,7 @@ object frmContratoAE: TfrmContratoAE
                 Left = 1
                 Height = 17
                 Top = 1
-                Width = 863
+                Width = 885
                 Align = alTop
                 Caption = 'Estado de cuenta del contrato'
                 ParentColor = False
@@ -655,13 +655,13 @@ object frmContratoAE: TfrmContratoAE
         Left = 0
         Height = 301
         Top = 239
-        Width = 875
+        Width = 897
         Align = alClient
         ClientHeight = 301
-        ClientWidth = 875
+        ClientWidth = 897
         TabOrder = 1
         object Panel5: TPanel
-          Left = 721
+          Left = 743
           Height = 282
           Top = 18
           Width = 153
@@ -764,7 +764,7 @@ object frmContratoAE: TfrmContratoAE
           Left = 1
           Height = 17
           Top = 1
-          Width = 873
+          Width = 895
           Align = alTop
           Caption = 'Gastos Mensuales'
           ParentColor = False
@@ -773,7 +773,7 @@ object frmContratoAE: TfrmContratoAE
           Left = 1
           Height = 282
           Top = 18
-          Width = 720
+          Width = 742
           Align = alClient
           AutoFillColumns = True
           Color = clWindow
@@ -781,7 +781,7 @@ object frmContratoAE: TfrmContratoAE
             item
               Title.Alignment = taCenter
               Title.Caption = 'Gasto'
-              Width = 442
+              Width = 480
               FieldName = 'lxGasto'
             end          
             item
@@ -824,19 +824,19 @@ object frmContratoAE: TfrmContratoAE
     object tabPartes: TTabSheet
       Caption = 'Partes'
       ClientHeight = 540
-      ClientWidth = 875
+      ClientWidth = 897
       object GroupBox4: TGroupBox
         Left = 0
         Height = 263
         Top = 0
-        Width = 875
+        Width = 897
         Align = alTop
         Caption = 'Inquilinos'
         ClientHeight = 245
-        ClientWidth = 871
+        ClientWidth = 893
         TabOrder = 0
         object Panel11: TPanel
-          Left = 701
+          Left = 723
           Height = 245
           Top = 0
           Width = 170
@@ -923,7 +923,7 @@ object frmContratoAE: TfrmContratoAE
           Left = 0
           Height = 245
           Top = 0
-          Width = 701
+          Width = 723
           Align = alClient
           AutoFillColumns = True
           Color = clWindow
@@ -938,13 +938,13 @@ object frmContratoAE: TfrmContratoAE
             item
               Title.Alignment = taCenter
               Title.Caption = 'Apellidos'
-              Width = 280
+              Width = 299
               FieldName = 'cApellidos'
             end          
             item
               Title.Alignment = taCenter
               Title.Caption = 'Nombres'
-              Width = 281
+              Width = 300
               FieldName = 'cNombres'
             end>
           DataSource = ds_Inquilinos
@@ -964,17 +964,17 @@ object frmContratoAE: TfrmContratoAE
         Left = 0
         Height = 130
         Top = 263
-        Width = 875
+        Width = 897
         Align = alTop
         Caption = 'Propietarios'
         ClientHeight = 112
-        ClientWidth = 871
+        ClientWidth = 893
         TabOrder = 1
         object DBGrid6: TDBGrid
           Left = 0
           Height = 112
           Top = 0
-          Width = 871
+          Width = 893
           Align = alClient
           AutoFillColumns = True
           Color = clWindow
@@ -989,13 +989,13 @@ object frmContratoAE: TfrmContratoAE
             item
               Title.Alignment = taCenter
               Title.Caption = 'Apellidos'
-              Width = 373
+              Width = 384
               FieldName = 'cApellidos'
             end          
             item
               Title.Alignment = taCenter
               Title.Caption = 'Nombres'
-              Width = 374
+              Width = 385
               FieldName = 'cNombres'
             end>
           DataSource = ds_Propietarios
@@ -1015,14 +1015,14 @@ object frmContratoAE: TfrmContratoAE
         Left = 0
         Height = 208
         Top = 393
-        Width = 875
+        Width = 897
         Align = alTop
         Caption = 'Garantes'
         ClientHeight = 190
-        ClientWidth = 871
+        ClientWidth = 893
         TabOrder = 2
         object Panel12: TPanel
-          Left = 701
+          Left = 723
           Height = 190
           Top = 0
           Width = 170
@@ -1109,7 +1109,7 @@ object frmContratoAE: TfrmContratoAE
           Left = 0
           Height = 190
           Top = 0
-          Width = 701
+          Width = 723
           Align = alClient
           AutoFillColumns = True
           Color = clWindow
@@ -1124,13 +1124,13 @@ object frmContratoAE: TfrmContratoAE
             item
               Title.Alignment = taCenter
               Title.Caption = 'Apellidos'
-              Width = 280
+              Width = 299
               FieldName = 'cApellidos'
             end          
             item
               Title.Alignment = taCenter
               Title.Caption = 'Nombres'
-              Width = 281
+              Width = 300
               FieldName = 'cNombres'
             end>
           DataSource = ds_garantes
@@ -1150,12 +1150,12 @@ object frmContratoAE: TfrmContratoAE
     object TabSheet1: TTabSheet
       Caption = 'Notas'
       ClientHeight = 540
-      ClientWidth = 875
+      ClientWidth = 897
       object DBMemo1: TDBMemo
         Left = 0
         Height = 540
         Top = 0
-        Width = 875
+        Width = 897
         Align = alClient
         DataField = 'txNotas'
         DataSource = DS_Contrato
@@ -1184,9 +1184,9 @@ object frmContratoAE: TfrmContratoAE
             Height = 206
             Top = 0
             Width = 889
-            ActivePage = TabSheet9
+            ActivePage = TabSheet8
             Align = alTop
-            TabIndex = 4
+            TabIndex = 0
             TabOrder = 0
             object TabSheet8: TTabSheet
               Caption = 'Caja'
@@ -2235,6 +2235,7 @@ object frmContratoAE: TfrmContratoAE
               Caption = '-------------------'
               ClientHeight = 177
               ClientWidth = 881
+              TabVisible = False
               object GroupBox3: TGroupBox
                 Left = 0
                 Height = 99
@@ -2534,6 +2535,7 @@ object frmContratoAE: TfrmContratoAE
     end
     object TabSheet3: TTabSheet
       Caption = 'Cuentas Propietarios'
+      TabVisible = False
     end
   end
   object DS_Contrato: TDatasource

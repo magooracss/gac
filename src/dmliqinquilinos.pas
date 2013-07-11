@@ -20,6 +20,7 @@ type
     qLevantarCuotasContrato: TZQuery;
     qLevantarCuotasLiquidadas: TZQuery;
     qGastosPorContrato: TZQuery;
+    tbLiquidacion: TRxMemoryData;
     tbLiqInqCajabVisible: TLongintField;
     tbLiqInqCajaDescripcion: TStringField;
     tbLiqInqCajafPago: TDateTimeField;
@@ -128,7 +129,7 @@ type
                             ; operacion: TOperacion);
     procedure BorrarPagareActual;
 
-    procedure CargarLiquidacionMes (elMes: word);
+    procedure CargarLiquidacionMes (elMes, elAno: word; idContrato: GUID_ID);
 
   end; 
 
@@ -531,8 +532,19 @@ begin
   end;
 end;
 
-procedure TDM_LIQINQ.CargarLiquidacionMes(elMes: word);
+procedure TDM_LIQINQ.CargarLiquidacionMes(elMes,elAno: word;idContrato: GUID_ID);
 begin
+  //Refresco los datos por si se cargaron desde otra terminal
+  Grabar;
+  LevantarCajaPorContrato(idContrato);
+  LevantarCuentaCorrienteContrato(idContrato);
+  LevantarCuotasPorContrato(idContrato);
+  LevantarDescuentoPorContrato(idContrato);
+  LevantarGastosPorContrato(idContrato);
+  LevantarPagaresPorContrato(idContrato);
+
+//  ObtenerVencimientosMes()
+
 
 end;
 

@@ -67,6 +67,7 @@ object frmSeleccionMes: TfrmSeleccionMes
     Height = 30
     Top = 77
     Width = 112
+    Anchors = [akTop, akRight]
     Caption = 'Cancelar'
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
@@ -109,9 +110,10 @@ object frmSeleccionMes: TfrmSeleccionMes
   end
   object cbMes: TComboBox
     Left = 40
-    Height = 24
+    Height = 26
     Top = 24
-    Width = 316
+    Width = 224
+    Anchors = [akTop, akLeft, akRight]
     Font.CharSet = ANSI_CHARSET
     Font.Color = clBlack
     Font.Height = -16
@@ -136,5 +138,22 @@ object frmSeleccionMes: TfrmSeleccionMes
     ParentFont = False
     Style = csDropDownList
     TabOrder = 2
+  end
+  object edAno: TSpinEdit
+    Left = 288
+    Height = 26
+    Top = 24
+    Width = 74
+    Anchors = [akTop, akRight]
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    MaxValue = 3000
+    ParentFont = False
+    TabOrder = 3
+    Value = 2000
   end
 end

@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Buttons,
-  StdCtrls;
+  StdCtrls, Spin;
 
 type
 
@@ -16,14 +16,17 @@ type
     BitBtn1: TBitBtn;
     btnCancelar: TBitBtn;
     cbMes: TComboBox;
+    edAno: TSpinEdit;
     procedure BitBtn1Click(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
+    function getAnoSeleccionado: integer;
     function getMesSeleccionado: integer;
     { private declarations }
   public
     property MesSeleccionado: integer read getMesSeleccionado;
+    property AnoSelecccionado: integer read getAnoSeleccionado;
 
   end;
 
@@ -51,6 +54,12 @@ end;
 procedure TfrmSeleccionMes.FormShow(Sender: TObject);
 begin
   cbMes.ItemIndex:= MonthOf(Now) -1;
+  edAno.Value:= YearOf(Now);
+end;
+
+function TfrmSeleccionMes.getAnoSeleccionado: integer;
+begin
+  Result:= edAno.Value;
 end;
 
 function TfrmSeleccionMes.getMesSeleccionado: integer;

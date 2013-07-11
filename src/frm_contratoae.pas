@@ -719,7 +719,7 @@ begin
   try
    if selMes.ShowModal = mrOK then
    begin
-     DM_LIQINQ.CargarLiquidacionMes(selMes.MesSeleccionado);
+     DM_LIQINQ.CargarLiquidacionMes(selMes.MesSeleccionado, selMes.AnoSelecccionado, _idContrato);
    end;
   finally
     selMes.Free;
