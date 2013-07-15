@@ -2,9 +2,9 @@ object DM_LIQINQ: TDM_LIQINQ
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 560
-  HorizontalOffset = 470
-  VerticalOffset = 78
-  Width = 705
+  HorizontalOffset = 60
+  VerticalOffset = 96
+  Width = 1045
   object tbLiqInqDescuentos: TRxMemoryData
     FieldDefs = <    
       item
@@ -2033,9 +2033,314 @@ object DM_LIQINQ: TDM_LIQINQ
       end>
   end
   object tbLiquidacion: TRxMemoryData
-    FieldDefs = <>
+    FieldDefs = <    
+      item
+        Name = 'idLiqInqCabecera'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'Fecha'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Nro'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Monto'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bAnulada'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'fAnulada'
+        DataType = ftDateTime
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'txNota'
+        DataType = ftBlob
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'refInquilino'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refContrato'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end>
+    AfterInsert = tbLiquidacionAfterInsert
     PacketRecords = 0
     left = 641
-    top = 29
+    top = 32
+    object tbLiquidacionidLiqInqCabecera: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idLiqInqCabecera'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbLiquidacionFecha: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Fecha'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbLiquidacionNro: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Nro'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbLiquidacionMonto: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Monto'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbLiquidacionbAnulada: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bAnulada'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbLiquidacionfAnulada: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fAnulada'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbLiquidaciontxNota: TBlobField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'txNota'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftBlob
+    end
+    object tbLiquidacionrefInquilino: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refInquilino'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbLiquidacionrefContrato: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refContrato'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+  end
+  object qVencimientosMes: TZQuery
+    Connection = DM_Conexion.cnxGeneral
+    SQL.Strings = (
+      'SELECT *'
+      'FROM tbLiqInqMeses'
+      'WHERE (bVisible = 1)'
+      '            and (bPagado = 0)'
+      '            and (refContratoCobro = :refContrato)'
+      '            and (fVencimiento <= :fechaCorte)'
+      'ORDER BY nAno, nMes'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'refContrato'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fechaCorte'
+        ParamType = ptUnknown
+      end>
+    left = 800
+    top = 88
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'refContrato'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'fechaCorte'
+        ParamType = ptUnknown
+      end>
+  end
+  object tbLiqInqItems: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'idLiqInqItems'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refLiqInqCabecera'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'refLiqInqItem'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'tipoItem'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'montoPagado'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Detalle'
+        DataType = ftString
+        Precision = 0
+        Size = 500
+      end>
+    AfterInsert = tbLiqInqItemsAfterInsert
+    PacketRecords = 0
+    left = 728
+    top = 32
+    object tbLiqInqItemsidLiqInqItems: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'idLiqInqItems'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbLiqInqItemsrefLiqInqCabecera: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refLiqInqCabecera'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbLiqInqItemsrefLiqInqItem: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'refLiqInqItem'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object tbLiqInqItemstipoItem: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'tipoItem'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object tbLiqInqItemsmontoPagado: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'montoPagado'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
+    object tbLiqInqItemsbVisible: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
 end

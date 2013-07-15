@@ -9,6 +9,10 @@ uses
   ,dmgeneral
   ;
 
+const
+  INQ_ITEM_MENSUALIDAD = 1;
+  INQ_ITEM_GASTO = 2;
+
 type
 
   { TDM_LIQINQ }
@@ -20,6 +24,14 @@ type
     qLevantarCuotasContrato: TZQuery;
     qLevantarCuotasLiquidadas: TZQuery;
     qGastosPorContrato: TZQuery;
+    qVencimientosMes: TZQuery;
+    tbLiqInqItems: TRxMemoryData;
+    tbLiqInqItemsbVisible: TLongintField;
+    tbLiqInqItemsidLiqInqItems: TStringField;
+    tbLiqInqItemsmontoPagado: TFloatField;
+    tbLiqInqItemsrefLiqInqCabecera: TStringField;
+    tbLiqInqItemsrefLiqInqItem: TStringField;
+    tbLiqInqItemstipoItem: TLongintField;
     tbLiquidacion: TRxMemoryData;
     tbLiqInqCajabVisible: TLongintField;
     tbLiqInqCajaDescripcion: TStringField;
@@ -32,6 +44,15 @@ type
     tbLiqInqCajareferencia: TStringField;
     tbLiqInqCajarefLiqInqCabecera: TStringField;
     tbLiqInqCajarefTipo: TLongintField;
+    tbLiquidacionbAnulada: TLongintField;
+    tbLiquidacionfAnulada: TDateTimeField;
+    tbLiquidacionFecha: TDateTimeField;
+    tbLiquidacionidLiqInqCabecera: TStringField;
+    tbLiquidacionMonto: TFloatField;
+    tbLiquidacionNro: TLongintField;
+    tbLiquidacionrefContrato: TStringField;
+    tbLiquidacionrefInquilino: TStringField;
+    tbLiquidaciontxNota: TBlobField;
     tbPagareINS: TZQuery;
     tbLiqInqPagaresbVisible: TLongintField;
     tbLiqInqPagaresfVencimiento: TDateField;
@@ -88,8 +109,10 @@ type
     procedure tbLiqInqCajaAfterInsert(DataSet: TDataSet);
     procedure tbLiqInqDescuentosAfterInsert(DataSet: TDataSet);
     procedure tbLiqInqGastosAfterInsert(DataSet: TDataSet);
+    procedure tbLiqInqItemsAfterInsert(DataSet: TDataSet);
     procedure tbLiqInqMesesAfterInsert(DataSet: TDataSet);
     procedure tbLiqInqPagaresAfterInsert(DataSet: TDataSet);
+    procedure tbLiquidacionAfterInsert(DataSet: TDataSet);
   private
     procedure LevantarGastosPorContrato (refContrato: GUID_ID);
     procedure LevantarCajaPorContrato (refContrato: GUID_ID);
@@ -130,6 +153,7 @@ type
     procedure BorrarPagareActual;
 
     procedure CargarLiquidacionMes (elMes, elAno: word; idContrato: GUID_ID);
+    procedure ObtenerVencimientosMes (elMes, elAno: word; idContrato: GUID_ID);
 
   end; 
 
@@ -198,6 +222,34 @@ begin
   end;
 end;
 
+procedure TDM_LIQINQ.tbLiquidacionAfterInsert(DataSet: TDataSet);
+begin
+   with DataSet do
+   begin
+     FieldByName('idLiqInqCabecera').asString:= DM_General.CrearGUID;
+     FieldByName('Fecha').AsDateTime:= Now;
+     FieldByName('Nro').asInteger:= -1;
+     FieldByName('Monto').asFloat:= 0;
+     FieldByName('bAnulada').asInteger:= 0;
+     FieldByName('fAnulada').AsDateTime:= Null;
+     FieldByName('refInquilino').asString:= GUIDNULO;
+     FieldByName('refContrato').asString:= GUIDNULO;
+   end;
+end;
+
+procedure TDM_LIQINQ.tbLiqInqItemsAfterInsert(DataSet: TDataSet);
+begin
+  With DataSet do
+  begin
+    FieldByName('idLiqInqItems').asString:= DM_General.CrearGUID;
+    FieldByName('refLiqInqCabecera').asString:= tbLiquidacionidLiqInqCabecera.asString;
+    FieldByName('refLiqInqItem').asString:= GUIDNULO;
+    FieldByName('tipoItem').asInteger:= 0;
+    FieldByName('montoPagado').AsFloat:= 0;
+    FieldByName('bVisible').asInteger:= 1;
+  end;
+end;
+
 procedure TDM_LIQINQ.tbLiqInqMesesAfterInsert(DataSet: TDataSet);
 begin
   with DataSet do
@@ -229,6 +281,8 @@ begin
     FieldByName('bVisible').asInteger:= 1;
   end;
 end;
+
+
 
 procedure TDM_LIQINQ.Grabar;
 begin
@@ -543,9 +597,37 @@ begin
   LevantarGastosPorContrato(idContrato);
   LevantarPagaresPorContrato(idContrato);
 
-//  ObtenerVencimientosMes()
+  //Levantar los datos en la tabla items de liquidacion
+
+  ObtenerVencimientosMes(elMes,elAno,idContrato);
 
 
+  //Ajustar items por gastos parciales
+end;
+
+procedure TDM_LIQINQ.ObtenerVencimientosMes(elMes, elAno: word;
+  idContrato: GUID_ID);
+var
+  fechaCorte: TDateTime;
+begin
+  fechaCorte:= EncodeDateTime(elAno, elMes, DaysInAMonth(elAno, elMes), 0,0,0,0);
+  with qVencimientosMes do
+  begin
+    if active then close;
+    ParamByName('refContrato').asString:= idContrato;
+    ParamByName('fechaCorte').AsDateTime:= fechaCorte;
+    Open;
+    While Not EOF do
+    begin
+      tbLiqInqItems.Insert;
+      tbLiqInqItems.FieldByName('refLiqInqItem').asString:= FieldByName('idLiqInqMes').asString;
+      tbLiqInqItems.FieldByName('montoPagado').asFloat:= FieldByName('nTotal').asFloat;
+      tbLiqInqItems.FieldByName('tipoItem').asInteger:= INQ_ITEM_MENSUALIDAD;
+      tbLiqInqItems.FieldByName('Detalle').asString:= 'PAGO MENSUAL MES: ' + IntToStr(FieldByName('nMes').asInteger)+ 'ANO: ' + IntToStr(FieldByName('Ano').asInteger);
+      tbLiqInqITems.Post;
+      Next;
+    end;
+  end;
 end;
 
 
