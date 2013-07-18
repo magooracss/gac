@@ -82,6 +82,7 @@ type
     ds_inqCaja: TDatasource;
     ds_inqDescuentos: TDatasource;
     ds_inqPagares: TDatasource;
+    ds_LiqItems: TDatasource;
     ds_Inquilinos: TDatasource;
     ds_garantes: TDatasource;
     ds_ResumenLiquidacion: TDatasource;

@@ -568,7 +568,7 @@ object frmContratoAE: TfrmContratoAE
                   item
                     Title.Alignment = taCenter
                     Title.Caption = 'Tipo'
-                    Width = 168
+                    Width = 152
                     FieldName = 'Tipo'
                   end                
                   item
@@ -781,7 +781,7 @@ object frmContratoAE: TfrmContratoAE
             item
               Title.Alignment = taCenter
               Title.Caption = 'Gasto'
-              Width = 480
+              Width = 464
               FieldName = 'lxGasto'
             end          
             item
@@ -938,13 +938,13 @@ object frmContratoAE: TfrmContratoAE
             item
               Title.Alignment = taCenter
               Title.Caption = 'Apellidos'
-              Width = 299
+              Width = 291
               FieldName = 'cApellidos'
             end          
             item
               Title.Alignment = taCenter
               Title.Caption = 'Nombres'
-              Width = 300
+              Width = 292
               FieldName = 'cNombres'
             end>
           DataSource = ds_Inquilinos
@@ -1124,13 +1124,13 @@ object frmContratoAE: TfrmContratoAE
             item
               Title.Alignment = taCenter
               Title.Caption = 'Apellidos'
-              Width = 299
+              Width = 291
               FieldName = 'cApellidos'
             end          
             item
               Title.Alignment = taCenter
               Title.Caption = 'Nombres'
-              Width = 300
+              Width = 292
               FieldName = 'cNombres'
             end>
           DataSource = ds_garantes
@@ -2509,14 +2509,23 @@ object frmContratoAE: TfrmContratoAE
                   item
                     Title.Alignment = taCenter
                     Title.Caption = 'Concepto'
-                    Width = 621
+                    Width = 501
+                    FieldName = 'Detalle'
                   end                
                   item
                     SizePriority = 0
                     Title.Alignment = taCenter
                     Title.Caption = 'Monto'
                     Width = 120
+                    FieldName = 'montoPagado'
+                  end                
+                  item
+                    SizePriority = 0
+                    Title.Alignment = taCenter
+                    Title.Caption = 'Tipo'
+                    Width = 120
                   end>
+                DataSource = ds_LiqItems
                 FixedCols = 0
                 Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
                 Scrollbars = ssAutoVertical
@@ -2592,5 +2601,10 @@ object frmContratoAE: TfrmContratoAE
     DataSet = DM_LIQINQ.tbLiqInqPagares
     left = 600
     top = 448
+  end
+  object ds_LiqItems: TDatasource
+    DataSet = DM_LIQINQ.tbLiqInqItems
+    left = 336
+    top = 384
   end
 end

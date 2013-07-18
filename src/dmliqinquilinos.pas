@@ -27,6 +27,7 @@ type
     qVencimientosMes: TZQuery;
     tbLiqInqItems: TRxMemoryData;
     tbLiqInqItemsbVisible: TLongintField;
+    tbLiqInqItemsDetalle: TStringField;
     tbLiqInqItemsidLiqInqItems: TStringField;
     tbLiqInqItemsmontoPagado: TFloatField;
     tbLiqInqItemsrefLiqInqCabecera: TStringField;
@@ -623,7 +624,7 @@ begin
       tbLiqInqItems.FieldByName('refLiqInqItem').asString:= FieldByName('idLiqInqMes').asString;
       tbLiqInqItems.FieldByName('montoPagado').asFloat:= FieldByName('nTotal').asFloat;
       tbLiqInqItems.FieldByName('tipoItem').asInteger:= INQ_ITEM_MENSUALIDAD;
-      tbLiqInqItems.FieldByName('Detalle').asString:= 'PAGO MENSUAL MES: ' + IntToStr(FieldByName('nMes').asInteger)+ 'ANO: ' + IntToStr(FieldByName('Ano').asInteger);
+      tbLiqInqItems.FieldByName('Detalle').asString:= 'PAGO MENSUAL MES: ' + IntToStr(FieldByName('nMes').asInteger)+ 'ANO: ' + IntToStr(FieldByName('nAno').asInteger);
       tbLiqInqITems.Post;
       Next;
     end;
