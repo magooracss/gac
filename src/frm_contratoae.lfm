@@ -1179,16 +1179,16 @@ object frmContratoAE: TfrmContratoAE
           Caption = 'Pendientes'
           ClientHeight = 511
           ClientWidth = 889
-          object PageControl2: TPageControl
+          object PCPendientes: TPageControl
             Left = 0
             Height = 206
             Top = 0
             Width = 889
-            ActivePage = TabSheet8
+            ActivePage = tabInqPendientes
             Align = alTop
             TabIndex = 0
             TabOrder = 0
-            object TabSheet8: TTabSheet
+            object tabInqPendientes: TTabSheet
               Caption = 'Caja'
               ClientHeight = 177
               ClientWidth = 881
@@ -1250,6 +1250,7 @@ object frmContratoAE: TfrmContratoAE
                 TitleFont.Name = 'Arial'
                 TitleFont.Pitch = fpVariable
                 TitleFont.Quality = fqDraft
+                OnDrawColumnCell = DBGrid9DrawColumnCell
                 OnPrepareCanvas = DBGrid9PrepareCanvas
               end
               object Panel15: TPanel
@@ -2435,20 +2436,22 @@ object frmContratoAE: TfrmContratoAE
               ClientHeight = 50
               ClientWidth = 887
               TabOrder = 0
-              object BitBtn1: TBitBtn
+              object btnAgregarItemLiqInq: TBitBtn
                 Left = 311
                 Height = 36
                 Top = 7
                 Width = 96
                 Caption = 'Agregar'
+                OnClick = btnAgregarItemLiqInqClick
                 TabOrder = 0
               end
-              object BitBtn2: TBitBtn
+              object btnQuitarItemLiqInq: TBitBtn
                 Left = 415
                 Height = 36
                 Top = 7
                 Width = 96
                 Caption = 'Quitar'
+                OnClick = btnQuitarItemLiqInqClick
                 TabOrder = 1
               end
               object btnGenerarLiquidacion: TBitBtn
@@ -2470,12 +2473,13 @@ object frmContratoAE: TfrmContratoAE
               ClientHeight = 253
               ClientWidth = 138
               TabOrder = 1
-              object BitBtn3: TBitBtn
+              object btnLiquidar: TBitBtn
                 Left = 16
                 Height = 40
                 Top = 37
                 Width = 112
-                Caption = 'Grabar'
+                Caption = 'Liquidar'
+                OnClick = btnLiquidarClick
                 TabOrder = 0
               end
               object BitBtn4: TBitBtn
@@ -2485,6 +2489,24 @@ object frmContratoAE: TfrmContratoAE
                 Width = 112
                 Caption = 'Imprimir'
                 TabOrder = 1
+              end
+              object lbTotalInq: TLabeledEdit
+                Left = 2
+                Height = 24
+                Top = 227
+                Width = 132
+                Alignment = taRightJustify
+                EditLabel.AnchorSideLeft.Control = lbTotalInq
+                EditLabel.AnchorSideRight.Control = lbTotalInq
+                EditLabel.AnchorSideRight.Side = asrBottom
+                EditLabel.AnchorSideBottom.Control = lbTotalInq
+                EditLabel.Left = 2
+                EditLabel.Height = 17
+                EditLabel.Top = 207
+                EditLabel.Width = 132
+                EditLabel.Caption = 'Total Liquidación'
+                EditLabel.ParentColor = False
+                TabOrder = 2
               end
             end
             object GroupBox9: TGroupBox
@@ -2604,6 +2626,8 @@ object frmContratoAE: TfrmContratoAE
   end
   object ds_LiqItems: TDatasource
     DataSet = DM_LIQINQ.tbLiqInqItems
+    OnDataChange = ds_LiqItemsDataChange
+    OnUpdateData = ds_LiqItemsUpdateData
     left = 336
     top = 384
   end

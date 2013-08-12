@@ -17,6 +17,9 @@ const
   _PRN_ORDENTRABAJO_ = 'ordentrabajo.lrf';
    DIA_VENCIMIENTO = 5;
 
+   OPERACION_INGRESO = 1;
+   OPERACION_EGRESO = 2;
+
 type
 
   GUID_ID = string[38];

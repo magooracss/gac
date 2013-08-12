@@ -64,7 +64,7 @@ VALUES
 
 CREATE TABLE tbLiqInqItems
 (
-     idLiqInqItems         "guid"
+     idLiqInqItem         "guid"
     , refLiqInqCabecera    "guid"
     , refLiqInqItem        "guid"
     , tipoItem             smallint default 0
@@ -77,3 +77,23 @@ alter table tbLiqInqMeses add bPagado smallint default 0;
 alter table tbLiqInqGastos add bPagado smallint default 0;
 alter table tbLiqInqDescuentos add bPagado smallint default 0;
 alter table tbLiqInqPagares add bPagado smallint default 0;
+
+
+
+CREATE GENERATOR genLiqInqCabecera;
+SET GENERATOR genLiqInqCabecera TO 0;
+ 
+DROP TRIGGER ins_tbLiqInqCabecera;
+
+SET TERM ^ ;
+
+CREATE TRIGGER ins_tbLiqInqCabecera FOR tbLiqInqCabecera
+ACTIVE BEFORE INSERT POSITION 0
+AS
+BEGIN
+  If (New.nro = -1) then
+   New.nro = GEN_ID(genLiqInqCabecera,1);
+END^
+
+SET TERM ; ^
+

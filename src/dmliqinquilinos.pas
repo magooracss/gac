@@ -10,29 +10,58 @@ uses
   ;
 
 const
+  INQ_ITEM_CAJA = 0;
   INQ_ITEM_MENSUALIDAD = 1;
   INQ_ITEM_GASTO = 2;
+  INQ_ITEM_DESCUENTO = 3;
+  INQ_ITEM_PAGARE = 4;
 
 type
 
   { TDM_LIQINQ }
 
   TDM_LIQINQ = class(TDataModule)
+    qMarcarPagados: TZQuery;
+    qPagaresVencimiento: TZQuery;
+    qGastosPendientes: TZQuery;
     qCajaPorContrato: TZQuery;
+    qCajaMovAFecha: TZQuery;
     qDescuentosPorContrato: TZQuery;
+    qDescuentosPendientes: TZQuery;
     qPagaresPorContrato: TZQuery;
     qLevantarCuotasContrato: TZQuery;
     qLevantarCuotasLiquidadas: TZQuery;
     qGastosPorContrato: TZQuery;
     qVencimientosMes: TZQuery;
+    tbLiqCabeceraINS: TZQuery;
+    tbLiqInqItemsidLiqInqItem: TStringField;
+    tbLiqItemsINS: TZQuery;
+    tbLiqCabeceraSEL: TZQuery;
+    tbLiqItemsSEL: TZQuery;
+    tbLiqCabeceraUPD: TZQuery;
+    tbLiqItemsUPD: TZQuery;
+    tbLiqInqCajabPagado: TLongintField;
+    tbLiqInqDescuentosbPagado: TLongintField;
+    tbLiqInqGastosbPagado: TLongintField;
     tbLiqInqItems: TRxMemoryData;
     tbLiqInqItemsbVisible: TLongintField;
     tbLiqInqItemsDetalle: TStringField;
-    tbLiqInqItemsidLiqInqItems: TStringField;
     tbLiqInqItemsmontoPagado: TFloatField;
     tbLiqInqItemsrefLiqInqCabecera: TStringField;
     tbLiqInqItemsrefLiqInqItem: TStringField;
     tbLiqInqItemstipoItem: TLongintField;
+    tbLiqInqMesesbPagado: TLongintField;
+    tbLiqInqMesesbVisible: TLongintField;
+    tbLiqInqMesesfVencimiento: TDateTimeField;
+    tbLiqInqMesesidLiqInqMes: TStringField;
+    tbLiqInqMesesnAno: TLongintField;
+    tbLiqInqMesesnMes: TLongintField;
+    tbLiqInqMesesnMonto: TFloatField;
+    tbLiqInqMesesnPunitorios: TFloatField;
+    tbLiqInqMesesnTotal: TFloatField;
+    tbLiqInqMesesrefContratoCobro: TStringField;
+    tbLiqInqMesesrefLiqCabecera: TStringField;
+    tbLiqInqPagaresbPagado: TLongintField;
     tbLiquidacion: TRxMemoryData;
     tbLiqInqCajabVisible: TLongintField;
     tbLiqInqCajaDescripcion: TStringField;
@@ -83,16 +112,6 @@ type
     tbLiqInqGastosrefContrato: TStringField;
     tbLiqInqGastosrefLiqCabecera: TStringField;
     tbLiqInqGastosrefReparacion: TStringField;
-    tbLiqInqMesesbVisible: TLongintField;
-    tbLiqInqMesesfVencimiento: TDateTimeField;
-    tbLiqInqMesesidLiqInqMes: TStringField;
-    tbLiqInqMesesnAno: TLongintField;
-    tbLiqInqMesesnMes: TLongintField;
-    tbLiqInqMesesnMonto: TFloatField;
-    tbLiqInqMesesnPunitorios: TFloatField;
-    tbLiqInqMesesnTotal: TFloatField;
-    tbLiqInqMesesrefContratoCobro: TStringField;
-    tbLiqInqMesesrefLiqCabecera: TStringField;
     tbLiqInqCaja: TRxMemoryData;
     tbMesesINS: TZQuery;
     tbDescINS: TZQuery;
@@ -119,6 +138,16 @@ type
     procedure LevantarCajaPorContrato (refContrato: GUID_ID);
     procedure LevantarDescuentoPorContrato (refContrato: GUID_ID);
     procedure LevantarPagaresPorContrato (refContrato: GUID_ID);
+
+    procedure AgregarLiqItemActualCaja;
+    procedure AgregarLiqItemActualLiq;
+    procedure AgregarLiqItemActualGasto;
+    procedure AgregarLiqItemActualDesc;
+    procedure AgregarLiqItemActualPagare;
+
+    procedure MarcarPagado (laTabla, elCampoID: string; elId: GUID_ID);
+    procedure MarcarItemPagado (refItem: GUID_ID; tipo: integer);
+
   public
     procedure CargarCuotasPorContrato (refContrato: GUID_ID); // Dado un contrato, se generan las cuotas a liquidar
     procedure LevantarCuotasPorContrato (refContrato: GUID_ID); //Levanta de la base las cuotas del contrato
@@ -155,7 +184,17 @@ type
 
     procedure CargarLiquidacionMes (elMes, elAno: word; idContrato: GUID_ID);
     procedure ObtenerVencimientosMes (elMes, elAno: word; idContrato: GUID_ID);
+    procedure ObtenerVencimientosCaja (elMes, elAno: word; idContrato: GUID_ID);
+    procedure ObtenerGastosPendientes(idContrato: GUID_ID);
+    procedure ObtenerDescuentosPendientes (idContrato: GUID_ID);
+    procedure ObtenerPagaresMes (elMes, elAno: word; idContrato: GUID_ID);
 
+    procedure agregarItemSeleccionado(refTipo: integer);
+    procedure BorrarLiqItemActual;
+
+    procedure GenerarLiquidacion (idContrato: GUID_ID);
+
+    function TotalLiquidacion: double;
   end; 
 
 var
@@ -183,6 +222,7 @@ begin
     FieldByName('nMonto').AsFloat:= 0;
     FieldByName('refContrato').asString:= GUIDNULO;
     FieldByName('bVisible').asInteger:= 1;
+    FieldByName('bPagado').asInteger:= 0;
   end;
 end;
 
@@ -201,6 +241,7 @@ begin
     FieldByName('referencia').asString:= GUIDNULO;
     FieldByName('bVisible').asInteger:= 1;
     FieldByName('refContrato').asString:= GUIDNULO;
+    FieldByName('bPagado').asInteger:= 0;
   end;
 end;
 
@@ -220,6 +261,7 @@ begin
     FieldByName('nMonto').asFloat:= 0;
     FieldByName('refContrato').asString:= GUIDNULO;
     FieldByName('bVisible').asInteger:= 1;
+    FieldByName('bPagado').asInteger:= 0;
   end;
 end;
 
@@ -232,7 +274,7 @@ begin
      FieldByName('Nro').asInteger:= -1;
      FieldByName('Monto').asFloat:= 0;
      FieldByName('bAnulada').asInteger:= 0;
-     FieldByName('fAnulada').AsDateTime:= Null;
+     FieldByName('fAnulada').AsDateTime:= 0;
      FieldByName('refInquilino').asString:= GUIDNULO;
      FieldByName('refContrato').asString:= GUIDNULO;
    end;
@@ -242,7 +284,7 @@ procedure TDM_LIQINQ.tbLiqInqItemsAfterInsert(DataSet: TDataSet);
 begin
   With DataSet do
   begin
-    FieldByName('idLiqInqItems').asString:= DM_General.CrearGUID;
+    FieldByName('idLiqInqItem').asString:= DM_General.CrearGUID;
     FieldByName('refLiqInqCabecera').asString:= tbLiquidacionidLiqInqCabecera.asString;
     FieldByName('refLiqInqItem').asString:= GUIDNULO;
     FieldByName('tipoItem').asInteger:= 0;
@@ -280,6 +322,7 @@ begin
     FieldByName('nPunitorios').asFloat:= 0;
     FieldByName('nTotal').asFloat:= 0;
     FieldByName('bVisible').asInteger:= 1;
+    FieldByName('bPagado').asInteger:= 0;
   end;
 end;
 
@@ -443,6 +486,114 @@ begin
   qPagaresPorContrato.Close;
 end;
 
+procedure TDM_LIQINQ.AgregarLiqItemActualCaja;
+begin
+  with tbLiqInqCaja do
+  begin
+    if ((RecordCount > 0) and (FieldByName('bPagado').asInteger = 0)) then
+    begin
+      tbLiqInqItems.Insert;
+      tbLiqInqItems.FieldByName('refLiqInqItem').asString:= FieldByName('idLiqInqCaja').asString;
+      if FieldByName('refTipo').asInteger = OPERACION_INGRESO then
+         tbLiqInqItems.FieldByName('montoPagado').asFloat:= FieldByName('monto').asFloat
+      else
+         tbLiqInqItems.FieldByName('montoPagado').asFloat:= FieldByName('monto').asFloat * -1; /// Si es un egreso lo resto al total
+      tbLiqInqItems.FieldByName('tipoItem').asInteger:= INQ_ITEM_CAJA;
+      tbLiqInqItems.FieldByName('Detalle').asString:= FieldByName('Descripcion').AsString;
+      tbLiqInqITems.Post;
+    end;
+  end;
+end;
+
+procedure TDM_LIQINQ.AgregarLiqItemActualLiq;
+begin
+  with tbLiqInqMeses do
+  begin
+    if ((RecordCount > 0) and (FieldByName('bPagado').asInteger = 0)) then
+    begin
+      tbLiqInqItems.Insert;
+      tbLiqInqItems.FieldByName('refLiqInqItem').asString:= FieldByName('idLiqInqMes').asString;
+      tbLiqInqItems.FieldByName('montoPagado').asFloat:= FieldByName('nTotal').asFloat;
+      tbLiqInqItems.FieldByName('tipoItem').asInteger:= INQ_ITEM_MENSUALIDAD;
+      tbLiqInqItems.FieldByName('Detalle').asString:= 'PAGO MENSUAL MES: ' + IntToStr(FieldByName('nMes').asInteger)+ 'ANO: ' + IntToStr(FieldByName('nAno').asInteger);
+      tbLiqInqItems.Post;
+    end;
+  end;
+end;
+
+procedure TDM_LIQINQ.AgregarLiqItemActualGasto;
+begin
+  with tbLiqInqGastos do
+  begin
+    if ((RecordCount > 0) and (FieldByName('bPagado').asInteger = 0)) then
+    begin
+      tbLiqInqItems.Insert;
+      tbLiqInqItems.FieldByName('refLiqInqItem').asString:= FieldByName('idLiqInqGasto').asString;
+      tbLiqInqItems.FieldByName('montoPagado').asFloat:= FieldByName('nMonto').asFloat;
+      tbLiqInqItems.FieldByName('tipoItem').asInteger:= INQ_ITEM_GASTO;
+      tbLiqInqItems.FieldByName('Detalle').asString:= FieldByName('Gasto').AsString;
+      tbLiqInqITems.Post;
+    end;
+  end;
+end;
+
+procedure TDM_LIQINQ.AgregarLiqItemActualDesc;
+begin
+  with tbLiqInqDescuentos do
+  begin
+    if ((RecordCount > 0) and (FieldByName('bPagado').asInteger = 0)) then
+    begin
+      tbLiqInqItems.Insert;
+      tbLiqInqItems.FieldByName('refLiqInqItem').asString:= FieldByName('idLiqInqDescuento').asString;
+      tbLiqInqItems.FieldByName('montoPagado').asFloat:= FieldByName('nMonto').asFloat * -1; //Es un descuento, por eso invierto el signo
+      tbLiqInqItems.FieldByName('tipoItem').asInteger:= INQ_ITEM_DESCUENTO;
+      tbLiqInqItems.FieldByName('Detalle').asString:= FieldByName('Descuento').AsString;
+      tbLiqInqITems.Post;
+    end;
+  end;
+end;
+
+procedure TDM_LIQINQ.AgregarLiqItemActualPagare;
+begin
+  with tbLiqInqPagares do
+  begin
+    if ((RecordCount > 0) and (FieldByName('bPagado').asInteger = 0)) then
+    begin
+      tbLiqInqItems.Insert;
+      tbLiqInqItems.FieldByName('refLiqInqItem').asString:= FieldByName('idLiqInqPagare').asString;
+      tbLiqInqItems.FieldByName('montoPagado').asFloat:= FieldByName('nMonto').asFloat;
+      tbLiqInqItems.FieldByName('tipoItem').asInteger:= INQ_ITEM_PAGARE;
+      tbLiqInqItems.FieldByName('Detalle').asString:= 'PAGARE CON VENCIMIENTO: ' + FormatDateTime('dd/mm/yyyy', FieldByName('fVencimiento').AsDateTime);;
+      tbLiqInqITems.Post;
+    end;
+  end;
+
+end;
+
+procedure TDM_LIQINQ.MarcarPagado(laTabla, elCampoID: string; elId: GUID_ID);
+begin
+  with qMarcarPagados do
+  begin
+    SQL.Clear;
+    SQL.Add('UPDATE ' + laTabla);
+    SQL.Add('SET bPagado = 1');
+    SQL.Add('WHERE '+ elCampoID + ' = ''' + elId+'''');
+    ExecSQL;
+  end;
+end;
+
+
+procedure TDM_LIQINQ.MarcarItemPagado(refItem: GUID_ID; tipo: integer);
+begin
+  case tipo of
+    INQ_ITEM_CAJA: marcarPagado ('tbLiqInqCaja', 'idLiqInqCaja' ,refItem);
+    INQ_ITEM_MENSUALIDAD: marcarPagado ('tbLiqInqMeses', 'idLiqInqMes', refItem);
+    INQ_ITEM_DESCUENTO: marcarPagado ('tbLiqInqDescuentos', 'idLiqInqDescuento', refItem);
+    INQ_ITEM_GASTO: marcarPagado ('tbLiqInqGastos', 'idLiqInqGasto', refItem);
+    INQ_ITEM_PAGARE: marcarPagado ('tbLiqInqPagares', 'idLiqInqPagare', refItem);
+  end;
+end;
+
 procedure TDM_LIQINQ.AsentarGasto(refContrato: GUID_ID; descripcion: string;
   monto: double; operacion: TOperacion);
 begin
@@ -589,6 +740,7 @@ end;
 
 procedure TDM_LIQINQ.CargarLiquidacionMes(elMes,elAno: word;idContrato: GUID_ID);
 begin
+
   //Refresco los datos por si se cargaron desde otra terminal
   Grabar;
   LevantarCajaPorContrato(idContrato);
@@ -598,10 +750,18 @@ begin
   LevantarGastosPorContrato(idContrato);
   LevantarPagaresPorContrato(idContrato);
 
+  //Reinicio la tabla de liquidación
+
+  DM_General.ReiniciarTabla(tbLiquidacion);
+  DM_General.ReiniciarTabla(tbLiqInqItems);
+
   //Levantar los datos en la tabla items de liquidacion
 
   ObtenerVencimientosMes(elMes,elAno,idContrato);
-
+  ObtenerVencimientosCaja(elMes,elAno,idContrato);
+  ObtenerGastosPendientes(idContrato);
+  ObtenerDescuentosPendientes(idContrato);
+  ObtenerPagaresMes(elMes,elAno,idContrato);
 
   //Ajustar items por gastos parciales
 end;
@@ -628,6 +788,177 @@ begin
       tbLiqInqITems.Post;
       Next;
     end;
+  end;
+end;
+
+procedure TDM_LIQINQ.ObtenerVencimientosCaja(elMes, elAno: word;
+  idContrato: GUID_ID);
+var
+  fechaCorte: TDateTime;
+begin
+  fechaCorte:= EncodeDateTime(elAno, elMes, DaysInAMonth(elAno, elMes), 0,0,0,0);
+  with qCajaMovAFecha do
+  begin
+    if active then close;
+    ParamByName('refContrato').asString:= idContrato;
+    ParamByName('fechaCorte').AsDateTime:= fechaCorte;
+    Open;
+    While Not EOF do
+    begin
+      tbLiqInqItems.Insert;
+      tbLiqInqItems.FieldByName('refLiqInqItem').asString:= FieldByName('idLiqInqCaja').asString;
+      if FieldByName('refTipo').asInteger = OPERACION_INGRESO then
+         tbLiqInqItems.FieldByName('montoPagado').asFloat:= FieldByName('monto').asFloat
+      else
+         tbLiqInqItems.FieldByName('montoPagado').asFloat:= FieldByName('monto').asFloat * -1; /// Si es un egreso lo resto al total
+      tbLiqInqItems.FieldByName('tipoItem').asInteger:= INQ_ITEM_CAJA;
+      tbLiqInqItems.FieldByName('Detalle').asString:= FieldByName('Descripcion').AsString;
+      tbLiqInqITems.Post;
+      Next;
+    end;
+  end;
+end;
+
+procedure TDM_LIQINQ.ObtenerGastosPendientes(idContrato: GUID_ID);
+begin
+  with qGastosPendientes do
+  begin
+    if active then close;
+    ParamByName('refContrato').asString:= idContrato;
+    Open;
+    While Not EOF do
+    begin
+      tbLiqInqItems.Insert;
+      tbLiqInqItems.FieldByName('refLiqInqItem').asString:= FieldByName('idLiqInqGasto').asString;
+      tbLiqInqItems.FieldByName('montoPagado').asFloat:= FieldByName('nMonto').asFloat;
+      tbLiqInqItems.FieldByName('tipoItem').asInteger:= INQ_ITEM_GASTO;
+      tbLiqInqItems.FieldByName('Detalle').asString:= FieldByName('Gasto').AsString;
+      tbLiqInqITems.Post;
+      Next;
+    end;
+  end;
+end;
+
+procedure TDM_LIQINQ.ObtenerDescuentosPendientes(idContrato: GUID_ID);
+begin
+  with qDescuentosPendientes do
+  begin
+    if active then close;
+    ParamByName('refContrato').asString:= idContrato;
+    Open;
+    While Not EOF do
+    begin
+      tbLiqInqItems.Insert;
+      tbLiqInqItems.FieldByName('refLiqInqItem').asString:= FieldByName('idLiqInqDescuento').asString;
+      tbLiqInqItems.FieldByName('montoPagado').asFloat:= FieldByName('nMonto').asFloat * -1; //Es un descuento, por eso invierto el signo
+      tbLiqInqItems.FieldByName('tipoItem').asInteger:= INQ_ITEM_DESCUENTO;
+      tbLiqInqItems.FieldByName('Detalle').asString:= FieldByName('Descuento').AsString;
+      tbLiqInqITems.Post;
+      Next;
+    end;
+  end;
+end;
+
+procedure TDM_LIQINQ.ObtenerPagaresMes(elMes, elAno: word; idContrato: GUID_ID);
+var
+  fechaCorte: TDateTime;
+begin
+  fechaCorte:= EncodeDateTime(elAno, elMes, DaysInAMonth(elAno, elMes), 0,0,0,0);
+  with qPagaresVencimiento do
+  begin
+    if active then close;
+    ParamByName('refContrato').asString:= idContrato;
+    ParamByName('fechaCorte').AsDateTime:= fechaCorte;
+    Open;
+    While Not EOF do
+    begin
+      tbLiqInqItems.Insert;
+      tbLiqInqItems.FieldByName('refLiqInqItem').asString:= FieldByName('idLiqInqPagare').asString;
+      tbLiqInqItems.FieldByName('montoPagado').asFloat:= FieldByName('nMonto').asFloat;
+      tbLiqInqItems.FieldByName('tipoItem').asInteger:= INQ_ITEM_PAGARE;
+      tbLiqInqItems.FieldByName('Detalle').asString:= 'PAGARE CON VENCIMIENTO: ' + FormatDateTime('dd/mm/yyyy', FieldByName('fVencimiento').AsDateTime);;
+      tbLiqInqITems.Post;
+      Next;
+    end;
+  end;
+end;
+
+procedure TDM_LIQINQ.agregarItemSeleccionado(refTipo: integer);
+begin
+  case refTipo of
+    INQ_ITEM_CAJA: AgregarLiqItemActualCaja;
+    INQ_ITEM_MENSUALIDAD: AgregarLiqItemActualLiq;
+    INQ_ITEM_GASTO: AgregarLiqItemActualGasto;
+    INQ_ITEM_DESCUENTO: AgregarLiqItemActualDesc;
+    INQ_ITEM_PAGARE: AgregarLiqItemActualPagare;
+  end;
+end;
+
+procedure TDM_LIQINQ.BorrarLiqItemActual;
+begin
+  if tbLiqInqItems.RecordCount > 0 then
+    tbLiqInqItems.Delete;
+end;
+
+procedure TDM_LIQINQ.GenerarLiquidacion(idContrato: GUID_ID);
+var
+  idLiquidacion: GUID_ID;
+  total: Double;
+begin
+  DM_General.ReiniciarTabla(tbLiquidacion);
+
+  idLiquidacion:= DM_General.CrearGUID;
+  total:= 0;
+
+  with tbLiqInqItems do
+  begin
+    First;
+    While Not EOF do
+    begin
+      total:= total + tbLiqInqItemsmontoPagado.asFloat;
+      Edit;
+      tbLiqInqItemsrefLiqInqCabecera.asString:= idLiquidacion;
+      MarcarItemPagado (tbLiqInqItemsrefLiqInqItem.asString, tbLiqInqItemstipoItem.asInteger);
+      Post;
+      Next;
+    end;
+  end;
+
+  with tbLiquidacion do
+  begin
+    Insert;
+    tbLiquidacionidLiqInqCabecera.asString:= idLiquidacion;
+    tbLiquidacionFecha.AsDateTime:= now;
+    tbLiquidacionrefContrato.asString:= idContrato;
+    tbLiquidacionMonto.asFloat:= total;
+    Post;
+  end;
+
+  DM_General.GrabarDatos(tbLiqCabeceraSEL, tbLiqCabeceraINS, tbLiqCabeceraUPD, tbLiquidacion, 'idLiqInqCabecera');
+  DM_General.GrabarDatos(tbLiqItemsSEL, tbLiqItemsINS, tbLiqItemsUPD, tbLiqInqItems, 'idLiqInqItem');
+
+end;
+
+function TDM_LIQINQ.TotalLiquidacion: double;
+var
+  total: double;
+begin
+  total:= 0;
+  with tbLiqInqItems do
+  begin
+ //  DisableControls;
+
+    if (RecordCount > 0) then
+       First;
+
+    While Not EOF do
+    begin
+      Total:= Total + tbLiqInqItemsmontoPagado.AsFloat;
+      Next;
+    end;
+
+    Result:= total;
+ //   EnableControls;
   end;
 end;
 

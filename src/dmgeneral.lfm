@@ -862,6 +862,7 @@ object DM_General: TDM_General
   end
   object RxMemoryData1: TRxMemoryData
     FieldDefs = <>
+    PacketRecords = 0
     left = 40
     top = 128
   end

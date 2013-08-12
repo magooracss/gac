@@ -14,9 +14,9 @@ type
   { TfrmContratoAE }
 
   TfrmContratoAE = class(TForm)
-    BitBtn1: TBitBtn;
-    BitBtn2: TBitBtn;
-    BitBtn3: TBitBtn;
+    btnAgregarItemLiqInq: TBitBtn;
+    btnQuitarItemLiqInq: TBitBtn;
+    btnLiquidar: TBitBtn;
     BitBtn4: TBitBtn;
     btnGenerarLiquidacion: TBitBtn;
     btnAgregarGarantes: TBitBtn;
@@ -119,8 +119,9 @@ type
     Label7: TLabel;
     Label8: TLabel;
     Label9: TLabel;
+    lbTotalInq: TLabeledEdit;
     PageControl1: TPageControl;
-    PageControl2: TPageControl;
+    PCPendientes: TPageControl;
     Panel10: TPanel;
     Panel11: TPanel;
     Panel12: TPanel;
@@ -150,9 +151,10 @@ type
     TabSheet5: TTabSheet;
     TabSheet6: TTabSheet;
     Gastos: TTabSheet;
-    TabSheet8: TTabSheet;
+    tabInqPendientes: TTabSheet;
     TabSheet9: TTabSheet;
     tabTodo: TTabSheet;
+    procedure btnAgregarItemLiqInqClick(Sender: TObject);
     procedure btnAgregarCuentaClick(Sender: TObject);
     procedure btnAgregarGarantesClick(Sender: TObject);
     procedure btnGenerarLiquidacionClick(Sender: TObject);
@@ -171,6 +173,7 @@ type
     procedure btnInqPagareDelClick(Sender: TObject);
     procedure btnInqPagareEditClick(Sender: TObject);
     procedure btnInqPagareNewClick(Sender: TObject);
+    procedure btnLiquidarClick(Sender: TObject);
     procedure btnQuitarGarantesClick(Sender: TObject);
     procedure btnQuitarInquilinoClick(Sender: TObject);
     procedure btnAgregarGastoClick(Sender: TObject);
@@ -178,12 +181,17 @@ type
     procedure btnBuscarClick(Sender: TObject);
     procedure btnGrabarSalirClick(Sender: TObject);
     procedure btnQuitarGastoClick(Sender: TObject);
+    procedure btnQuitarItemLiqInqClick(Sender: TObject);
     procedure btnRecargarCuotasClick(Sender: TObject);
     procedure btnTugTipoContratoClick(Sender: TObject);
     procedure ckBancoChange(Sender: TObject);
     procedure DBEdit9Change(Sender: TObject);
+    procedure DBGrid9DrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure DBGrid9PrepareCanvas(sender: TObject; DataCol: Integer;
       Column: TColumn; AState: TGridDrawState);
+    procedure ds_LiqItemsDataChange(Sender: TObject; Field: TField);
+    procedure ds_LiqItemsUpdateData(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
     _idContrato: GUID_ID;
@@ -274,9 +282,27 @@ begin
     edHonorariosTotal.Text:= '$ 00.00';
 end;
 
+
+
+
+
+procedure TfrmContratoAE.DBGrid9DrawColumnCell(Sender: TObject;
+  const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
+begin
+
+end;
+
 procedure TfrmContratoAE.DBGrid9PrepareCanvas(sender: TObject;
   DataCol: Integer; Column: TColumn; AState: TGridDrawState);
 begin
+(*
+
+ if ((Sender as TDBGrid).DataSource.DataSet.FieldByName('bPagado').AsInteger = 1) then
+ begin
+      Canvas.Font.Color:= clGreen;
+      Canvas.Font.Style:=[fsBold];
+ end;
+
   if ( (Column.Field.FieldName = 'fPago')
      or (Column.Field.FieldName = 'fVencimiento')
       ) then
@@ -295,6 +321,17 @@ begin
          end;
        end;
   end;
+  *)
+end;
+
+procedure TfrmContratoAE.ds_LiqItemsDataChange(Sender: TObject; Field: TField);
+begin
+
+end;
+
+procedure TfrmContratoAE.ds_LiqItemsUpdateData(Sender: TObject);
+begin
+
 end;
 
 
@@ -412,7 +449,6 @@ begin
   if (MessageDlg ('ATENCION', 'Borro el gasto seleccionado?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
     DM_Contratos.BajaGasto;
 end;
-
 
 (*******************************************************************************
 *** INQUILINOS
@@ -694,6 +730,7 @@ begin
   PantPagares(nuevo);
 end;
 
+
 procedure TfrmContratoAE.btnInqPagareEditClick(Sender: TObject);
 begin
   PantPagares(modificar);
@@ -707,9 +744,8 @@ begin
    end;
 end;
 
-
 (*******************************************************************************
-*** GENERAR LIQUIDACION
+*** CARGAR LIQUIDACION
 *******************************************************************************)
 
 procedure TfrmContratoAE.btnGenerarLiquidacionClick(Sender: TObject);
@@ -725,8 +761,32 @@ begin
   finally
     selMes.Free;
   end;
+ lbTotalInq.Text:= FormatFloat('$ #########0.00', DM_LIQINQ.TotalLiquidacion);
 end;
 
+procedure TfrmContratoAE.btnAgregarItemLiqInqClick(Sender: TObject);
+begin
+  DM_LIQINQ.agregarItemSeleccionado( PCPendientes.ActivePageIndex);
+  lbTotalInq.Text:= FormatFloat('$ #########0.00', DM_LIQINQ.TotalLiquidacion);
+end;
+
+procedure TfrmContratoAE.btnQuitarItemLiqInqClick(Sender: TObject);
+begin
+   if (MessageDlg ('ATENCION', 'Borro el Item seleccionado?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
+   begin
+     DM_LIQINQ.BorrarLiqItemActual;
+     lbTotalInq.Text:= FormatFloat('$ #########0.00', DM_LIQINQ.TotalLiquidacion);
+   end;
+end;
+
+(*******************************************************************************
+*** GENERAR LIQUIDACION
+*******************************************************************************)
+
+procedure TfrmContratoAE.btnLiquidarClick(Sender: TObject);
+begin
+  DM_LIQINQ.GenerarLiquidacion (_idContrato);
+end;
 
 end.
 
